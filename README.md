@@ -5,6 +5,7 @@ Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a ful
 ## Important Notes
 
 * This guide is for the **XiaoMi Air 13.3 Skylake-U 2016**. It will probably work on the **XiaoMi Air 13.3 Kaby Lake-R 2018** models with minor modifications.
+* All files used and detailed readmes are located in github [sakoula/XiaoMi-Air-6200U](https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/Changelog.md)
 * The guide will work for either **BIOS A05** or **BIOS A06**
 * Following this guide you can run **High Sierra 10.13.6** or any version of **Mojave 10.14.x**
 * macOS has been installed on a different disk on the second M.2 port of the laptop. I have no experience of having both Windows and macOS on a single disk. In order to boot to macOS you use `F12` upon power on and select the boot device.

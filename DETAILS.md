@@ -1,9 +1,68 @@
 # Xiaomi Mi Air 13.3'' Skylake-U 2016 for macOS Mojave & High Sierra
 
+# Table of Contents
+
+* [hardware specs](#hardware-specs)
+* [directory structure](#directory-structure)
+* [A06 Bios Update I5 6200U August 27th 2017](#a06-bios-update-i5-6200u-august-27th-2017)
+* [DSDT patching (active patches)](#dsdt-patching-active-patches)
+   * [DSDT.dsl](#dsdtdsl)
+   * [patches.air/SSDT-DDGPU.dsl](#patchesairssdt-ddgpudsl)
+   * [patches.air/SSDT-XOSI.dsl](#patchesairssdt-xosidsl)
+   * [patches.air/SSDT-RMNE.dsl](#patchesairssdt-rmnedsl)
+   * [DSL.pro/SSDT-PXSX.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#dslprossdt-pxsxdsl-gun)
+   * [patches.air/SSDT-SMBUS.dsl](#patchesairssdt-smbusdsl)
+   * [patches.air/SSDT-EC.dsl](#patchesairssdt-ecdsl)
+   * [patches.air/SSDT-USBX.dsl](#patchesairssdt-usbxdsl)
+   * [patches.air/SSDT-RMCF.dsl](#patchesairssdt-rmcfdsl)
+   * [patches.air/SSDT-PTSWAK.dsl](#patchesairssdt-ptswakdsl)
+   * [patches.air/SSDT-GPRW.dsl](#patchesairssdt-gprwdsl)
+   * [patches.air/SSDT-PNLF.dsl](#patchesairssdt-pnlfdsl)
+   * [patches.air/SSDT-RMDT.dsl](#patchesairssdt-rmdtdsl)
+   * [patches.air/SSDT-DMAC.dsl](#patchesairssdt-dmacdsl)
+   * [patches.air/SSDT-HPET.dsl](#patchesairssdt-hpetdsl)
+   * [patches.air/SSDT-MEM2.dsl](#patchesairssdt-mem2dsl)
+   * [patches.air/SSDT-PMCR.dsl](#patchesairssdt-pmcrdsl)
+   * [patches.air/SSDT-BKEY.dsl](#patchesairssdt-bkeydsl)
+   * [patches.air/SSDT-LPC.dsl](#patchesairssdt-lpcdsl)
+* [DSDT patching (work in progress patches) <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#dsdt-patching-work-in-progress-patches-gun)
+   * [patches.air/SSDT-SLEEP.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairssdt-sleepdsl-gun)
+   * [patches.air/SSDT-I2C.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairssdt-i2cdsl-gun)
+   * [patches.air.johnnync13/SSDT-PNPOC14.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairjohnnync13ssdt-pnpoc14dsl-gun)
+   * [patches.air.johnnync13/SSDT-KBD0.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairjohnnync13ssdt-kbd0dsl-gun)
+* [DSDT patching (retired patches) <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#dsdt-patching-retired-patches-gun)
+   * [<del>patches.air/SSDT-ALS0.dsl</del>](#patchesairssdt-als0dsl)
+   * [<del>patches.air/SSDT-SATA.dsl</del>](#patchesairssdt-satadsl)
+   * [<del>patches.air/SSDT-PCIList.dsl</del>](#patchesairssdt-pcilistdsl)
+   * [<del>patches.air/SSDT-XHC.dsl</del>](#patchesairssdt-xhcdsl)
+   * [<del>patches.air/SSDT-UIAC.dsl</del>](#patchesairssdt-uiacdsl)
+* [Clover installation](#clover-installation)
+* [Clover Config](#clover-config)
+   * [ACPI](#acpi)
+   * [ACPI](#acpi-1)
+   * [CPU](#cpu)
+   * [Devices](#devices)
+   * [GUI](#gui)
+   * [Graphics](#graphics)
+   * [KernelAndKextPatches](#kernelandkextpatches)
+   * [RtVariables](#rtvariables)
+   * [SMBIOS](#smbios)
+   * [SystemParameters](#systemparameters)
+* [kexts](#kexts)
+   * [Power Management](#power-management)
+   * [AppleIntelInfo.kext](#appleintelinfokext)
+* [TODO](#todo)
+* [patches.air DSDT hotpatches](#patchesair-dsdt-hotpatches)
+* [patches.pro DSDT hotpatches](#patchespro-dsdt-hotpatches)
+* [patches.air.johnnync13 DSDT hotpatches](#patchesairjohnnync13-dsdt-hotpatches)
+* [PNP devices in DSDT](#pnp-devices-in-dsdt)
+
+<!--
 * This line is a placeholder to generate the table of contents in jekyll
 {:toc}
 
 [TOC]
+-->
 
 # hardware specs
 [up up up](#)
