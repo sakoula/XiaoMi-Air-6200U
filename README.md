@@ -11,7 +11,7 @@ Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a ful
 * macOS has been installed on a different disk on the second M.2 port of the laptop. I have no experience of having both Windows and macOS on a single disk. In order to boot to macOS you use `F12` upon power on and select the boot device.
 * In order to be able to help you please provide full debug information useing the excellent [black-dragon74/OSX-Debug
 ](https://github.com/black-dragon74/OSX-Debug) tool.
-* Support and Discussion on this guide can be found at [tonymacx86.com](XXX)
+* Support and Discussion on this guide can be found at [tonymacx86.com](https://www.tonymacx86.com/threads/guide-xiaomi-mi-air-13-3-skylake-u-2016-1rst-gen.268979/)
 
 Please note that this guide will be not possible without all the excellent resources:
 
