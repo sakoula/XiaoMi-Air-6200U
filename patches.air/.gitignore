@@ -1,0 +1,5 @@
+# this has all the information related to SMBIOS do not commit
+smbios*.plist
+*.aml
+.*
+!.gitignore

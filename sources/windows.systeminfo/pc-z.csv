@@ -1,0 +1,20 @@
+Motherboard: Timi TM1613 (BIOS version: A05)
+Processor: Intel(R) Core(TM) i5-6200U CPU @ 2.30GHz, 4 logical CPUs
+Available memory (MB): 8087
+Operating system: Microsoft Windows 10
+Computer name: y	User name: x
+Bridge;Intel Corporation;Skylake Host Bridge/DRAM Registers;;Host bridge;8086:1904 1D72:1602
+Memory controller;Intel Corporation;Sunrise Point-LP PMC;;Memory controller;8086:9D21 1D72:1602
+Bridge;Intel Corporation;Sunrise Point-LP PCI Express Root Port #5;;PCI bridge;8086:9D14 1D72:1602
+Display controller;Intel Corporation;HD Graphics 520;;VGA compatible controller;8086:1916 1D72:1602
+Mass storage controller;Samsung Electronics Co Ltd;NVMe SSD Controller SM951/PM951;;Non-Volatile memory controller;144D:A802 144D:A801
+Serial bus controller;Intel Corporation;Sunrise Point-LP USB 3.0 xHCI Controller;;USB controller;8086:9D2F 1D72:1602
+Bridge;Intel Corporation;Sunrise Point-LP LPC Controller;;ISA bridge;8086:9D48 1D72:1602
+Serial bus controller;Intel Corporation;Sunrise Point-LP SMBus;;SMBus;8086:9D23 1D72:1602
+Display controller;NVIDIA Corporation;GM108M [GeForce 940MX];;3D controller;10DE:134B 1D72:1602
+Network controller;Intel Corporation;Wireless 8260;;Network controller;8086:24F3 8086:9010
+Multimedia controller;Intel Corporation;Sunrise Point-LP HD Audio;;Audio device;8086:9D70 1D72:1602
+Mass storage controller;Intel Corporation;Sunrise Point-LP SATA Controller [AHCI mode];;SATA controller;8086:9D03 1D72:1602
+Communication controller;Intel Corporation;Sunrise Point-LP CSME HECI #1;;Communication controller;8086:9D3A 1D72:1602
+Bridge;Intel Corporation;;;PCI bridge;8086:9D10 1D72:1602
+Bridge;Intel Corporation;Sunrise Point-LP PCI Express Root Port #9;;PCI bridge;8086:9D18 1D72:1602
