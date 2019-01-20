@@ -2,60 +2,67 @@
 
 # Table of Contents
 
-* [hardware specs](#hardware-specs)
-* [directory structure](#directory-structure)
-* [A06 Bios Update I5 6200U August 27th 2017](#a06-bios-update-i5-6200u-august-27th-2017)
-* [DSDT patching (active patches)](#dsdt-patching-active-patches)
-   * [DSDT.dsl](#dsdtdsl)
-   * [patches.air/SSDT-DDGPU.dsl](#patchesairssdt-ddgpudsl)
-   * [patches.air/SSDT-XOSI.dsl](#patchesairssdt-xosidsl)
-   * [patches.air/SSDT-RMNE.dsl](#patchesairssdt-rmnedsl)
-   * [DSL.pro/SSDT-PXSX.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#dslprossdt-pxsxdsl-gun)
-   * [patches.air/SSDT-SMBUS.dsl](#patchesairssdt-smbusdsl)
-   * [patches.air/SSDT-EC.dsl](#patchesairssdt-ecdsl)
-   * [patches.air/SSDT-USBX.dsl](#patchesairssdt-usbxdsl)
-   * [patches.air/SSDT-RMCF.dsl](#patchesairssdt-rmcfdsl)
-   * [patches.air/SSDT-PTSWAK.dsl](#patchesairssdt-ptswakdsl)
-   * [patches.air/SSDT-GPRW.dsl](#patchesairssdt-gprwdsl)
-   * [patches.air/SSDT-PNLF.dsl](#patchesairssdt-pnlfdsl)
-   * [patches.air/SSDT-RMDT.dsl](#patchesairssdt-rmdtdsl)
-   * [patches.air/SSDT-DMAC.dsl](#patchesairssdt-dmacdsl)
-   * [patches.air/SSDT-HPET.dsl](#patchesairssdt-hpetdsl)
-   * [patches.air/SSDT-MEM2.dsl](#patchesairssdt-mem2dsl)
-   * [patches.air/SSDT-PMCR.dsl](#patchesairssdt-pmcrdsl)
-   * [patches.air/SSDT-BKEY.dsl](#patchesairssdt-bkeydsl)
-   * [patches.air/SSDT-LPC.dsl](#patchesairssdt-lpcdsl)
-* [DSDT patching (work in progress patches) <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#dsdt-patching-work-in-progress-patches-gun)
-   * [patches.air/SSDT-SLEEP.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairssdt-sleepdsl-gun)
-   * [patches.air/SSDT-I2C.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairssdt-i2cdsl-gun)
-   * [patches.air.johnnync13/SSDT-PNPOC14.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairjohnnync13ssdt-pnpoc14dsl-gun)
-   * [patches.air.johnnync13/SSDT-KBD0.dsl <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#patchesairjohnnync13ssdt-kbd0dsl-gun)
-* [DSDT patching (retired patches) <g-emoji class="g-emoji" alias="gun" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f52b.png">🔫</g-emoji>](#dsdt-patching-retired-patches-gun)
-   * [<del>patches.air/SSDT-ALS0.dsl</del>](#patchesairssdt-als0dsl)
-   * [<del>patches.air/SSDT-SATA.dsl</del>](#patchesairssdt-satadsl)
-   * [<del>patches.air/SSDT-PCIList.dsl</del>](#patchesairssdt-pcilistdsl)
-   * [<del>patches.air/SSDT-XHC.dsl</del>](#patchesairssdt-xhcdsl)
-   * [<del>patches.air/SSDT-UIAC.dsl</del>](#patchesairssdt-uiacdsl)
-* [Clover installation](#clover-installation)
-* [Clover Config](#clover-config)
-   * [ACPI](#acpi)
-   * [ACPI](#acpi-1)
-   * [CPU](#cpu)
-   * [Devices](#devices)
-   * [GUI](#gui)
-   * [Graphics](#graphics)
-   * [KernelAndKextPatches](#kernelandkextpatches)
-   * [RtVariables](#rtvariables)
-   * [SMBIOS](#smbios)
-   * [SystemParameters](#systemparameters)
-* [kexts](#kexts)
-   * [Power Management](#power-management)
-   * [AppleIntelInfo.kext](#appleintelinfokext)
-* [TODO](#todo)
-* [patches.air DSDT hotpatches](#patchesair-dsdt-hotpatches)
-* [patches.pro DSDT hotpatches](#patchespro-dsdt-hotpatches)
-* [patches.air.johnnync13 DSDT hotpatches](#patchesairjohnnync13-dsdt-hotpatches)
-* [PNP devices in DSDT](#pnp-devices-in-dsdt)
+<!-- MarkdownTOC -->
+
+- [hardware specs](#hardware-specs)
+- [directory structure](#directory-structure)
+- [A06 Bios Update I5 6200U August 27th 2017](#a06-bios-update-i5-6200u-august-27th-2017)
+- [DSDT patching \(active patches\)](#dsdt-patching-active-patches)
+   - [`DSDT.dsl`](#dsdtdsl)
+   - [`patches.air/SSDT-DDGPU.dsl`](#patchesairssdt-ddgpudsl)
+   - [`patches.air/SSDT-XOSI.dsl`](#patchesairssdt-xosidsl)
+   - [`patches.air/SSDT-RMNE.dsl`](#patchesairssdt-rmnedsl)
+   - [`DSL.pro/SSDT-PXSX.dsl` :icecream:](#dslprossdt-pxsxdsl-icecream)
+   - [`patches.air/SSDT-SMBUS.dsl`](#patchesairssdt-smbusdsl)
+   - [`patches.air/SSDT-USBX.dsl`](#patchesairssdt-usbxdsl)
+   - [`patches.air/SSDT-RMCF.dsl`](#patchesairssdt-rmcfdsl)
+   - [`patches.air/SSDT-PTSWAK.dsl`](#patchesairssdt-ptswakdsl)
+   - [`patches.air/SSDT-GPRW.dsl`](#patchesairssdt-gprwdsl)
+   - [`patches.air/SSDT-PNLF.dsl`](#patchesairssdt-pnlfdsl)
+   - [`patches.air/SSDT-RMDT.dsl`](#patchesairssdt-rmdtdsl)
+   - [`patches.air/SSDT-DMAC.dsl`](#patchesairssdt-dmacdsl)
+   - [`patches.air/SSDT-HPET.dsl`](#patchesairssdt-hpetdsl)
+   - [`patches.air/SSDT-MEM2.dsl`](#patchesairssdt-mem2dsl)
+   - [`patches.air/SSDT-PMCR.dsl`](#patchesairssdt-pmcrdsl)
+   - [`patches.air/SSDT-BCKS.dsl`](#patchesairssdt-bcksdsl)
+   - [`patches.air/SSDT-LPC.dsl`](#patchesairssdt-lpcdsl)
+- [DSDT patching \(work in progress patches\) :icecream:](#dsdt-patching-work-in-progress-patches-icecream)
+   - [`patches.air/SSDT-SLEEP.dsl` :icecream:](#patchesairssdt-sleepdsl-icecream)
+   - [`patches.air/SSDT-I2C.dsl` :icecream:](#patchesairssdt-i2cdsl-icecream)
+   - [`patches.air.johnnync13/SSDT-PNPOC14.dsl` :icecream:](#patchesairjohnnync13ssdt-pnpoc14dsl-icecream)
+- [DSDT patching \(retired patches\)](#dsdt-patching-retired-patches)
+   - [~~`patches.air/SSDT-BKEY.dsl`~~](#%7E%7Epatchesairssdt-bkeydsl%7E%7E)
+   - [~~`patches.air/SSDT-EC.dsl`~~](#%7E%7Epatchesairssdt-ecdsl%7E%7E)
+   - [~~`patches.air/SSDT-ALS0.dsl`~~](#%7E%7Epatchesairssdt-als0dsl%7E%7E)
+   - [~~`patches.air/SSDT-SATA.dsl`~~](#%7E%7Epatchesairssdt-satadsl%7E%7E)
+   - [~~`patches.air/SSDT-PCIList.dsl`~~](#%7E%7Epatchesairssdt-pcilistdsl%7E%7E)
+   - [~~`patches.air/SSDT-XHC.dsl`~~](#%7E%7Epatchesairssdt-xhcdsl%7E%7E)
+   - [~~`patches.air/SSDT-UIAC.dsl`~~](#%7E%7Epatchesairssdt-uiacdsl%7E%7E)
+- [`Clover installation`](#clover-installation)
+- [`Clover Config`](#clover-config)
+   - [`ACPI`](#acpi)
+   - [`ACPI`](#acpi-1)
+   - [`CPU`](#cpu)
+   - [`Devices`](#devices)
+   - [`GUI`](#gui)
+   - [`Graphics`](#graphics)
+   - [`KernelAndKextPatches`](#kernelandkextpatches)
+   - [`RtVariables`](#rtvariables)
+   - [`SMBIOS`](#smbios)
+   - [`SystemParameters`](#systemparameters)
+- [`kexts`](#kexts)
+- [Power Management](#power-management)
+- [General](#general)
+   - [`AppleIntelInfo.kext`](#appleintelinfokext)
+   - [Work in Progress](#work-in-progress)
+- [Check disks with `smartclt`](#check-disks-with-smartclt)
+- [Known Issues / Work in Progress](#known-issues--work-in-progress)
+- [`patches.air` DSDT hotpatches](#patchesair-dsdt-hotpatches)
+- [`patches.pro` DSDT hotpatches](#patchespro-dsdt-hotpatches)
+- [`patches.air.johnnync13` DSDT hotpatches](#patchesairjohnnync13-dsdt-hotpatches)
+- [PNP devices in DSDT](#pnp-devices-in-dsdt)
+
+<!-- /MarkdownTOC -->
 
 <!--
 * This line is a placeholder to generate the table of contents in jekyll
@@ -93,7 +100,7 @@ readme:
 * `$HACK/air/DETAILS.md` *very detailed technical details on how to patch a XiaMi-Air*
 * `$HACK/air/README.md` *github readme*
 * `$HACK/air/CHANGELOG.md` *github changelog*
-* `$HACK/air/ENVIRONMENT.md` *my environment to work with hackintoshes*
+* `$HACK/air/ENVIRONMENT.air.md` *my environment to work with hackintoshes*
 
 
 patches:
@@ -212,7 +219,7 @@ add `SSDT-RMNE.dsl` from NullEthernet.kext repository or `https://github.com/Reh
 
 > *XiaoMi-Pro* uses DTGP method, I do not think it is required so I sticked to the stock
 
-## `DSL.pro/SSDT-PXSX.dsl` :gun:
+## `DSL.pro/SSDT-PXSX.dsl` :icecream:
 [up up up](#)
 
 used *XiaoMi-Pro* used only a subset that I was sure about and used also the DTGP
@@ -227,17 +234,6 @@ apply clover renames:
 * change SAT0 to SATA (SSDT-SMBUS.dsl) `U0FUMA==` to `U0FUQQ==`
 
 > *XiaoMi-Pro* does not use it any more. It is possibly needed
-
-## `patches.air/SSDT-EC.dsl`
-[up up up](#)
-
-according to this [article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) we do not need this so leave it in but keep it. There is an EC0 device but do not rename it. Instead inject the USBX
-
-> *johnnync13/Xiaomi-Notebook-Air-6200u* is not using this and just renames the EC device
-
-> article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) Note: If your computer has an ECDT in ACPI, you should not rename anything along the EC path, including the EC itself. Use a "Fake EC" instead as described below. You can check if you have ECDT by extracting ACPI with Clover (F4) and checking for ECDT.aml in EFI/Clover/ACPI/origin.
-
-> Note: You may find you have an EC in your DSDT: Device with "Name (_HID, EisaId ("PNP0C09"))", even if it is not active.
 
 ## `patches.air/SSDT-USBX.dsl`
 [up up up](#)
@@ -308,10 +304,10 @@ Add missing PMCR Device to enhace performance like a real Mac. Inspired by [sysc
 
 in the *XiaoMi-Pro* DSDT.dsl there is no PMCR device, but there is one in *Xiaomi-air*
 
-## `patches.air/SSDT-BKEY.dsl`
+## `patches.air/SSDT-BCKS.dsl`
 [up up up](#)
 
-to be used for brightness control instead of `SSDT-LGPA.dsl` of the *XiaoMi-Pro*
+based on [post](https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/) used also by johnnync13
 
 apply clover renames:
 
@@ -327,33 +323,52 @@ To fix unsupported 8-series LPC devices. looked in ioreg and look for LPC. mine 
 
 *XiaoMi-Pro* is not using it. *johnnync13/Xiaomi-Notebook-Air-6200u* is using it.
 
-# DSDT patching (work in progress patches) :gun:
+# DSDT patching (work in progress patches) :icecream:
 [up up up](#)
 
-## `patches.air/SSDT-SLEEP.dsl` :gun:
+## `patches.air/SSDT-SLEEP.dsl` :icecream:
 [up up up](#)
 
 this is from the 2.1, keep it for now do not include it. It may be related to the shutdown fix
 
 There is a discussion on this on [Pike's Universum](https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/)
 
-## `patches.air/SSDT-I2C.dsl` :gun:
+## `patches.air/SSDT-I2C.dsl` :icecream:
 [up up up](#)
 
 from *johnnync13/Xiaomi-Notebook-Air-6200u*. Does it really works?
 
-## `patches.air.johnnync13/SSDT-PNPOC14.dsl` :gun:
+## `patches.air.johnnync13/SSDT-PNPOC14.dsl` :icecream:
 [up up up](#)
 
 this is probably from *XiaoMi-Pro* repository trying to disable WMI devices perhaps, found a [reference](https://www.tonymacx86.com/threads/guide-using-clover-to-hotpatch-acpi.200137/page-51#post-1834603). Do not use it for now.
 
-## `patches.air.johnnync13/SSDT-KBD0.dsl` :gun:
+# DSDT patching (retired patches)
 [up up up](#)
 
-This is another way for implementaing the brightness control keys.
-
-# DSDT patching (retired patches) :gun:
+## ~~`patches.air/SSDT-BKEY.dsl`~~
 [up up up](#)
+
+to be used for brightness control instead of `SSDT-LGPA.dsl` of the *XiaoMi-Pro*
+
+apply clover renames:
+
+* change _Q1C to ZQ1C (brightness hotkey) (SSDT-BKEY.dsl) `X1ExQw==` to `WlExQw==`
+* change _Q1D to ZQ1D (brightness hotkey) (SSDT-BKEY.dsl) `X1ExRA==` to `WlExRA==`
+
+## ~~`patches.air/SSDT-EC.dsl`~~
+[up up up](#)
+
+> **Update January 2019** I added the EC0 to EC rename on config.plist and it is working without injecting the EC device.
+
+according to this [article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) we do not need this so leave it in but keep it. There is an EC0 device but do not rename it. Instead inject the USBX
+
+> *johnnync13/Xiaomi-Notebook-Air-6200u* is not using this and just renames the EC device
+
+> article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) Note: If your computer has an ECDT in ACPI, you should not rename anything along the EC path, including the EC itself. Use a "Fake EC" instead as described below. You can check if you have ECDT by extracting ACPI with Clover (F4) and checking for ECDT.aml in EFI/Clover/ACPI/origin.
+
+> Note: You may find you have an EC in your DSDT: Device with "Name (_HID, EisaId ("PNP0C09"))", even if it is not active.
+
 
 ## ~~`patches.air/SSDT-ALS0.dsl`~~
 [up up up](#)
@@ -455,6 +470,11 @@ In general I prefer the Clover Configurator although it it not reccomended
     <key>Comment</key> <string>change _OSI to XOSI (SSDT-XOSI.dsl)</string>
     <key>Find</key> <data>X09TSQ==</data> 
     <key>Replace</key> <data>WE9TSQ==</data>
+</dict>
+<dict>
+   <key>Comment</key> <string>change EC0 to EC (SSDT-USBX.dsl)</string>
+   <key>Find</key> <data>RUMwXw==</data>
+   <key>Replace</key> <data>RUNfXw==</data>
 </dict>
 <dict>
     <key>Comment</key> <string>change _DSM to XDSM</string>
@@ -650,7 +670,7 @@ In general I prefer the Clover Configurator although it it not reccomended
 </dict>
 ```
 
-* :gun: these are the I2C controllers but I do not enter them from Pro
+* :icecream: these are the I2C controllers but I do not enter them from Pro
 
 ```xml
 <key>PciRoot(0x0)/Pci(0x15,0x0)</key>
@@ -964,7 +984,10 @@ not used
 * `DisableTurboBoostBattery.kext` - `from 2.1.JahStories` and [reference here](https://github.com/qwerty12/DisableTurboBoostBattery)
 * `MiNote13-FrequenciesInjector-MPB13.1-I56200U.kext` - `from JahStories migrated to CPU Friend`
 
-## Power Management
+# Power Management
+[up up up](#)
+
+# General
 [up up up](#)
 
 consult [this link](https://www.tonymacx86.com/threads/guide-native-power-management-for-laptops.175801/)
@@ -1038,7 +1061,116 @@ sudo kextunload AppleIntelInfo.kext
 sudo cat /tmp/AppleIntelInfo.dat
 ```
 
-# TODO
+## Work in Progress
+[up up up](#)
+
+1. In my guide I have used the one I found in the original port from JahStories which I converted it in the format of CPUFriend.
+2. See this [post `CPU Power management`](https://github.com/daliansky/XiaoMi-Pro/issues/22) on how to create one. And this [post `Problem with CPU CPUFriendDataProvider and Geekbench score`](https://github.com/daliansky/XiaoMi-Pro/issues/53) on an optimized one. I know they are from the Pro model but it is the closest I have found to a guide.
+3. Check this [freqVectosEdits](https://pikeralpha.wordpress.com/2017/03/11/freqvectorsedit-v3-1-released/) on the subject as well
+4. finally check [syscl/CPUTune](https://github.com/syscl/CPUTune)
+
+# Check disks with `smartclt`
+[up up up](#)
+
+do a check with `smartctl`:
+
+**Samsung SSD 850 EVO M.2 500GB**
+
+```shell_session
+$ smartctl -a disk1
+smartctl 7.0 2018-12-30 r4883 [Darwin 18.2.0 x86_64] (local build)
+Copyright (C) 2002-18, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Model Family:     Samsung based SSDs
+Device Model:     Samsung SSD 850 EVO M.2 500GB
+Serial Number:    S33DNX0JA09605B
+LU WWN Device Id: 5 002538 d4259e1f4
+Firmware Version: EMT21B6Q
+User Capacity:    500,107,862,016 bytes [500 GB]
+Sector Size:      512 bytes logical/physical
+Rotation Rate:    Solid State Device
+Form Factor:      M.2
+Device is:        In smartctl database [for details use: -P show]
+ATA Version is:   ACS-2, ATA8-ACS T13/1699-D revision 4c
+SATA Version is:  SATA 3.1, 6.0 Gb/s (current: 6.0 Gb/s)
+Local Time is:    Sun Jan 20 12:23:04 2019 EET
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+General SMART Values:
+Offline data collection status:  (0x00)   Offline data collection activity
+               was never started.
+               Auto Offline Data Collection: Disabled.
+Self-test execution status:      (   0)   The previous self-test routine completed
+               without error or no self-test has ever
+               been run.
+Total time to complete Offline
+data collection:     (    0) seconds.
+Offline data collection
+capabilities:         (0x53) SMART execute Offline immediate.
+               Auto Offline data collection on/off support.
+               Suspend Offline collection upon new
+               command.
+               No Offline surface scan supported.
+               Self-test supported.
+               No Conveyance Self-test supported.
+               Selective Self-test supported.
+SMART capabilities:            (0x0003)   Saves SMART data before entering
+               power-saving mode.
+               Supports SMART auto save timer.
+Error logging capability:        (0x01)   Error logging supported.
+               General Purpose Logging supported.
+Short self-test routine
+recommended polling time:   (   2) minutes.
+Extended self-test routine
+recommended polling time:   ( 265) minutes.
+SCT capabilities:           (0x003d)   SCT Status supported.
+               SCT Error Recovery Control supported.
+               SCT Feature Control supported.
+               SCT Data Table supported.
+
+SMART Attributes Data Structure revision number: 1
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  5 Reallocated_Sector_Ct   0x0033   100   100   010    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0032   099   099   000    Old_age   Always       -       259
+ 12 Power_Cycle_Count       0x0032   099   099   000    Old_age   Always       -       741
+177 Wear_Leveling_Count     0x0013   099   099   000    Pre-fail  Always       -       1
+179 Used_Rsvd_Blk_Cnt_Tot   0x0013   100   100   010    Pre-fail  Always       -       0
+181 Program_Fail_Cnt_Total  0x0032   100   100   010    Old_age   Always       -       0
+182 Erase_Fail_Count_Total  0x0032   100   100   010    Old_age   Always       -       0
+183 Runtime_Bad_Block       0x0013   100   100   010    Pre-fail  Always       -       0
+187 Uncorrectable_Error_Cnt 0x0032   100   100   000    Old_age   Always       -       0
+190 Airflow_Temperature_Cel 0x0032   066   045   000    Old_age   Always       -       34
+195 ECC_Error_Rate          0x001a   200   200   000    Old_age   Always       -       0
+199 CRC_Error_Count         0x003e   100   100   000    Old_age   Always       -       0
+235 POR_Recovery_Count      0x0012   099   099   000    Old_age   Always       -       122
+241 Total_LBAs_Written      0x0032   099   099   000    Old_age   Always       -       1086065911
+
+SMART Error Log Version: 1
+No Errors Logged
+
+SMART Self-test log structure revision number 1
+No self-tests have been logged.  [To run self-tests, use: smartctl -t]
+
+SMART Selective self-test log data structure revision number 1
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    1        0        0  Not_testing
+    2        0        0  Not_testing
+    3        0        0  Not_testing
+    4        0        0  Not_testing
+    5        0        0  Not_testing
+  255        0    65535  Read_scanning was never started
+Selective self-test flags (0x0):
+  After scanning selected spans, do NOT read-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+```
+
+# Known Issues / Work in Progress
 [up up up](#)
 
 * include more devices in `SSDT-PXSX.dsl`
@@ -1052,10 +1184,10 @@ sudo cat /tmp/AppleIntelInfo.dat
 * use macserial to make sure your machine is working right
 * verify the card is off upon boot
 * fix all ACPI errors upon boot (check sakoula edits on DSDT.dsl)
-* use DisableTurboBoostBattery from [here](https://github.com/qwerty12/DisableTurboBoostBattery) *2.1.JahStories*
+* use DisableTurboBoostBattery from [here](https://github.com/qwerty12/DisableTurboBoostBattery) *2.1.JahStories* and and `CPUTune.kext`
 * After Sleep distorted or know audio from Headphones Port *work in progress using ALCPlugFix*
-* Enable HiDPI resolutions **work in progress although the LCD is not retina and will not help*
 * Cannot boot windows disk from Clover, loosing the mouse
+* No audio output from HDMI port *I am not using it so ignore for now*
 
 # `patches.air` DSDT hotpatches
 [up up up](#)

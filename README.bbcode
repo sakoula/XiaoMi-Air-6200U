@@ -24,14 +24,14 @@ Please note that this guide will be not possible without all the excellent resou
 
 [b]1. Known Issues / Work in Progress[/b]
 [list]
+[*] After Sleep distorted or know audio from Headphones Port *work in progress using ALCPlugFix*
+[*] No audio output from HDMI port *I am not using it so ignore for now*
+[*] Shutdown is not working as expected. The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.
 [*] Multitouch Gestures [i]work in progress through VoodooI2c[/i]
 [*] Internal Wifi is not working [i]see Wi-Fi section for alternatives[/i]
-[*] improve bettery life using a [icode]CPUFriendDataProvider.kext[/icode]
+[*] improve bettery life using a `CPUFriendDataProvider.kext` and `CPUTune.kext`
 [*] When sleeping by closing LID on wake loosing USB
-[*] Shutdown is not working as expected. The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.
 [*] Bluetooth works if using a VM to inject the FW
-[*] After Sleep distorted or know audio from Headphones Port [i]work in progress using ALCPlugFix[/i]
-[*] Enable HiDPI resolutions [i]work in progress although the LCD is not retina and will not help[/i]
 [/list]
 If you face another problem please open a issue.
 
@@ -55,7 +55,7 @@ If you face another problem please open a issue.
 [b]3. Installation Guide[/b]
 These are the steps in order to install or upgrade your XiaoMi-Air. There is a very detailed document on the steps followed and the customizations which can be found in [url=https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/DETAILS.md]DETAILS.md[/url].
 
-There is a another document on how I setup my environment including all the tools and utilities I have used [url=https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/ENVIRONMENT.md]ENVIRONMENT.md[/url].
+There is a another document on how I setup my environment including all the tools and utilities I have used [url=https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/ENVIRONMENT.air.md]ENVIRONMENT.air.md[/url].
 
 You will need a working macOS installation (no matter the version) to create a USB Flash Drive with macOS.
 
@@ -235,11 +235,20 @@ Download the latest [url=https://github.com/sakoula/XiaoMi-Air-6200U/releases]re
 [/code]
 
 [b]4. Postinstallation Steps[/b]
-[list]
-[*] Install ALCPlugFix [i]work in progress[/i]
-[*] Enable HiDPI resolutions [i]work in progress[/i]
-[*] create a valid SMBIOS. Follow the guide [url=https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/]An iDiot's Guide To iMessage [/url]
-[/list]
+
+[b]4.1 Enable HiDPI resolutions[/b]
+I am using the computer using the *1600x900* resolution that fits my eyes best.
+
+You can enable HiDPI resolutions using the amazing script [one-key-hidpi](https://github.com/xzhih/one-key-hidpi). However since native max resolution of the LCD is *1920x1080* it **does not make any sense**. HiDPI will look huge on screen and the *1920x1080* HiDPI will not seem any different and will make the computer slower. *1920x1080* HiDPI will create a *3840x2160* virtual screen that will map it to a  *1920x1080* display, so it does not help much.
+
+If you still want to use HiDPI get the [url=https://github.com/avibrazil/RDM]avibrazil/RDM[/url] [avibrazil/RDM](https://github.com/avibrazil/RDM) tool if you cannot see all the available resolutions.
+
+[b]4.2 Install ALCPlugFix[/b]
+
+Install ALCPlugFix is [i]work in progress[/i] to solve the wake up with headphones problem
+
+[b]4.3 create a valid SMBIOS[/b]
+create a valid SMBIOS. Follow the guide [url=https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/]An iDiot's Guide To iMessage [/url]
 
 [b]5. Patching Information[/b]
 Patching has been done using clover and [url=https://www.tonymacx86.com/threads/guide-using-clover-to-hotpatch-acpi.200137/]hotpatching ACPI[/url]. All the required files exist in the [icode]AIR_EFI[/icode] directory:
@@ -369,11 +378,40 @@ The card in the laptop is [icode]Intel® Dual Band Wireless-AC 8260[/icode]
 [b]6. Changelog[/b]
 You can view [url=https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/Changelog.md]Changelog.md[/url] for detailed information.
 
-[b]Buy me a coffee or a beer[/b]
+[b]7. Benchmarking[/b]
+
+[b]7.1 Benchmarking Windows 10[/b]
+[list]
+[*] [icode]GeekBench x64 4.0.3 CPU[icode] 2550/5551
+[*] [icode]CINEBENCH R15.038_RC184115 OpenGL[icode] 56.92fps (NVIDIA)
+[*] [icode]CINEBENCH R15.038_RC184115 OpenGL[icode] 36.45fps (Intel)
+[*] [icode]CINEBENCH R15.038_RC184115 CPU[icode] 295cb
+[*] [icode]LuxMark-v3.1 OpenCL GPU[icode] 3710 (Intel + NVIDIA)
+[*] [icode]LuxMark-v3.1 OpenCL GPU[icode] 1427 (Intel)
+[*] [icode]LuxMark-v3.1 OpenCL GPU[icode] 2354 (NVIDIA)
+[*] [icode]LuxMark-v3.1 OpenCL CPU[icode] 860
+[*] [icode]Heaven FPS[icode] 20.3 [icode]Score[icode] 512 [icode]Min FPS[icode] 7.8 [icode]Max FPS[icode] 40.4 (NVIDIA)
+[*] [icode]Heaven FPS[icode] 9.1 [icode]Score[icode] 230 [icode]Min FPS[icode] 5.5 [icode]Max FPS[icode] 20.1 (Intel)
+[/list]
+
+[b]7.2 Benchmarking macOS 10.14.2[/b]
+[list]
+[*] [icode]GeekBench x64 4.3.2 CPU[icode] 3470/6695
+[*] [icode]GeekBench x64 4.3.2 GPU/OpenCl[icode] 16465
+[*] [icode]GeekBench x64 4.3.2 GPU/Metal[icode] 16748
+[*] [icode]CINEBENCH R15.038_RC184115 OpenGL[icode] 22.92fps
+[*] [icode]CINEBENCH R15.038_RC184115 CPU[icode] 293cb
+[*] [icode]LuxMark-v3.1 OpenCL GPU[icode] 1381
+[*] [icode]LuxMark-v3.1 OpenCL CPU[icode] 776
+[*] [icode]Heaven FPS[icode] 13.8 [icode]Score[icode] 349 [icode]Min FPS[icode] 6.2 [icode]Max FPS[icode] 25.3
+[*] [icode]AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:[icode] 469MB/sec write, 489MB/sec read
+[/list]
+
+[b]8. Buy me a coffee or a beer[/b]
 
 If you feel so you can [url=http://google.com]buy me[/url] a coffee or a beer!
 
-[b]7. Credits[/b]
+[b]9. Credits[/b]
 [list]
 [*] Thanks to [url=https://www.insanelymac.com/forum/topic/319656-guide-xiaomi-mi-notebook-air-13/]JahStories[/url], Jolly, gengik84 that provided the [url=https://www.insanelymac.com/forum/topic/319656-guide-xiaomi-mi-notebook-air-13/]original post[/url] that made this guide feasible.
 [*] Thanks to [url=https://github.com/stevezhengshiqi]stevezhengshiqi[/url] and [url=https://github.com/daliansky]daliansky[/url] for the amazing guide of [url=https://github.com/daliansky/XiaoMi-Pro/commits?author=stevezhengshiqi]Xiaomi-Pro[/url] that also made this guide feasible.

@@ -27,25 +27,18 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
     {
         if (5 == Arg0)
         {
+            // check the function from 2.1.JahStories and force the SLPE fix
             // Shutdown fix, if enabled
-            If (CondRefOf(\RMCF.SHUT))
+            OperationRegion(PMRS, SystemIO, 0x1830, 1)
+            Field(PMRS, ByteAcc, NoLock, Preserve)
             {
-                If (\RMCF.SHUT & 1) { Return }
-                // sakoula: this is bitwise and so it is probably if \RMCF.SHUT == 2
-                If (\RMCF.SHUT & 2)
-                {
-                    OperationRegion(PMRS, SystemIO, 0x1830, 1)
-                    Field(PMRS, ByteAcc, NoLock, Preserve)
-                    {
-                        ,4,
-                        SLPE, 1,
-                    }
-                    // alternate shutdown fix using SLPE (mostly provided as an example)
-                    // likely very specific to certain motherboards
-                    Store(0, SLPE)
-                    Sleep(16)
-                }
+                ,4,
+                SLPE, 1,
             }
+            // alternate shutdown fix using SLPE (mostly provided as an example)
+            // likely very specific to certain motherboards
+            Store(0, SLPE)
+            Sleep(16)
         }
 
         If (CondRefOf(\RMCF.DPTS))

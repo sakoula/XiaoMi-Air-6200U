@@ -3,6 +3,7 @@
 Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a fully functional hackintosh for the Xiaomi Mi Notebook Air 13.3'' i5-6200U (Skylake-U 2016).
 
 ## Important Notes
+[up up up](#)
 
 * This guide is for the **XiaoMi Air 13.3 Skylake-U 2016**. It will probably work on the **XiaoMi Air 13.3 Kaby Lake-R 2018** models with minor modifications.
 * All files used and detailed readmes are located in github [sakoula/XiaoMi-Air-6200U](https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/Changelog.md)
@@ -23,35 +24,47 @@ Please note that this guide will be not possible without all the excellent resou
 ---
 
 ## Table of Contents
+[up up up](#)
 
-* [Known Issues / Work in Progress](#known-issues--work-in-progress)
-* [Hardware Specifications](#hardware-specifications)
-* [Installation Guide](#installation-guide)
-   * [Installation SSD](#installation-ssd)
-   * [Disable Secure Boot](#disable-secure-boot)
-   * [Preparing USB Flash Drive](#preparing-usb-flash-drive)
-   * [Install mojave installer to the USB Flash Drive](#install-mojave-installer-to-the-usb-flash-drive)
-   * [Install Clover to the USB Flash Drive](#install-clover-to-the-usb-flash-drive)
-   * [Customize Clover on the USB Flash Drive](#customize-clover-on-the-usb-flash-drive)
-   * [Install Mojave](#install-mojave)
-   * [Install Clover on the macOS disk](#install-clover-on-the-macos-disk)
-   * [Customize Clover on the macOS disk](#customize-clover-on-the-macos-disk)
-   * [Move kexts to /Library/Extentions](#move-kexts-to-libraryextentions)
-   * [Create a USB Flash Drive just with Clover for emergencies](#create-a-usb-flash-drive-just-with-clover-for-emergencies)
-* [Postinstallation Steps](#postinstallation-steps)
-* [Patching Information](#patching-information)
-   * [CPU](#cpu)
-   * [Audio](#audio)
-   * [Bluetooth](#bluetooth)
-   * [Ethernet](#ethernet)
-   * [Graphics](#graphics)
-   * [Keyboard](#keyboard)
-   * [Touchpad](#touchpad)
-   * [USB](#usb)
-   * [Wi-Fi](#wi-fi)
-* [Changelog](#changelog)
-* [Buy me a coffee or a beer](#buy-me-a-coffee-or-a-beer)
-* [Credits](#credits)
+<!-- MarkdownTOC -->
+
+- [Known Issues / Work in Progress](#known-issues--work-in-progress)
+- [Hardware Specifications](#hardware-specifications)
+- [Installation Guide](#installation-guide)
+	- [Installation SSD](#installation-ssd)
+	- [Disable Secure Boot](#disable-secure-boot)
+	- [Preparing USB Flash Drive](#preparing-usb-flash-drive)
+	- [Install mojave installer to the USB Flash Drive](#install-mojave-installer-to-the-usb-flash-drive)
+	- [Install `Clover` to the USB Flash Drive](#install-clover-to-the-usb-flash-drive)
+	- [Customize Clover on the USB Flash Drive](#customize-clover-on-the-usb-flash-drive)
+	- [Install Mojave](#install-mojave)
+	- [Install `Clover` on the macOS disk](#install-clover-on-the-macos-disk)
+	- [Customize Clover on the macOS disk](#customize-clover-on-the-macos-disk)
+	- [Move kexts to `/Library/Extentions`](#move-kexts-to-libraryextentions)
+	- [Create a USB Flash Drive just with `Clover` for emergencies](#create-a-usb-flash-drive-just-with-clover-for-emergencies)
+- [Postinstallation Steps](#postinstallation-steps)
+	- [Enable HiDPI resolutions](#enable-hidpi-resolutions)
+	- [Install ALCPlugFix :icecream:](#install-alcplugfix-icecream)
+	- [create a valid SMBIOS](#create-a-valid-smbios)
+- [Patching Information](#patching-information)
+	- [CPU](#cpu)
+	- [Audio](#audio)
+	- [Bluetooth](#bluetooth)
+	- [Ethernet](#ethernet)
+	- [Graphics](#graphics)
+	- [Keyboard](#keyboard)
+	- [Touchpad](#touchpad)
+	- [USB](#usb)
+	- [Wi-Fi](#wi-fi)
+- [Changelog](#changelog)
+- [Benchmarking](#benchmarking)
+	- [Benchmarking Windows 10](#benchmarking-windows-10)
+	- [Benchmarking macOS 10.14.2](#benchmarking-macos-10142)
+- [Buy me a coffee or a beer](#buy-me-a-coffee-or-a-beer)
+- [Credits](#credits)
+
+<!-- /MarkdownTOC -->
+
 
 <!--
 * This line is a placeholder to generate the table of contents in jekyll
@@ -61,19 +74,21 @@ Please note that this guide will be not possible without all the excellent resou
 -->
 
 ## Known Issues / Work in Progress
+[up up up](#)
 
+* After Sleep distorted or know audio from Headphones Port *work in progress using ALCPlugFix*
+* No audio output from HDMI port *I am not using it so ignore for now*
+* Shutdown is not working as expected. The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.
 * Multitouch Gestures *work in progress through VoodooI2c*
 * Internal Wifi is not working *see Wi-Fi section for alternatives*
-* improve bettery life using a `CPUFriendDataProvider.kext`
+* improve bettery life using a `CPUFriendDataProvider.kext` and `CPUTune.kext`
 * When sleeping by closing LID on wake loosing USB
-* Shutdown is not working as expected. The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.
 * Bluetooth works if using a VM to inject the FW
-* After Sleep distorted or know audio from Headphones Port *work in progress using ALCPlugFix*
-* Enable HiDPI resolutions *work in progress although the LCD is not retina and will not help*
 
 If you face another problem please open a issue.
 
 ## Hardware Specifications
+[up up up](#)
 
 * Skylake-U 2016
 * Xiaomi Mi Notebook Air 13.3''
@@ -90,10 +105,11 @@ If you face another problem please open a issue.
 * Connectivity: USB Type-C charging port, 2× USB 3.0, 1× HDMI, 3,5 mm audio jack
 
 ## Installation Guide
+[up up up](#)
 
 These are the steps in order to install or upgrade your XiaoMi-Air. There is a very detailed document on the steps followed and the customizations which can be found in [DETAILS.md](DETAILS.md).
 
-There is a another document on how I setup my environment including all the tools and utilities I have used [ENVIRONMENT.md](ENVIRONMENT.md).
+There is a another document on how I setup my environment including all the tools and utilities I have used [ENVIRONMENT.air.md](ENVIRONMENT.air.md).
 
 You will need a working macOS installation (no matter the version) to create a USB Flash Drive with macOS.
 
@@ -105,16 +121,19 @@ Start by downloading the latest version the customization files from the [releas
 * `addons/VirtualSmc.efi`: `VirtualSmc.efi` used in the installation
 
 ### Installation SSD
+[up up up](#)
 
 I installed a `Samsung 850 Evo Series, 500GB M.2 SSD (MZ-N5E500BW)` specifically for macOS on the **second** M.2 port. Use `F12` to boot from a specific device. 
 
 ### Disable Secure Boot
+[up up up](#)
 
 Hold `F2` to get into the BIOS. In order to disable the secure boot you need to set a supervisor BIOS password. Use `root` as a password. Without exiting disable the secure boot. Then change the supervisor password and do not enter a new one. This will disable it. Exit BIOS saving the options.
 
 You do not have to change anything else from the defaults
 
 ### Preparing USB Flash Drive
+[up up up](#)
 
 [Get a at least 16GB](https://support.apple.com/en-us/HT201372) USB Flash Drive and:
 
@@ -125,12 +144,14 @@ You do not have to change anything else from the defaults
 * Format: MacOS Extended (Journaled)
 
 ### Install mojave installer to the USB Flash Drive
+[up up up](#)
 
 Download mojave from Apple AppStore and run the following command to install it on the USB disk you just Erased.
 
 `$ sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/USB`
 
 ### Install `Clover` to the USB Flash Drive
+[up up up](#)
 
 Rehabman's fork of clover tends to be more stable so we are goinf to use this. Download it from [here](https://bitbucket.org/RehabMan/clover/downloads/).
 
@@ -153,6 +174,7 @@ Run `Clover_v2.4k_r4701.RM-4963.ca6cca7c` installer:
 * `AptioInputFix-64.efi`
 
 ### Customize Clover on the USB Flash Drive
+[up up up](#)
 
 Download the latest [release](https://github.com/sakoula/XiaoMi-Air-6200U/releases) from github and unzip the archive. You will find an `AIR_EFI` directory and a `addons` directory. Mount the USB Flash Drive's `EFI` partition on `/Volumes/EFI`:
 
@@ -169,6 +191,7 @@ Download the latest [release](https://github.com/sakoula/XiaoMi-Air-6200U/releas
 6. copy `AIR_EFI/CLOVER/config.plist` from the downloaded file to USB's EFI to `EFI/CLOVER/ACPI/config.plist`
 
 ### Install Mojave
+[up up up](#)
 
 To boot from the USB Flash Drive you can just hit `F12` and you will get the UEFI boot loader
 
@@ -179,6 +202,7 @@ If your Xiaomi-Air already runs High Sierra 10.13.6 you can upgrade directly to 
 > **Important**: During installation you will ask to reboot the machine. While on clover make sure to boot from `Boot macOS install from *** disk` disk. If you do not see this disk hit `F3` to show all the hidden disks. You may need to reboot multiple times.
 
 ### Install `Clover` on the macOS disk
+[up up up](#)
 
 Once the installation is over you will need to install `Clover` bootloader on the hard disk that you have installed macOS in order to be able to boot without the USB Flash Drive.
 
@@ -203,6 +227,7 @@ Run again the `Clover_v2.4k_r4701.RM-4963.ca6cca7c` installer:
 *Install Clover Preference Pane*
 
 ### Customize Clover on the macOS disk
+[up up up](#)
 
 Download the latest [release](https://github.com/sakoula/XiaoMi-Air-6200U/releases) from github and unzip the archive. You will find an `AIR_EFI` directory and a `addons` directory. 
 
@@ -219,6 +244,7 @@ Mount the EFI partition of the macOS boot parition on `/Volumes/EFI`:
 5. copy `AIR_EFI/CLOVER/config.plist` from the downloaded file to USB's EFI to `EFI/CLOVER/ACPI/config.plist`
 
 ### Move kexts to `/Library/Extentions`
+[up up up](#)
 
 The right way to load kexts is **not** by injecting them through clover but installing them in `/Library/Extentions` and building them into the kernel cache. 
 
@@ -238,6 +264,7 @@ Mount the EFI partition of the macOS boot parition on `/Volumes/EFI`:
 **remember** that `kextcache` needs to be run twice
 
 ### Create a USB Flash Drive just with `Clover` for emergencies
+[up up up](#)
 
 Get a small (2GB will work just fine) USB Flash Drive and:
 
@@ -291,12 +318,29 @@ Download the latest [release](https://github.com/sakoula/XiaoMi-Air-6200U/releas
 ```
 
 ## Postinstallation Steps
+[up up up](#)
 
-* Install ALCPlugFix *work in progress*
-* Enable HiDPI resolutions *work in progress*
-* create a valid SMBIOS. Follow the guide [An iDiot's Guide To iMessage ](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/)
+### Enable HiDPI resolutions
+[up up up](#)
+
+I am using the computer using the *1600x900* resolution that fits my eyes best.
+
+You can enable HiDPI resolutions using the amazing script [one-key-hidpi](https://github.com/xzhih/one-key-hidpi). However since native max resolution of the LCD is *1920x1080* it **does not make any sense**. HiDPI will look huge on screen and the *1920x1080* HiDPI will not seem any different and will make the computer slower. *1920x1080* HiDPI will create a *3840x2160* virtual screen that will map it to a  *1920x1080* display, so it does not help much.
+
+If you still want to use HiDPI get the [avibrazil/RDM](https://github.com/avibrazil/RDM) tool if you cannot see all the available resolutions.
+
+### Install ALCPlugFix :icecream:
+[up up up](#)
+
+* Install ALCPlugFix is *work in progress* to solve the wake up with headphones problem
+
+### create a valid SMBIOS
+[up up up](#)
+
+* create a valid SMBIOS. This is really important and do not forget it. Follow the guide [An iDiot's Guide To iMessage ](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/)
 
 ## Patching Information
+[up up up](#)
 
 Patching has been done using clover and [hotpatching ACPI](https://www.tonymacx86.com/threads/guide-using-clover-to-hotpatch-acpi.200137/). All the required files exist in the `AIR_EFI` directory:
 
@@ -305,7 +349,10 @@ Patching has been done using clover and [hotpatching ACPI](https://www.tonymacx8
 * `CLOVER/ACPI/patched` ACPI hotpaches 
 * `CLOVER/kexts/Other` kexts required
 
+The SMBIOS used is `MacBookPro13,1`
+
 ### CPU
+[up up up](#)
 
 * The model is `i5-6200U`, and XCPM power management is native supported.
 * HWP is supported as well through a custom `CPUFriendDataProvider.kext` *work in progress*
@@ -337,6 +384,7 @@ ACPI patches in `/CLOVER/ACPI/patched` applied:
 * `SSDT-XOSI.aml` Override for host defined _OSI to handle "Darwin"
 
 ### Audio
+[up up up](#)
 
 * Sound card is `Realtek ALC255` which is drived by `AppleALC` on layout-id 30 or 99.
 
@@ -350,16 +398,19 @@ kext patches in `/CLOVER/kexts/Other` applied:
 * Patch `Devices > PciRoot(0x0)/Pci(0x1f,0x3)`
 
 ### Bluetooth
+[up up up](#)
 
 The card in the laptop is `Intel® Dual Band Wireless-AC 8260`
 
 * Bluetooth works if using a VM to inject the FW
 
 ### Ethernet
+[up up up](#)
 
 * Xiaomi-Air does not have an Ethernet. A USB one can be used and supported natively such as the [`TP-LINK UE300`](https://www.tp-link.com/us/products/details/cat-5523_UE300.html)
 
 ### Graphics
+[up up up](#)
 
 * Discrete card is `Nvidia GeForce 940MX`, disabled by `SSDT-DDGPU.aml` because macOS doesn't support Optimus technology.
 * Supported card is `Intel HD Graphics 520` supported with edits in `config.plist`
@@ -371,25 +422,28 @@ kext patches in `/CLOVER/kexts/Other` applied:
 ACPI patches in `/CLOVER/ACPI/patched` applied:
 
 * `SSDT-DDGPU.aml` disable discrete GPU
-* `SSDT-BKEY.aml` Native brightness hotkey support
+* `SSDT-CKEY.aml` Native brightness hotkey support
 
 `config.plist` patch applied:
 
 * Patch `Devices > PciRoot(0x0)/Pci(0x2,0x0)`
 
 ### Keyboard 
+[up up up](#)
 
 kext patches in `/CLOVER/kexts/Other` applied:
 
 * `VoodooPS2Controller.kext` RehabMan work on keyboard
 
 ### Touchpad
+[up up up](#)
 
 kext patches in `/CLOVER/kexts/Other` applied:
 
 * `VoodooPS2Controller.kext` RehabMan work on keyboard
 
 ### USB
+[up up up](#)
 
 * USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559), related file is located in `/CLOVER/kexts/Other/USBPorts.kext`.
 
@@ -399,24 +453,55 @@ kext patches in `/CLOVER/kexts/Other` applied:
 
 ACPI patches in `/CLOVER/ACPI/patched` applied:
 
-* `SSDT-EC.aml` add EC0 device for usb power injection
 * `SSDT-USBX.aml` USB power properties via USBX device
 
 ### Wi-Fi
+[up up up](#)
 
 The card in the laptop is `Intel® Dual Band Wireless-AC 8260`
 
 * Wifi is not working. Get a USB card such as `TP-LINK TL-WN725N v3` and download drivers from the [TP-LINK site](https://www.tp-link.com/us/download/TL-WN725N.html)
 
 ## Changelog
+[up up up](#)
 
 You can view [Changelog](Changelog.md) for detailed information.
 
+## Benchmarking
+[up up up](#)
+
+### Benchmarking Windows 10
+
+* `GeekBench x64 4.0.3 CPU` 2550/5551
+* `CINEBENCH R15.038_RC184115 OpenGL` 56.92fps (NVIDIA) 
+* `CINEBENCH R15.038_RC184115 OpenGL` 36.45fps (Intel) 
+* `CINEBENCH R15.038_RC184115 CPU` 295cb
+* `LuxMark-v3.1 OpenCL GPU` 3710 (Intel + NVIDIA)
+* `LuxMark-v3.1 OpenCL GPU` 1427 (Intel)
+* `LuxMark-v3.1 OpenCL GPU` 2354 (NVIDIA)
+* `LuxMark-v3.1 OpenCL CPU` 860
+* `Heaven FPS` 20.3 `Score` 512 `Min FPS` 7.8 `Max FPS` 40.4 (NVIDIA)
+* `Heaven FPS` 9.1 `Score` 230 `Min FPS` 5.5 `Max FPS` 20.1 (Intel)
+
+### Benchmarking macOS 10.14.2
+
+* `GeekBench x64 4.3.2 CPU` 3470/6695
+* `GeekBench x64 4.3.2 GPU/OpenCl` 16465
+* `GeekBench x64 4.3.2 GPU/Metal` 16748
+* `CINEBENCH R15.038_RC184115 OpenGL` 22.92fps
+* `CINEBENCH R15.038_RC184115 CPU` 293cb
+* `LuxMark-v3.1 OpenCL GPU` 1381
+* `LuxMark-v3.1 OpenCL CPU` 776
+* `Heaven FPS` 13.8 `Score` 349 `Min FPS` 6.2 `Max FPS` 25.3
+* `AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:` 469MB/sec write, 489MB/sec read
+
 ## Buy me a coffee or a beer
+[up up up](#)
 
 If you feel so you can [buy me](http://google.com) a coffee or a beer!
 
 ## Credits
+[up up up](#)
 
 - Thanks to [JahStories](https://www.insanelymac.com/forum/topic/319656-guide-xiaomi-mi-notebook-air-13/), Jolly, gengik84 that provided the [original post](https://www.insanelymac.com/forum/topic/319656-guide-xiaomi-mi-notebook-air-13/) that made this guide feasible.
 

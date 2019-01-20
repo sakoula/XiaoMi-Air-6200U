@@ -47,6 +47,16 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change EC0 to EC (SSDT-USBX.dsl)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>RUMwXw==</data>
+					<key>Replace</key>
+					<data>RUNfXw==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change _DSM to XDSM</string>
 					<key>Disabled</key>
 					<false/>

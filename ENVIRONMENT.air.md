@@ -4,48 +4,61 @@ This is how I setup my environment in order to work with hackintoshes.
 
 # Table of Contents
 
-* [environment directory structure](#environment-directory-structure)
-  * [iasl](#iasl)
-  * [patchmatic and MaciASL](#patchmatic-and-maciasl)
-  * [xzhih/one-key-hidpi](#xzhihone-key-hidpi)
-  * [syscl/Enable-HiDPI-OSX](#sysclenable-hidpi-osx)
-  * [Benjamin-Dobell/nvidia-update.sh](#benjamin-dobellnvidia-updatesh)
-  * [vulgo/webdriver.sh](#vulgowebdriversh)
-  * [syscl/CPUTune](#sysclcputune)
-  * [avibrazil/RDM](#avibrazilrdm)
-  * [gfxutl](#gfxutl)
-  * [Intel FB-Patcher v1.6.8](#intel-fb-patcher-v168)
-  * [DarwinDumper](#darwindumper)
-  * [macserial](#macserial)
-  * [ACPIDebug.kext](#acpidebugkext)
-  * [Clover laptop config.plist and hotpatch](#clover-laptop-configplist-and-hotpatch)
-  * [DSDT patches for HP ProBook/EliteBook/ZBook series laptops](#dsdt-patches-for-hp-probookelitebookzbook-series-laptops)
-  * [RehabMan's laptop patch repository](#rehabmans-laptop-patch-repository)
-  * [black-dragon74/OSX-Debug.git gen_debug.sh](#black-dragon74osx-debuggit-gen_debugsh)
-  * [ekalinin/github-markdown-toc](#ekaliningithub-markdown-toc)
-  * [RehabMan-MaciASL-2018-0507.zip](#rehabman-maciasl-2018-0507zip)
-  * [RehabMan-patchmatic-2018-0507.zip](#rehabman-patchmatic-2018-0507zip)
-  * [mount_efi.sh](#mount_efish)
-  * [hack_tools](#hack_tools)
-  * [IOJones](#iojones)
-  * [IORegistryExplorer.app v2.1](#ioregistryexplorerapp-v21)
-* [where to install kexts](#where-to-install-kexts)
-* [LiluFriend](#lilufriend)
-* [where to install kexts <strong>January 2019</strong>](#where-to-install-kexts-january-2019)
-* [create DSL of stock tables](#create-dsl-of-stock-tables)
-* [compile DSL](#compile-dsl)
-* [string conversion](#string-conversion)
-* [LSPCI using WMI (WMIC)](#lspci-using-wmi-wmic)
-* [clover unhide all volumes with F3](#clover-unhide-all-volumes-with-f3)
-* [AppleHDA patching](#applehda-patching)
-* [references](#references)
-  * [macOS guides on Xiaomi](#macos-guides-on-xiaomi)
-  * [macOS guides on other hardware](#macos-guides-on-other-hardware)
-  * [Troubleshooting with lid](#troubleshooting-with-lid)
-  * [linux guides](#linux-guides)
-  * [Interesting Hackintosh Sites](#interesting-hackintosh-sites)
-  * [Guides etc](#guides-etc)
-  * [DSDT related references](#dsdt-related-references)
+<!-- MarkdownTOC -->
+
+- [environment directory structure](#environment-directory-structure)
+    - [`iasl`](#iasl)
+    - [`patchmatic` and `MaciASL`](#patchmatic-and-maciasl)
+    - [`acidanthera/WhateverGreen`](#acidantherawhatevergreen)
+    - [`Hardening`](#hardening)
+    - [`andyvand/FixEDID`](#andyvandfixedid)
+    - [`smut.c`](#smutc)
+    - [`michalmalik/osx-re-101`](#michalmalikosx-re-101)
+    - [`xzhih/one-key-hidpi`](#xzhihone-key-hidpi)
+    - [`syscl/Enable-HiDPI-OSX`](#sysclenable-hidpi-osx)
+    - [`Benjamin-Dobell/nvidia-update.sh`](#benjamin-dobellnvidia-updatesh)
+    - [`vulgo/webdriver.sh`](#vulgowebdriversh)
+    - [`syscl/CPUTune`](#sysclcputune)
+    - [`avibrazil/RDM`](#avibrazilrdm)
+    - [`gfxutl`](#gfxutl)
+    - [`Intel FB-Patcher v1.6.8`](#intel-fb-patcher-v168)
+    - [`DarwinDumper`](#darwindumper)
+    - [`macserial`](#macserial)
+    - [`ACPIDebug.kext`](#acpidebugkext)
+    - [Clover laptop config.plist and hotpatch](#clover-laptop-configplist-and-hotpatch)
+    - [DSDT patches for HP ProBook/EliteBook/ZBook series laptops](#dsdt-patches-for-hp-probookelitebookzbook-series-laptops)
+    - [RehabMan's laptop patch repository](#rehabmans-laptop-patch-repository)
+    - [black-dragon74/OSX-Debug.git `gen_debug.sh`](#black-dragon74osx-debuggit-gen_debugsh)
+    - [`ekalinin/github-markdown-toc`](#ekaliningithub-markdown-toc)
+    - [RehabMan-MaciASL-2018-0507.zip](#rehabman-maciasl-2018-0507zip)
+    - [RehabMan-patchmatic-2018-0507.zip](#rehabman-patchmatic-2018-0507zip)
+    - [`mount_efi.sh`](#mount_efish)
+    - [`hack_tools`](#hack_tools)
+    - [IOJones](#iojones)
+    - [IORegistryExplorer.app v2.1](#ioregistryexplorerapp-v21)
+- [where to install kexts](#where-to-install-kexts)
+- [`LiluFriend`](#lilufriend)
+- [where to install kexts **January 2019**](#where-to-install-kexts-january-2019)
+- [create DSL of stock tables](#create-dsl-of-stock-tables)
+- [compile DSL](#compile-dsl)
+- [string conversion](#string-conversion)
+- [LSPCI using WMI \(WMIC\)](#lspci-using-wmi-wmic)
+- [clover unhide all volumes with F3](#clover-unhide-all-volumes-with-f3)
+- [AppleHDA/AppleALC patching](#applehdaapplealc-patching)
+- [Debugging](#debugging)
+- [references](#references)
+    - [macOS guides on Xiaomi](#macos-guides-on-xiaomi)
+    - [macOS guides on other hardware](#macos-guides-on-other-hardware)
+    - [Troubleshooting with lid](#troubleshooting-with-lid)
+    - [linux guides](#linux-guides)
+    - [Interesting Hackintosh Sites](#interesting-hackintosh-sites)
+    - [Guides etc](#guides-etc)
+    - [DSDT related references](#dsdt-related-references)
+    - [BIOS related information](#bios-related-information)
+    - [Various](#various)
+    - [HiDPI](#hidpi)
+
+<!-- /MarkdownTOC -->
 
 
 <!--
@@ -91,6 +104,51 @@ and download [RehabMan-MaciASL-2018-0507.zip, RehabMan-patchmatic-2018-0507.zip]
 ```bash
 mv MaciASL.app /Applications
 mv /Downloads/patchmatic $HACK/bin
+```
+
+## `acidanthera/WhateverGreen`
+[up up up](#)
+
+```bash
+cd $HACK/git
+git clone https://github.com/acidanthera/WhateverGreen.git WhateverGreen.git
+```
+
+## `Hardening`
+[up up up](#)
+
+check [this](https://medium.com/@gveloper/a-security-privacy-primer-for-macos-8e6a655c8469)
+
+```bash
+cd $HACK/git
+git clone https://github.com/kristovatlas/osx-config-check osx-config-check.git
+git clone https://github.com/drduh/macOS-Security-and-Privacy-Guide.git macOS-Security-and-Privacy-Guide.git
+```
+
+## `andyvand/FixEDID`
+[up up up](#)
+
+```bash
+cd $HACK/git
+git clone https://github.com/andyvand/FixEDID.git FixEDID.git
+```
+
+## `smut.c`
+
+```bash
+cd $HACK/git
+mkdir smut.git && cd smut.git
+# copy from 'http://newosxbook.com/src.jl?tree=listings&file=smut.c'
+wget http://newosxbook.com/code/listings/SMBIOS.h
+gcc smut.c -o bios -framework IOKit -framework CoreFoundation
+```
+
+
+## `michalmalik/osx-re-101`
+
+```bash
+cd $HACK/git
+git clone https://github.com/michalmalik/osx-re-101.git osx-re-101.git 
 ```
 
 ## `xzhih/one-key-hidpi`
@@ -523,7 +581,7 @@ to unhide hidden entries in clover press [F3](https://www.insanelymac.com/forum/
 
 also check this for [preboot partitions](https://www.insanelymac.com/forum/topic/331816-how-to-remove-boot-osx-install-option-from-clover-after-update/)
 
-# AppleHDA patching
+# AppleHDA/AppleALC patching
 [up up up](#)
 
 references
@@ -532,6 +590,40 @@ references
 * [AppleHDA Patching Guide](https://www.johnstray.id.au/acer-z3-605/applehda-patching-guide/)
 * [A Beginner's Guide: How to Patch AppleHDA for Laptops](https://www.elitemacx86.com/threads/a-beginners-guide-how-to-patch-applehda-for-laptops.184/)
 * [https://www.tonymacx86.com/threads/solved-balance-control-mute-headphone-applealc.214360/page-2](https://www.tonymacx86.com/threads/solved-balance-control-mute-headphone-applealc.214360/page-2)
+* [Use-AppleALC-sound-card-to-drive-the-correct-posture-of-AppleHDA](https://blog.daliansky.net/Use-AppleALC-sound-card-to-drive-the-correct-posture-of-AppleHDA.html)
+
+# Debugging
+[up up up](#)
+
+* [DarwinDumper](https://pikeralpha.wordpress.com/2017/01/)
+* [nm and xxd](https://pikeralpha.wordpress.com/2017/01/)
+* [log show problem](https://pikeralpha.wordpress.com/2017/02/)
+* [Visualizing the Mac Startup Process](http://osxdaily.com/2018/08/25/visualizing-mac-startup-boot-process/)
+* [Enabling ACPI Debugging](https://pikeralpha.wordpress.com/2013/12/23/enabling-acpi-debugging/)
+* [Debugging sleep issues](https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/)
+* [**Modify DSDT for LPCB IONameMatch**](https://www.tonymacx86.com/threads/modify-dsdt-for-lpcb-ionamematch.210070/)
+* [**How To Fix NO Audio and Mic After Wake on Mac OS X**](http://www.dognmonkey.com/techs/how-to-fix-no-audio-and-mic-after-wake-on-mac-os-x.html)
+
+```bash
+log show --debug --info --start "2018-08-18 23:00:00" | grep -E 'kernel:|loginwindow:|sakoula'
+log show --predicate 'process == "kernel" AND (eventMessage CONTAINS "AppleALC" OR eventMessage CONTAINS "Lilu")' --style syslog --source
+log show --predicate 'process == "kernel"' --style syslog --source
+log show --debug --info --start "2018-08-19 10:00:00" | grep -E 'sakoula'
+log stream --source --level debug | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log stream --source --level debug | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --source --debug --info --start "2018-08-19 10:00:00" | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --source --start "2018-08-19 10:00:00" | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --source --start "2018-08-19 10:00:00" | grep -E 'ACPIDebug:'
+
+log show --source --debug --info --last boot | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --source --debug --info --last 1m | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --source --debug --info --last 2h | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --source --debug --info --last 2d | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --debug --info --start "2018-08-22 09:38:00" | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+log show --predicate 'process == "kernel" AND (eventMessage CONTAINS "AppleALC" OR eventMessage CONTAINS "Lilu")' --style syslog --source
+log show --predicate 'process == "kernel"' --style syslog --source
+
+```
 
 # references
 [up up up](#)
@@ -548,10 +640,11 @@ references
 ## macOS guides on other hardware
 [up up up](#)
 
+* [Hackintosh-Installer-University](https://github.com/huangyz0918/Hackintosh-Installer-University)
 * [[Guide] HP Pavilion 15-AB216TX Mojave SOS](https://www.tonymacx86.com/threads/guide-hp-pavilion-15-ab216tx-mojave.260900/)
 * [DSDT Patching for Dummies - SnowLeo with 100% vanilla /S/L/E](https://forum.thinkpads.com/viewtopic.php?t=85344)
 * [T450-Hackintosh/ALC3232/tools/](https://github.com/shmilee/T450-Hackintosh/tree/master/ALC3232/tools)
-* [Guide HP using Clover UEFI hotpatch](https://www.tonymacx86.com/threads/guide-hp-probook-elitebook-zbook-using-clover-uefi-hotpatch.232948/)
+* [HP ProBook/EliteBook/Zbook using Clover UEFI hotpatch](https://www.tonymacx86.com/threads/guide-hp-probook-elitebook-zbook-using-clover-uefi-hotpatch.261719/)
 * [Guide DELL Inspiron 7560 High Sierra installation](https://www.tonymacx86.com/threads/guide-dell-inspiron-7560-high-sierra-installation.242174/page-4)
 
 ## Troubleshooting with lid
@@ -560,7 +653,7 @@ references
 * [Sleep by lid close & Wake by lid openening?](https://www.tonymacx86.com/threads/sleep-by-lid-close-wake-by-lid-openening.212641/)
 * [Rehabmans CodecCommander.](https://www.tonymacx86.com/threads/rehabmans-codeccommander.226487/)
 * [How to make a SSDT for HD530 Sleep/Wake problem with Pike's code?](https://www.tonymacx86.com/threads/how-to-make-a-ssdt-for-hd530-sleep-wake-problem-with-pikes-code.212261/)
-* [Debugging sleep issues](https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/)
+* [Debugging sleep issues](https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/) **check posts by ClaudesTech**
 
 ## linux guides
 [up up up](#)
@@ -596,5 +689,56 @@ references
 * [ACPI Error: AE_BAD_PARAMETER (setup works fine)](https://www.tonymacx86.com/threads/acpi-error-ae_bad_parameter-setup-works-fine.227195/)
 * [ACPI for Developers](https://github.com/Bumblebee-Project/Bumblebee/wiki/ACPI-for-Developers)
 * [ACPI-Introduction](https://acpica.org/sites/acpica/files/ACPI-Introduction.pdf)
+* [ACPI for Developers](https://github.com/Bumblebee-Project/Bumblebee/wiki/ACPI-for-Developers)
 
+## BIOS related information
+[up up up](#)
 
+* [CMOS Memory Map](http://bochs.sourceforge.net/techspec/CMOS-reference.txt)
+* [typical CMOS RAM memory map for an AT PC](http://www.bioscentral.com/misc/cmosmap.htm)
+* [acidanthera/RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup)
+
+## Various
+[up up up](#)
+
+* [the_mystery_of_darkwake_and_its_relation_to_power](https://www.reddit.com/r/hackintosh/comments/92dts2/the_mystery_of_darkwake_and_its_relation_to_power/)
+* [important-darkwake-0-flag-can-break-auto-sleep-in-10-8-1.69714](https://www.tonymacx86.com/threads/important-darkwake-0-flag-can-break-auto-sleep-in-10-8-1.69714/#post-447117)
+* [[GUIDE] EDID injection](https://osx86.org/forums/topic/20664-guide-edid-injection/)
+* [HOW TO FIX BLACK SCREEN IN HIGH SIERRA](https://osxlatitude.com/forums/topic/10236-how-to-fix-black-screen-in-high-sierra/)
+* [Mac-frequently-used-to-the-command](https://blog.daliansky.net/Mac-frequently-used-to-the-command---continuous-update.html)
+* [Use HIDPI to solve the problem of sleeping wake up black screen, flower screen and connecting the external monitor with the correct posture](http://blog.daliansky.net/Use-HIDPI-to-solve-sleep-wake-up-black-screen,-Huaping-and-connect-the-external-monitor-the-correct-posture.html)
+* [An order teaches you how to confirm your model and how to open HWP](http://blog.daliansky.net/A-command-to-teach-you-how-to-confirm-their-own-models-and-how-to-open-the-HWP.html)
+* [macOS installation tutorial and millet Pro installation process record](http://blog.daliansky.net/MacOS-installation-tutorial-XiaoMi-Pro-installation-process-records.html)
+* [Ubuntu to install USB disk using dd command under MacOS](http://blog.daliansky.net/MacOS-use-the-dd-command-to-make-Ubuntu-install-USB-disk.html)
+* [User Builds](https://hackintosher.com/forums/view/user-builds.7/)
+* [WiFi](https://hackintosher.com/forums/thread/success-gigabyte-z370n-wifi-i5-8400-nvme-970-evo-mojave-10-14-1-vanilla-hackintosh-deluxe-build.704/)
+* [Use AppleALC sound card to spoof the correct posture of AppleHDA](https://blog.daliansky.net/Use-AppleALC-sound-card-to-drive-the-correct-posture-of-AppleHDA.html)
+* [OS X 10.11.4 wants IMEI, not HECI](https://pikeralpha.wordpress.com/2016/03/24/os-x-10-11-4-wants-imei-not-heci/)
+* [WhatEverGreen Support Topic](https://www.insanelymac.com/forum/topic/325987-whatevergreen-support-topic/?page=24)
+* [**HP EliteDesk 800 G2 / HP ProDesk 600 G2 - SUCCESS**](https://www.tonymacx86.com/threads/hp-elitedesk-800-g2-hp-prodesk-600-g2-success.261452/page-7#post-1862658)
+* [AppleLife](https://applelife.ru/portal/)
+* [https://www.tonymacx86.com/threads/hp-elitedesk-800-g2-hp-prodesk-600-g2-success.261452/page-7#post-1862658](https://www.tonymacx86.com/threads/ssdt-gpu-graphics-card-injection.183354/)
+* [[GUIDE/Workaround] Using Intel HD530 with Dual Monitors](https://www.tonymacx86.com/threads/guide-workaround-using-intel-hd530-with-dual-monitors.214125/page-9)
+* [Black Screen with MacPro 6,1 or iMac 15 or iMac 17 System Definition](https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/)
+* [AppleGraphicsPowerManagement.sh](https://pikeralpha.wordpress.com/2014/01/25/applegraphicspowermanagement-sh/)
+* [[GUIDE] Fix Skylake HDMI/DP Output](https://www.insanelymac.com/forum/topic/319211-guide-fix-skylake-hdmidp-output/)
+* [AppleIntelSKLGraphicsFramebuffer.kext mods…](https://pikeralpha.wordpress.com/2016/01/04/appleintelsklgraphicsframebuffer-kext-mods/)
+* [Intel-FB-Patcher-tutorial](http://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html)
+* [[Guide] Alternative to the minStolenSize patch with 32mb DVMT-prealloc](https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/)
+* [base64tohex](https://cryptii.com/pipes/base64-to-hex)
+* [miguel41](https://www.tonymacx86.com/members/miguel41.2035654/)
+* [HOW TO FIX BLACK SCREEN IN HIGH SIERRA](https://osxlatitude.com/forums/topic/10236-how-to-fix-black-screen-in-high-sierra/)
+* [real-world-systems](https://www.real-world-systems.com//docs/)
+* [See battery percentage in Terminal and GeekTool](http://hints.macworld.com/article.php?story=20100130123935998)
+* [The I/O Registry Explorer](https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/TheRegistry/TheRegistry.html#//apple_ref/doc/uid/TP0000014-CGGCIHCC)
+* [Grabbing Serials and MAC Addresses](http://krypted.com/mac-os-x/grabbing-serials-and-mac-addresses/)
+
+## HiDPI
+[up up up](#)
+
+* [XiaoMi-Pro/HIDPI for Mi Pro/](https://github.com/daliansky/XiaoMi-Pro/tree/master/HIDPI%20for%20Mi%20Pro)
+* [xzhih/one-key-hidpi](https://github.com/xzhih/one-key-hidpi)
+* [syscl/Enable-HiDPI-OSX](https://github.com/syscl/Enable-HiDPI-OSX)
+* [SCALED RESOLUTIONS FOR YOUR MACBOOKS EXTERNAL MONITOR](https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/)
+* [Adding/Using HiDPI custom resolutions](https://www.tonymacx86.com/threads/adding-using-hidpi-custom-resolutions.133254/)
+* [Adding/Using HiDPI custom resolutions](https://www.tonymacx86.com/threads/adding-using-hidpi-custom-resolutions.133254/page-23#post-1271885)
