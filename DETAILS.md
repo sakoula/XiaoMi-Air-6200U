@@ -14,7 +14,6 @@
    - [`patches.air/SSDT-RMNE.dsl`](#patchesairssdt-rmnedsl)
    - [`DSL.pro/SSDT-PXSX.dsl` :icecream:](#dslprossdt-pxsxdsl-icecream)
    - [`patches.air/SSDT-SMBUS.dsl`](#patchesairssdt-smbusdsl)
-   - [`patches.air/SSDT-USBX.dsl`](#patchesairssdt-usbxdsl)
    - [`patches.air/SSDT-RMCF.dsl`](#patchesairssdt-rmcfdsl)
    - [`patches.air/SSDT-PTSWAK.dsl`](#patchesairssdt-ptswakdsl)
    - [`patches.air/SSDT-GPRW.dsl`](#patchesairssdt-gprwdsl)
@@ -38,6 +37,7 @@
    - [~~`patches.air/SSDT-PCIList.dsl`~~](#%7E%7Epatchesairssdt-pcilistdsl%7E%7E)
    - [~~`patches.air/SSDT-XHC.dsl`~~](#%7E%7Epatchesairssdt-xhcdsl%7E%7E)
    - [~~`patches.air/SSDT-UIAC.dsl`~~](#%7E%7Epatchesairssdt-uiacdsl%7E%7E)
+   - [~~`patches.air/SSDT-USBX.dsl`~~](#%7E%7Epatchesairssdt-usbxdsl%7E%7E)
 - [`Clover installation`](#clover-installation)
 - [`Clover Config`](#clover-config)
    - [`ACPI`](#acpi)
@@ -125,7 +125,6 @@ patches:
 * `$HACK/air/sources/TouchPad_Synaptics_v19.2.17.14.zip`  *Windows synaptics driver*
 * `$HACK/air/sources/windows.systeminfo` *systeminfo from windows*
 * `$HACK/air/sources/kexts` *updated list with source kexts used*
-* `$HACK/air/EFI` *the EFI which is also downloads from the latest release*
 * `$HACK/air/release` *the latest released files*
 
 # A06 Bios Update I5 6200U August 27th 2017
@@ -234,13 +233,6 @@ apply clover renames:
 * change SAT0 to SATA (SSDT-SMBUS.dsl) `U0FUMA==` to `U0FUQQ==`
 
 > *XiaoMi-Pro* does not use it any more. It is possibly needed
-
-## `patches.air/SSDT-USBX.dsl`
-[up up up](#)
-
-This has the `USBX` device for the power injection according to the [article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) 
-
-USBX power injection device is inline with the latest *XiaoMi-Pro* edits based on the [rehadbman's recomendations](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/)
 
 ## `patches.air/SSDT-RMCF.dsl`
 [up up up](#)
@@ -398,7 +390,7 @@ This has the `USBX` device for the power injection according to the [article](ht
 
 USBX power injection device is inline with the latest *XiaoMi-Pro* edits based on the [rehadbman's recomendations](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/)
 
-> *XiaoMi-Pro* implements the injector using a kext produced from FBPatcher
+> *XiaoMi-Pro* implements the injector using a kext produced from HackingTool
 
 from tonymac:
 
@@ -410,6 +402,15 @@ If a USB-C uses a different SSxx in each orientation, then it has no switch (Usb
 HSxx ports that are connected to a USB3 port should be marked UsbConnector=3, not UsbConnector=0.
 sakoula: since JahStories had 4 more devices I assume that USB-C port use different SSxx in each oritentation, and it has no switch (UsbConnector=10)
 ```
+
+## ~~`patches.air/SSDT-USBX.dsl`~~
+[up up up](#)
+
+> Implement the injector using a the kext produced from HackingTool
+
+This has the `USBX` device for the power injection according to the [article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) 
+
+USBX power injection device is inline with the latest *XiaoMi-Pro* edits based on the [rehadbman's recomendations](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/)
 
 # `Clover installation`
 [up up up](#)

@@ -14,7 +14,7 @@
 ../../bin/iasl -p SSDT-RMNE -ve SSDT-RMNE.dsl
 ../../bin/iasl -p SSDT-PXSX -ve SSDT-PXSX.dsl
 ../../bin/iasl -p SSDT-SMBUS -ve SSDT-SMBUS.dsl
-../../bin/iasl -p SSDT-USBX -ve SSDT-USBX.dsl
+# ../../bin/iasl -p SSDT-USBX -ve SSDT-USBX.dsl
 ../../bin/iasl -p SSDT-RMCF -ve SSDT-RMCF.dsl
 ../../bin/iasl -p SSDT-PTSWAK -ve SSDT-PTSWAK.dsl
 # SSDT-PTSWAK.edited trying to fix shutdown

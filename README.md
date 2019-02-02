@@ -45,7 +45,7 @@ Please note that this guide will be not possible without all the excellent resou
 - [Postinstallation Steps](#postinstallation-steps)
 	- [Enable HiDPI resolutions](#enable-hidpi-resolutions)
 	- [Install ALCPlugFix :icecream:](#install-alcplugfix-icecream)
-	- [create a valid SMBIOS](#create-a-valid-smbios)
+	- [Create a valid SMBIOS](#create-a-valid-smbios)
 - [Patching Information](#patching-information)
 	- [CPU](#cpu)
 	- [Audio](#audio)
@@ -334,10 +334,10 @@ If you still want to use HiDPI get the [avibrazil/RDM](https://github.com/avibra
 
 * Install ALCPlugFix is *work in progress* to solve the wake up with headphones problem
 
-### create a valid SMBIOS
+### Create a valid SMBIOS
 [up up up](#)
 
-* create a valid SMBIOS. This is really important and do not forget it. Follow the guide [An iDiot's Guide To iMessage ](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/)
+* create a valid SMBIOS. This is really important and do not forget it. In order to setup your hackintosh machine to use Apple Services, iMessage & FaceTime follow the guide [An iDiot's Guide To iMessage ](https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/)
 
 ## Patching Information
 [up up up](#)
@@ -445,15 +445,11 @@ kext patches in `/CLOVER/kexts/Other` applied:
 ### USB
 [up up up](#)
 
-* USB Port Patching uses [Intel FB-Patcher](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559), related file is located in `/CLOVER/kexts/Other/USBPorts.kext`.
+* USB Port Patching uses [HackingTool](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-4-1.254559), related file is located in `/CLOVER/kexts/Other/USBPorts.kext`. This patch includes power injection as well (remove `SSDT-USBX.aml`)
 
 kext patches in `/CLOVER/kexts/Other` applied:
 
-* `USBPorts.kext` through Intel FB-Patcher
-
-ACPI patches in `/CLOVER/ACPI/patched` applied:
-
-* `SSDT-USBX.aml` USB power properties via USBX device
+* `USBPorts.kext` through HackingTool
 
 ### Wi-Fi
 [up up up](#)

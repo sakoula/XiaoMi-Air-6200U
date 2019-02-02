@@ -12,3 +12,7 @@
     - removed SSDT-BKEY.dsl (from JahStories) and use SSDT-BCKS.dsl based on [this](https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
     - Tested HDMI
     - Played with HiDPI and decided not to use it since it does not make sense
+
+- 02-02-2019
+
+    - HackingTool used `/CLOVER/kexts/Other/USBPorts.kext`. This patch includes power injection as well (remove `SSDT-USBX.aml`)
