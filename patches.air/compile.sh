@@ -9,10 +9,10 @@
 # this are the edits of johnnync13 fot I2C support
 # ../../bin/iasl -p DSDT -ve DSDT.johnnync13.dsl
 # ../../bin/iasl -p SSDT-PNP0C14 -ve SSDT-PNP0C14.dsl
-../../bin/iasl -p SSDT-DDGPU -ve SSDT-DDGPU.dsl
+# ../../bin/iasl -p SSDT-DDGPU -ve SSDT-DDGPU.dsl
 ../../bin/iasl -p SSDT-XOSI -ve SSDT-XOSI.dsl
 ../../bin/iasl -p SSDT-RMNE -ve SSDT-RMNE.dsl
-../../bin/iasl -p SSDT-PXSX -ve SSDT-PXSX.dsl
+# ../../bin/iasl -p SSDT-PXSX -ve SSDT-PXSX.dsl
 ../../bin/iasl -p SSDT-SMBUS -ve SSDT-SMBUS.dsl
 # ../../bin/iasl -p SSDT-USBX -ve SSDT-USBX.dsl
 ../../bin/iasl -p SSDT-RMCF -ve SSDT-RMCF.dsl
@@ -20,7 +20,7 @@
 # SSDT-PTSWAK.edited trying to fix shutdown
 # ../../bin/iasl -p SSDT-PTSWAK -ve SSDT-PTSWAK.edited.dsl
 ../../bin/iasl -p SSDT-GPRW -ve SSDT-GPRW.dsl
-../../bin/iasl -p SSDT-PNLF -ve SSDT-PNLF.dsl
+# ../../bin/iasl -p SSDT-PNLF -ve SSDT-PNLF.dsl
 ../../bin/iasl -p SSDT-DMAC -ve SSDT-DMAC.dsl
 ../../bin/iasl -p SSDT-HPET -ve SSDT-HPET.dsl
 ../../bin/iasl -p SSDT-MEM2 -ve SSDT-MEM2.dsl

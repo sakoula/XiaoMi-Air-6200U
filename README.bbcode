@@ -17,7 +17,7 @@ Please note that this guide will be not possible without all the excellent resou
 
 [list]
 [*] [url=https://www.insanelymac.com/forum/topic/319656-guide-xiaomi-mi-notebook-air-13/][Guide] XiaoMi Mi Notebook Air 13"[/url] by [i]JahStories[/i]
-[*] [url=https://github.com/daliansky/XiaoMi-Pro]XiaoMi NoteBook Pro for macOS Mojave, High Sierra, Sierra [/url] by *[url=https://github.com/daliansky]daliansky[/url]* amd *[url=https://github.com/stevezhengshiqi]stevezhengshiqi[/url]*
+[*] [url=https://github.com/daliansky/XiaoMi-Pro]XiaoMi NoteBook Pro for macOS Mojave, High Sierra, Sierra [/url] by *[url=https://github.com/daliansky]daliansky[/url]* and *[url=https://github.com/stevezhengshiqi]stevezhengshiqi[/url]*
 [*] All the [b]super amazing guides[/b] from [url=https://www.tonymacx86.com/members/rehabman.429483/]RehabMan[/url]
 [*] [url=https://github.com/johnnync13/Xiaomi-Notebook-Air-1Gen]Air guide[/url] by [url=https://github.com/johnnync13]johnnync13[/url]
 [/list]
@@ -167,20 +167,20 @@ Mount the EFI partition of the macOS boot parition on [icode]/Volumes/EFI[/icode
 [*] copy [icode]AIR_EFI/CLOVER/config.plist[/icode] from the downloaded file to USB's EFI to [icode]EFI/CLOVER/ACPI/config.plist[/icode]
 [/list]
 
-[b]3.10 Move kexts to [icode]/Library/Extentions[/icode][/b]
-The right way to load kexts is [b]not[/b] by injecting them through clover but installing them in [icode]/Library/Extentions[/icode] and building them into the kernel cache.
+[b]3.10 Move kexts to [icode]/Library/Extensions[/icode][/b]
+The right way to load kexts is [b]not[/b] by injecting them through clover but installing them in [icode]/Library/Extensions[/icode] and building them into the kernel cache.
 
 Download the latest [url=https://github.com/sakoula/XiaoMi-Air-6200U/releases]release[/url] from github and unzip the archive. You will find an [icode]AIR_EFI[/icode] directory and a [icode]addons[/icode] directory.
 
 Mount the EFI partition of the macOS boot parition on [icode]/Volumes/EFI[/icode]:
 [list]
-[*] [b]move[/b] [icode]EFI/CLOVER/kexts/Other/*[/icode] from macOS boot parition to [icode]/Library/Extentions/*[/icode]
-[*] run from the console [icode]$ sudo chown -R root:wheel /Library/Extentions/*[/icode]
-[*] run from the console [icode]$ sudo chmod -r 755 /Library/Extentions/*[/icode]
+[*] [b]move[/b] [icode]EFI/CLOVER/kexts/Other/*[/icode] from macOS boot parition to [icode]/Library/Extensions/*[/icode]
+[*] run from the console [icode]$ sudo chown -R root:wheel /Library/Extensions/*[/icode]
+[*] run from the console [icode]$ sudo chmod -r 755 /Library/Extensions/*[/icode]
 [*] run from the console [icode]$ sudo kextcache -i /[/icode] to rebuild the caches
-[*] [b]move[/b] [icode]addons/LiluFriendLite.kext[/icode] from the downloaded file to [icode]/Library/Extentions/LiluFriendLite.kext[/icode]
-[*] run from the console [icode]$ sudo chown -R root:wheel /Library/Extentions/*[/icode]
-[*] run from the console [icode]$ sudo chmod -r 755 /Library/Extentions/*[/icode]
+[*] [b]move[/b] [icode]addons/LiluFriendLite.kext[/icode] from the downloaded file to [icode]/Library/Extensions/LiluFriendLite.kext[/icode]
+[*] run from the console [icode]$ sudo chown -R root:wheel /Library/Extensions/*[/icode]
+[*] run from the console [icode]$ sudo chmod -r 755 /Library/Extensions/*[/icode]
 [*] run from the console [icode]$ sudo kextcache -i /[/icode] to rebuild the caches
 [/list]
 [b]remember[/b] that [icode]kextcache[/icode] needs to be run twice

@@ -9,27 +9,27 @@
 - [A06 Bios Update I5 6200U August 27th 2017](#a06-bios-update-i5-6200u-august-27th-2017)
 - [DSDT patching \(active patches\)](#dsdt-patching-active-patches)
    - [`DSDT.dsl`](#dsdtdsl)
-   - [`patches.air/SSDT-DDGPU.dsl`](#patchesairssdt-ddgpudsl)
    - [`patches.air/SSDT-XOSI.dsl`](#patchesairssdt-xosidsl)
    - [`patches.air/SSDT-RMNE.dsl`](#patchesairssdt-rmnedsl)
-   - [`DSL.pro/SSDT-PXSX.dsl` :icecream:](#dslprossdt-pxsxdsl-icecream)
    - [`patches.air/SSDT-SMBUS.dsl`](#patchesairssdt-smbusdsl)
    - [`patches.air/SSDT-RMCF.dsl`](#patchesairssdt-rmcfdsl)
    - [`patches.air/SSDT-PTSWAK.dsl`](#patchesairssdt-ptswakdsl)
    - [`patches.air/SSDT-GPRW.dsl`](#patchesairssdt-gprwdsl)
-   - [`patches.air/SSDT-PNLF.dsl`](#patchesairssdt-pnlfdsl)
    - [`patches.air/SSDT-RMDT.dsl`](#patchesairssdt-rmdtdsl)
    - [`patches.air/SSDT-DMAC.dsl`](#patchesairssdt-dmacdsl)
    - [`patches.air/SSDT-HPET.dsl`](#patchesairssdt-hpetdsl)
    - [`patches.air/SSDT-MEM2.dsl`](#patchesairssdt-mem2dsl)
    - [`patches.air/SSDT-PMCR.dsl`](#patchesairssdt-pmcrdsl)
-   - [`patches.air/SSDT-BCKS.dsl`](#patchesairssdt-bcksdsl)
    - [`patches.air/SSDT-LPC.dsl`](#patchesairssdt-lpcdsl)
+   - [`patches.air/SSDT-BCKS.dsl`](#patchesairssdt-bcksdsl)
 - [DSDT patching \(work in progress patches\) :icecream:](#dsdt-patching-work-in-progress-patches-icecream)
    - [`patches.air/SSDT-SLEEP.dsl` :icecream:](#patchesairssdt-sleepdsl-icecream)
    - [`patches.air/SSDT-I2C.dsl` :icecream:](#patchesairssdt-i2cdsl-icecream)
-   - [`patches.air.johnnync13/SSDT-PNPOC14.dsl` :icecream:](#patchesairjohnnync13ssdt-pnpoc14dsl-icecream)
+   - [`patches.air/SSDT-PNPOC14.dsl` :icecream:](#patchesairssdt-pnpoc14dsl-icecream)
 - [DSDT patching \(retired patches\)](#dsdt-patching-retired-patches)
+   - [~~`patches.air/SSDT-PNLF.dsl`~~](#%7E%7Epatchesairssdt-pnlfdsl%7E%7E)
+   - [~~`patches.air/SSDT-DDGPU.dsl`~~](#%7E%7Epatchesairssdt-ddgpudsl%7E%7E)
+   - [~~`patches.air/SSDT-PXSX.dsl`~~](#%7E%7Epatchesairssdt-pxsxdsl%7E%7E)
    - [~~`patches.air/SSDT-BKEY.dsl`~~](#%7E%7Epatchesairssdt-bkeydsl%7E%7E)
    - [~~`patches.air/SSDT-EC.dsl`~~](#%7E%7Epatchesairssdt-ecdsl%7E%7E)
    - [~~`patches.air/SSDT-ALS0.dsl`~~](#%7E%7Epatchesairssdt-als0dsl%7E%7E)
@@ -108,9 +108,8 @@ patches:
 * `$HACK/air/patches.air` work in progress directory with all required patches for XiaoMi-Air: *DSDT.DSL, SSDT\*.DSL, hotfixes, config.plist*
 * `$HACK/air/patches.air.201808` work in progress with all required patches for XiaoMi-Air (*deprecated* August 2018): *DSDT.DSL, SSDT\*.DSL, hotfixes, config.plist*
 * `$HACK/air/patches.air.2.1.JahStories` directory with all required patches for XiaoMi-Air from [2.1.JahStories repo](https://www.insanelymac.com/forum/files/file/675-xiaomi-notebook-air-13-filespack/) *DSDT.DSL, SSDT\*.DSL *
-* `$HACK/air/patches.air.johnnync13` directory with all required patches for XiaoMi-Air from [johnnync13 repo](https://github.com/johnnync13/Xiaomi-Notebook-Air-1Gen) *DSDT.DSL, SSDT\*.DSL, hotfixes, config.plist*
 * `$HACK/air/patches.pro` directory with all required patches for XiaoMi-Pro from [repository](https://github.com/daliansky/XiaoMi-Pro): *SSDT\*.DSL, hotfixes, config.plist, kexts from XiaMi-Pro repo*
-* `$HACK/air/patches.pro.201808` directory with all required patches for XiaoMi-Pro from [repository](https://github.com/daliansky/XiaoMi-Pro) (*deprecated* August 2018): *SSDT\*.DSL, hotfixes, config.plist from XiaMi-Pro repo from August 2018*
+* ~~`$HACK/air/patches.pro.201808` directory with all required patches for XiaoMi-Pro from [repository](https://github.com/daliansky/XiaoMi-Pro) (*deprecated* August 2018): *SSDT\*.DSL, hotfixes, config.plist from XiaMi-Pro repo from August 2018*~~
 
 `$HACK/air/sources`:
 
@@ -152,8 +151,158 @@ open with MaciASL the `patches.air/DSDT.dsl`. In the preferences use the `ACPI 6
 
 Because we are hotpatching here you should not use the `DSDT.aml` in the clover directory. If you need to use it for debugging purposes then you need to put it in `CLOVER/ACPI/patched` and check the clover setting `config.plist/ACPI/DSDT/Fixes/FixRegions=true)` to fix the *Floating Regions* as described in [Rehabman's guide](https://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/)
 
-## `patches.air/SSDT-DDGPU.dsl` 
+## `patches.air/SSDT-XOSI.dsl`
 [up up up](#)
+
+copy `cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-XOSI.dsl patches.air/SSDT-XOSI.dsl` and edit `patches.air/SSDT-XOSI.dsl`
+
+compare it with the *XiaoMi-Pro*
+
+apply clover renames (OSIN first because there is some type of bug on the DSDT patching when applying only the second one):
+
+* change OSIN to XSIN (SSDT-XOSI.dsl) `T1NJTg==` to `WFNJTg==`
+* change _OSI to XOSI (SSDT-XOSI.dsl) `X09TSQ==` to `WE9TSQ==`
+
+This XOSI simulates "Windows 2015" (which is Windows 10)
+
+## `patches.air/SSDT-RMNE.dsl`
+[up up up](#)
+
+Fake an ethernet card to make the system still allow Mac App Store access, work with NullEthernet.kext.
+
+add `SSDT-RMNE.dsl` from NullEthernet.kext repository or `https://github.com/RehabMan/OS-X-Null-Ethernet/blob/master/SSDT-RMNE.dsl`
+
+> *XiaoMi-Pro* uses DTGP method, I do not think it is required so I sticked to the stock
+
+## `patches.air/SSDT-SMBUS.dsl`
+[up up up](#)
+
+copy `cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-SMBUS.dsl patches.air/SSDT-SMBUS.dsl` and edit `patches.air/SSDT-SMBUS.dsl`
+
+apply clover renames:
+
+* change SAT0 to SATA (SSDT-SMBUS.dsl) `U0FUMA==` to `U0FUQQ==`
+
+> *XiaoMi-Pro* does not use it any more. It is possibly needed
+
+## `patches.air/SSDT-RMCF.dsl`
+[up up up](#)
+
+`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-RMCF.dsl patches.air/SSDT-RMCF.dsl` and edit it using *XiaoMi-Pro* as a reference
+
+## `patches.air/SSDT-PTSWAK.dsl`
+[up up up](#)
+
+> *XiaoMi-Pro* does not use it any more. It is possibly needed
+
+`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-PTSWAK.dsl patches.air/SSDT-PTSWAK.dsl` and compare it with *XiaoMi-Pro*
+
+Overriding _PTS and _WAK. I modified the address of discrete card to fit *Xiaomi-Air*.
+
+apply clover renames:
+
+* change Method(_PTS,1,N) to ZPTS (SSDT-PTSWAK.dsl) `X1BUUwE=` to `WlBUUwE=`
+* change Method(_WAK,1,S) to ZWAK (SSDT-PTSWAK.dsl) `X1dBSwk=` to `WldBSwk=`
+
+## `patches.air/SSDT-GPRW.dsl`
+[up up up](#)
+
+`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-GPRW.dsl patches.air/SSDT-GPRW.dsl` and compare it with *XiaoMi-Pro*
+
+For solving instant wake by hooking GPRW
+
+apply clover renames:
+
+* change Method(GPRW,2,N) to XPRW (SSDT-GPRW.dsl) `R1BSVwI=` to `WFBSVwI=`
+
+## `patches.air/SSDT-RMDT.dsl`
+[up up up](#)
+
+`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-RMDT.dsl patches.air/SSDT-RMDT.dsl`
+
+Facility for writing trace output to system.log, Use in conjunction with ACPIDebug.kext
+
+## `patches.air/SSDT-DMAC.dsl` 
+[up up up](#)
+
+Add missing DMAC Device to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches). Found it in *XiaoMi-Pro* repository.
+
+## `patches.air/SSDT-HPET.dsl` 
+[up up up](#)
+
+Disable HPET device by passing value 0 to HPTE to to behave more like a real Mac. Found it in *XiaoMi-Pro* repository.
+
+> updated 20190801 (based on [daliansky/XiaoMi-Pro-Hackintosh](https://github.com/daliansky/XiaoMi-Pro-Hackintosh) repository)
+
+## `patches.air/SSDT-MEM2.dsl` 
+[up up up](#)
+
+Add missing MEM2 Device to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches). Found it in *XiaoMi-Pro* repository.
+
+> updated 20190801 (based on [daliansky/XiaoMi-Pro-Hackintosh](https://github.com/daliansky/XiaoMi-Pro-Hackintosh) repository)
+
+## `patches.air/SSDT-PMCR.dsl` 
+[up up up](#)
+
+Add missing PMCR Device to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches). (PPMC and PMCR combine together for macOS to load LPCB correctly). Found it in *XiaoMi-Pro* repository.
+
+in the *XiaoMi-Pro* DSDT.dsl there is no PMCR device, but there is one in *Xiaomi-air*
+
+> updated 20190801 (based on [daliansky/XiaoMi-Pro-Hackintosh](https://github.com/daliansky/XiaoMi-Pro-Hackintosh) repository)
+
+## `patches.air/SSDT-LPC.dsl`
+[up up up](#)
+
+`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-LPC.dsl patches.air/SSDT-LPC.dsl`
+
+To fix unsupported 8-series LPC devices. looked in ioreg and look for LPC. mine is 0x9d48 which is included here
+
+*XiaoMi-Pro* is not using it.
+
+## `patches.air/SSDT-BCKS.dsl`
+[up up up](#)
+
+based on [post](https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
+
+apply clover renames:
+
+* change _Q1C to ZQ1C (brightness hotkey) (SSDT-BKEY.dsl) `X1ExQw==` to `WlExQw==`
+* change _Q1D to ZQ1D (brightness hotkey) (SSDT-BKEY.dsl) `X1ExRA==` to `WlExRA==`
+
+# DSDT patching (work in progress patches) :icecream:
+[up up up](#)
+
+## `patches.air/SSDT-SLEEP.dsl` :icecream:
+[up up up](#)
+
+this is from the 2.1, keep it for now do not include it. It may be related to the shutdown fix
+
+There is a discussion on this on [Pike's Universum](https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/)
+
+## `patches.air/SSDT-I2C.dsl` :icecream:
+[up up up](#)
+
+Does it really works?
+
+## `patches.air/SSDT-PNPOC14.dsl` :icecream:
+[up up up](#)
+
+this is probably from *XiaoMi-Pro* repository trying to disable WMI devices perhaps, found a [reference](https://www.tonymacx86.com/threads/guide-using-clover-to-hotpatch-acpi.200137/page-51#post-1834603). Do not use it for now.
+
+# DSDT patching (retired patches)
+[up up up](#)
+
+## ~~`patches.air/SSDT-PNLF.dsl`~~
+[up up up](#)
+
+> updated 20190801 Remove SSDT-PNLF and replace with AddPNLF argument as suggested in [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#adjusting-the-brightness-on-a-laptop)
+
+`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-PNLF.dsl patches.air/SSDT-PNLF.dsl` and compare it with *XiaoMi-Pro*
+
+## ~~`patches.air/SSDT-DDGPU.dsl`~~
+[up up up](#)
+
+> updated 20190801 (Remove `SSDT-DDGPU` because disable-external-gpu does the same thing)
 
 Reference: [[Guide] Disabling discrete graphics in dual-GPU laptops](https://www.tonymacx86.com/threads/guide-disabling-discrete-graphics-in-dual-gpu-laptops.163772/) 
 
@@ -195,148 +344,10 @@ Scope (\_SB.PCI0.RP01.PXSX)
 copy `cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-DDGPU.dsl patches.air/SSDT-DDGPU.dsl` and edit `patches.air/SSDT-DDGPU.dsl`
 
 
-## `patches.air/SSDT-XOSI.dsl`
-[up up up](#)
-
-copy `cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-XOSI.dsl patches.air/SSDT-XOSI.dsl` and edit `patches.air/SSDT-XOSI.dsl`
-
-compare it with the *XiaoMi-Pro*
-
-apply clover renames (OSIN first because there is some type of bug on the DSDT patching when applying only the second one):
-
-* change OSIN to XSIN (SSDT-XOSI.dsl) `T1NJTg==` to `WFNJTg==`
-* change _OSI to XOSI (SSDT-XOSI.dsl) `X09TSQ==` to `WE9TSQ==`
-
-This XOSI simulates "Windows 2015" (which is Windows 10)
-
-## `patches.air/SSDT-RMNE.dsl`
-[up up up](#)
-
-Fake an ethernet card to make the system still allow Mac App Store access, work with NullEthernet.kext.
-
-add `SSDT-RMNE.dsl` from NullEthernet.kext repository or `https://github.com/RehabMan/OS-X-Null-Ethernet/blob/master/SSDT-RMNE.dsl`
-
-> *XiaoMi-Pro* uses DTGP method, I do not think it is required so I sticked to the stock
-
-## `DSL.pro/SSDT-PXSX.dsl` :icecream:
+## ~~`patches.air/SSDT-PXSX.dsl`~~
 [up up up](#)
 
 used *XiaoMi-Pro* used only a subset that I was sure about and used also the DTGP
-
-## `patches.air/SSDT-SMBUS.dsl`
-[up up up](#)
-
-copy `cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-SMBUS.dsl patches.air/SSDT-SMBUS.dsl` and edit `patches.air/SSDT-SMBUS.dsl`
-
-apply clover renames:
-
-* change SAT0 to SATA (SSDT-SMBUS.dsl) `U0FUMA==` to `U0FUQQ==`
-
-> *XiaoMi-Pro* does not use it any more. It is possibly needed
-
-## `patches.air/SSDT-RMCF.dsl`
-[up up up](#)
-
-`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-RMCF.dsl patches.air/SSDT-RMCF.dsl` and edit it using *XiaoMi-Pro* as a reference
-
-## `patches.air/SSDT-PTSWAK.dsl`
-[up up up](#)
-
-`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-PTSWAK.dsl patches.air/SSDT-PTSWAK.dsl` and compare it with *XiaoMi-Pro*
-
-Overriding _PTS and _WAK. I modified the address of discrete card to fit *Xiaomi-Air*.
-
-apply clover renames:
-
-* change Method(_PTS,1,N) to ZPTS (SSDT-PTSWAK.dsl) `X1BUUwE=` to `WlBUUwE=`
-* change Method(_WAK,1,S) to ZWAK (SSDT-PTSWAK.dsl) `X1dBSwk=` to `WldBSwk=`
-
-## `patches.air/SSDT-GPRW.dsl`
-[up up up](#)
-
-`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-GPRW.dsl patches.air/SSDT-GPRW.dsl` and compare it with *XiaoMi-Pro*
-
-For solving instant wake by hooking GPRW
-
-apply clover renames:
-
-* change Method(GPRW,2,N) to XPRW (SSDT-GPRW.dsl) `R1BSVwI=` to `WFBSVwI=`
-
-## `patches.air/SSDT-PNLF.dsl`
-[up up up](#)
-
-`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-PNLF.dsl patches.air/SSDT-PNLF.dsl` and compare it with *XiaoMi-Pro*
-
-## `patches.air/SSDT-RMDT.dsl`
-[up up up](#)
-
-`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-RMDT.dsl patches.air/SSDT-RMDT.dsl`
-
-Facility for writing trace output to system.log, Use in conjunction with ACPIDebug.kext
-
-## `patches.air/SSDT-DMAC.dsl` 
-[up up up](#)
-
-Add missing DMAC Device to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches). Found it in *XiaoMi-Pro* and *johnnync13/Xiaomi-Notebook-Air-6200u* repositories.
-
-## `patches.air/SSDT-HPET.dsl` 
-[up up up](#)
-
-Disable HPET device by passing value 0 to HPTE to to behave more like a real Mac. Found it in *XiaoMi-Pro* and *johnnync13/Xiaomi-Notebook-Air-6200u* repositories.
-
-## `patches.air/SSDT-MEM2.dsl` 
-[up up up](#)
-
-Add missing MEM2 Device to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches). Found it in *XiaoMi-Pro* and *johnnync13/Xiaomi-Notebook-Air-6200u* repositories.
-
-## `patches.air/SSDT-PMCR.dsl` 
-[up up up](#)
-
-Add missing PMCR Device to enhace performance like a real Mac. Inspired by [syscl](https://github.com/syscl/XPS9350-macOS/tree/master/DSDT/patches). (PPMC and PMCR combine together for macOS to load LPCB correctly). Found it in *XiaoMi-Pro* and *johnnync13/Xiaomi-Notebook-Air-6200u* repositories.
-
-in the *XiaoMi-Pro* DSDT.dsl there is no PMCR device, but there is one in *Xiaomi-air*
-
-## `patches.air/SSDT-BCKS.dsl`
-[up up up](#)
-
-based on [post](https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/) used also by johnnync13
-
-apply clover renames:
-
-* change _Q1C to ZQ1C (brightness hotkey) (SSDT-BKEY.dsl) `X1ExQw==` to `WlExQw==`
-* change _Q1D to ZQ1D (brightness hotkey) (SSDT-BKEY.dsl) `X1ExRA==` to `WlExRA==`
-
-## `patches.air/SSDT-LPC.dsl`
-[up up up](#)
-
-`cp $HACK/git/Rehabman.git/OS-X-Clover-Laptop-Config.git/hotpatch/SSDT-LPC.dsl patches.air/SSDT-LPC.dsl`
-
-To fix unsupported 8-series LPC devices. looked in ioreg and look for LPC. mine is 0x9d48 which is included here
-
-*XiaoMi-Pro* is not using it. *johnnync13/Xiaomi-Notebook-Air-6200u* is using it.
-
-# DSDT patching (work in progress patches) :icecream:
-[up up up](#)
-
-## `patches.air/SSDT-SLEEP.dsl` :icecream:
-[up up up](#)
-
-this is from the 2.1, keep it for now do not include it. It may be related to the shutdown fix
-
-There is a discussion on this on [Pike's Universum](https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/)
-
-## `patches.air/SSDT-I2C.dsl` :icecream:
-[up up up](#)
-
-from *johnnync13/Xiaomi-Notebook-Air-6200u*. Does it really works?
-
-## `patches.air.johnnync13/SSDT-PNPOC14.dsl` :icecream:
-[up up up](#)
-
-this is probably from *XiaoMi-Pro* repository trying to disable WMI devices perhaps, found a [reference](https://www.tonymacx86.com/threads/guide-using-clover-to-hotpatch-acpi.200137/page-51#post-1834603). Do not use it for now.
-
-# DSDT patching (retired patches)
-[up up up](#)
 
 ## ~~`patches.air/SSDT-BKEY.dsl`~~
 [up up up](#)
@@ -360,7 +371,6 @@ according to this [article](https://www.tonymacx86.com/threads/guide-usb-power-p
 > article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) Note: If your computer has an ECDT in ACPI, you should not rename anything along the EC path, including the EC itself. Use a "Fake EC" instead as described below. You can check if you have ECDT by extracting ACPI with Clover (F4) and checking for ECDT.aml in EFI/Clover/ACPI/origin.
 
 > Note: You may find you have an EC in your DSDT: Device with "Name (_HID, EisaId ("PNP0C09"))", even if it is not active.
-
 
 ## ~~`patches.air/SSDT-ALS0.dsl`~~
 [up up up](#)
@@ -415,27 +425,25 @@ USBX power injection device is inline with the latest *XiaoMi-Pro* edits based o
 # `Clover installation`
 [up up up](#)
 
-I have read in many places including [here](https://www.tonymacx86.com/threads/guide-hp-elite-8300-hp-6300-pro-using-clover-uefi-hotpatch.265384/) that RehabMan's clover fork is more stable so this is the one we are going to use.
+**we are moving to a newer clover** : ~~I have read in many places including [here](https://www.tonymacx86.com/threads/guide-hp-elite-8300-hp-6300-pro-using-clover-uefi-hotpatch.265384/) that RehabMan's clover fork is more stable so this is the one we are going to use.~~
 
-*Clover for UEFI booting only*, *Install Clover in the ESP*
+*Continue* > *Continue* > *Change Install Location* > *Install macOS Mojave* > *Customize*
 
-*UEFI Drivers* / `drivers64UEFI`:
+*Clover for UEFI booting only*, *Install Clover in the ESP*, *Drivers off*
 
-* `ApfsDriverLoader-64.efi`
-* `AppleImageLoader-64.efi`
-* `AptioMemoryFix-64.efi`
-* `DataHubDxe-64.efi`
-* `FSInject-64.efi`
-* `HFSPlus.efi` *from an external source*
-* `VirtualSmc.efi` *from VirtualSMC (1.0.2)*
+*UEFI Drivers* / *Recommended drivers* :
 
-*FileVault 2 UEFI Drivers* / `drivers64UEFI`:
+* `AudioDxe.efi`
+* `DataHubDxe.efi`
+* `FSInject.efi`
 
-* `AppleKeyFeeder-64.efi`
-* `AppleUISupport-64.efi`
-* `AptioInputFix-64.efi`
+*UEFI Drivers* / *FileVault 2 UEFI Drivers* :
+
+* `AppleKeyFeeder.efi`
 
 *Install Clover Preference Pane*
+
+> make sure that in `EFI/CLOVER/drivers/UEFI` you have only the following files: `AppleKeyFeeder.efi`, `AudioDxe.efi`, `DataHubDxe.efi`, `FSInject.efi`. Erase the rest (Clover installer sometimes installs other dependencies)
 
 # `Clover Config`
 [up up up](#)
@@ -447,7 +455,7 @@ In general I prefer the Clover Configurator although it it not reccomended
 
 * `AutoMerge > YES`
 * `FixHeaders > YES`
-* ~~`FixMCFG > YES`~~ *removed from XiaoMi-Pro* 
+* ~~`FixMCFG > YES`~~ *removed from XiaoMi-Pro and I removed it too* 
 
 * `DSDT > DropOEM_DSM > NO`
 
@@ -455,6 +463,7 @@ In general I prefer the Clover Configurator although it it not reccomended
 * `DSDT > Fixes > AddMCHC > YES`
 * `DSDT > Fixes > FixADP1 > YES`
 * `DSDT > Fixes > FixTMR > YES`
+* `DSDT > Fixes > AddPNLF > YES` *check for backlight absed on whatevergreen FAQ*
 * `DSDT > Fixes > FixRegions > YES` *only when using custom DSDT.aml*
 
 * `DSDT > Patches`
@@ -462,77 +471,164 @@ In general I prefer the Clover Configurator although it it not reccomended
 ```xml
 <key>Patches</key>
 <array>
-<dict>
-    <key>Comment</key> <string>change OSIN to XSIN (SSDT-XOSI.dsl)</string>
-    <key>Find</key> <data>T1NJTg==</data>
-    <key>Replace</key> <data>WFNJTg==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change _OSI to XOSI (SSDT-XOSI.dsl)</string>
-    <key>Find</key> <data>X09TSQ==</data> 
-    <key>Replace</key> <data>WE9TSQ==</data>
-</dict>
-<dict>
-   <key>Comment</key> <string>change EC0 to EC (SSDT-USBX.dsl)</string>
-   <key>Find</key> <data>RUMwXw==</data>
-   <key>Replace</key> <data>RUNfXw==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change _DSM to XDSM</string>
-    <key>Find</key> <data>X0RTTQ==</data> 
-    <key>Replace</key> <data>WERTTQ==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change HDAS to HDEF</string>
-    <key>Find</key> <data>SERBUw==</data>
-    <key>Replace</key> <data>SERFRg==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change HECI to IMEI</string>
-    <key>Find</key> <data>SEVDSQ==</data>
-    <key>Replace</key> <data>SU1FSQ==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change GFX0 to IGPU</string>
-    <key>Find</key> <data>R0ZYMA==</data>
-    <key>Replace</key> <data>SUdQVQ==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change SAT0 to SATA (SSDT-SMBUS.dsl)</string>
-    <key>Find</key> <data>U0FUMA==</data>
-    <key>Replace</key> <data>U0FUQQ==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change Method(_PTS,1,N) to ZPTS (SSDT-PTSWAK.dsl)</string>
-    <key>Find</key> <data>X1BUUwE=</data>
-    <key>Replace</key> <data>WlBUUwE=</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change Method(_WAK,1,S) to ZWAK (SSDT-PTSWAK.dsl)</string>
-    <key>Find</key> <data>X1dBSwk=</data>
-    <key>Replace</key> <data>WldBSwk=</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change Method(GPRW,2,N) to XPRW (SSDT-GPRW.dsl)</string>
-    <key>Find</key> <data>R1BSVwI=</data>
-    <key>Replace</key> <data>WFBSVwI=</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change _Q1C to ZQ1C (brightness hotkey) (SSDT-BKEY.dsl)</string>
-    <key>Find</key> <data>X1ExQw==</data>
-    <key>Replace</key> <data>WlExQw==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change _Q1D to ZQ1D (brightness hotkey) (SSDT-BKEY.dsl)</string>
-    <key>Find</key> <data>X1ExRA==</data>
-    <key>Replace</key> <data>WlExRA==</data>
-</dict>
-<dict>
-    <key>Comment</key> <string>change MATH._STA and LDR2._STA to XSTA</string>
-    <key>Disabled</key><true/>
-    <key>Find</key> <data>X1NUQQCgDZNQ</data>
-    <key>Replace</key> <data>WFNUQQCgDZNQ</data>
-</dict>
+   <dict>
+      <key>Comment</key>
+      <string>change OSIN to XSIN (SSDT-XOSI.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>T1NJTg==</data>
+      <key>Replace</key>
+      <data>WFNJTg==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change _OSI to XOSI (SSDT-XOSI.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>X09TSQ==</data>
+      <key>Replace</key>
+      <data>WE9TSQ==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change EC0 to EC (SSDT-USBX.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>RUMwXw==</data>
+      <key>Replace</key>
+      <data>RUNfXw==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change _DSM to XDSM</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>X0RTTQ==</data>
+      <key>Replace</key>
+      <data>WERTTQ==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>remove ^^^GFX0.GLID (KLID)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>Xl5eR0ZYMC5HTElEIChLTElEKQ==</data>
+      <key>Replace</key>
+      <data>ICAgICAgICAgICAgICAgICAgIA==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change SAT0 to SATA (SSDT-SMBUS.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>U0FUMA==</data>
+      <key>Replace</key>
+      <data>U0FUQQ==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change Method(_PTS,1,N) to ZPTS (SSDT-PTSWAK.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>X1BUUwE=</data>
+      <key>Replace</key>
+      <data>WlBUUwE=</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change Method(_WAK,1,S) to ZWAK (SSDT-PTSWAK.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>X1dBSwk=</data>
+      <key>Replace</key>
+      <data>WldBSwk=</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change Method(GPRW,2,N) to XPRW (SSDT-GPRW.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>R1BSVwI=</data>
+      <key>Replace</key>
+      <data>WFBSVwI=</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change _Q1C to ZQ1C (brightness hotkey) (SSDT-BKEY.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>X1ExQw==</data>
+      <key>Replace</key>
+      <data>WlExQw==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change _Q1D to ZQ1D (brightness hotkey) (SSDT-BKEY.dsl)</string>
+      <key>Disabled</key>
+      <false/>
+      <key>Find</key>
+      <data>X1ExRA==</data>
+      <key>Replace</key>
+      <data>WlExRA==</data>
+   </dict>
+</array>
+```
+
+The following are disabled patches mostly due to the fact that WhetEverGreen does the same functionality:
+
+```xml
+<key>Patches</key>
+<array>
+   <dict>
+      <key>Comment</key>
+      <string>change HDAS to HDEF</string>
+      <key>Disabled</key>
+      <true/>
+      <key>Find</key>
+      <data>SERBUw==</data>
+      <key>Replace</key>
+      <data>SERFRg==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change HECI to IMEI</string>
+      <key>Disabled</key>
+      <true/>
+      <key>Find</key>
+      <data>SEVDSQ==</data>
+      <key>Replace</key>
+      <data>SU1FSQ==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change GFX0 to IGPU</string>
+      <key>Disabled</key>
+      <true/>
+      <key>Find</key>
+      <data>R0ZYMA==</data>
+      <key>Replace</key>
+      <data>SUdQVQ==</data>
+   </dict>
+   <dict>
+      <key>Comment</key>
+      <string>change MATH._STA and LDR2._STA to XSTA</string>
+      <key>Disabled</key>
+      <true/>
+      <key>Find</key>
+      <data>X1NUQQCgDZNQ</data>
+      <key>Replace</key>
+      <data>WFNUQQCgDZNQ</data>
+   </dict>
 </array>
 ```
 
@@ -545,7 +641,7 @@ In general I prefer the Clover Configurator although it it not reccomended
 ## `ACPI`
 [up up up](#)
 
-* `Arguments > dart=0 igfxrst=1 -cdfon -v`
+* `Arguments > darkwake=0 dart=0 gfxrst=1 -cdfon -v`
 * `DefaultVolume > LastBootedVolume`
 * `HibernationFixup > YES`
 * `Legacy > PBR`
@@ -566,43 +662,52 @@ In general I prefer the Clover Configurator although it it not reccomended
 
 * `Audio > Inject > NO`
 
+* `SetIntelBacklight > YES`
+* `SetIntelMaxBacklight > YES`
+
 * `USB > AddClockID > YES`
 * `USB > FixOwnership > YES`
 * `USB > Inject > NO`
+
+All information about the devices has been retrieved from hackingtool. Made some changes on the audio and igpu device
 
 * `$HACK/bin/gfxutil -f HDEF` - `Properties > PciRoot(0x0)/Pci(0x1f,0x3)`
 
 ```xml
 <key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 <dict>
-    <key>AAPL,slot-name</key>
-    <string>PCI-Express</string>
-    <key>hda-gfx</key>
-    <string>onboard-1</string>
-    <key>hda-idle-support</key>
-    <string>1</string>
-    <key>layout-id</key>
-    <integer>99</integer>
-    <key>model</key>
-    <string>Realtek ALC255 Audio Controller</string>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>Audio device</string>
+   <key>hda-gfx</key>
+   <string>onboard-1</string>
+   <key>hda-idle-support</key>
+   <string>1</string>
+   <key>layout-id</key>
+   <integer>99</integer>
+   <key>model</key>
+   <string>Realtek ALC255 Audio Controller</string>
 </dict>
 ```
 
-`layout-id` 30 can be used too.
+~~`layout-id` 30 can be used too.~~ **I have noticed that on layout-id 30 internal microphone and heaphones microphone is too low so I switched back to layout-id 99.**
 
 ```xml
 <key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 <dict>
-    <key>AAPL,slot-name</key>
-    <string>PCI-Express</string>
-    <key>hda-gfx</key>
-    <string>onboard-1</string>
-    <key>hda-idle-support</key>
-    <string>1</string>
-    <key>layout-id</key>
-    <integer>30</integer>
-    <key>model</key>
-    <string>Realtek ALC255 Audio Controller</string>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>Audio device</string>
+   <key>hda-gfx</key>
+   <string>onboard-1</string>
+   <key>hda-idle-support</key>
+   <string>1</string>
+   <key>layout-id</key>
+   <integer>99</integer>
+   <key>model</key>
+   <string>Realtek ALC255 Audio Controller</string>
 </dict>
 ```
 
@@ -611,10 +716,12 @@ In general I prefer the Clover Configurator although it it not reccomended
 ```xml
 <key>PciRoot(0x0)/Pci(0x1f,0x4)</key>
 <dict>
-    <key>AAPL,slot-name</key>
-    <string>PCI-Express</string>
-    <key>model</key>
-    <string>Sunrise Point-LP SMBus</string>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>SMBus</string>
+   <key>model</key>
+   <string>Sunrise Point-LP SMBus</string>
 </dict>
 ```
 
@@ -623,37 +730,12 @@ In general I prefer the Clover Configurator although it it not reccomended
 ```xml
 <key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
 <dict>
-    <key>AAPL,slot-name</key>
-    <string>PCI-Express</string>
-    <key>device_type</key>
-    <string>PCHPMC Controller</string>
-    <key>model</key>
-    <string>Sunrise Point-LP PMC</string>
-</dict>
-```
-
-* unknown copied from PRO
-
-```xml
-<key>PciRoot(0x0)/Pci(0x1c,0x0)</key>
-<dict>
-    <key>reg-ltrovr</key>
-    <data>AAQAAAAAAAA=</data>
-</dict>
-<key>PciRoot(0x0)/Pci(0x1c,0x4)</key>
-<dict>
-    <key>reg-ltrovr</key>
-    <data>AAQAAAAAAAA=</data>
-</dict>
-<key>PciRoot(0x0)/Pci(0x1c,0x7)</key>
-<dict>
-    <key>reg-ltrovr</key>
-    <data>AAQAAAAAAAA=</data>
-</dict>
-<key>PciRoot(0x0)/Pci(0x1c,0x8)</key>
-<dict>
-    <key>reg-ltrovr</key>
-    <data>AAQAAAAAAAA=</data>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>Memory controller</string>
+   <key>model</key>
+   <string>Sunrise Point-LP PMC</string>
 </dict>
 ```
 
@@ -662,39 +744,32 @@ In general I prefer the Clover Configurator although it it not reccomended
 ```xml
 <key>PciRoot(0x0)/Pci(0x16,0x0)</key>
 <dict>
-    <key>AAPL,slot-name</key>
-    <string>PCI-Express</string>
-    <key>device_type</key>
-    <string>IMEI</string>
-    <key>model</key>
-    <string>Sunrise Point-LP CSME HECI #1</string>
-</dict>
-```
-
-* :icecream: these are the I2C controllers but I do not enter them from Pro
-
-```xml
-<key>PciRoot(0x0)/Pci(0x15,0x0)</key>
-<dict>
-    <key>AAPL,slot-name</key>
-    <string>PCI-Express</string>
-    <key>device_type</key>
-    <string>I2C</string>
-    <key>model</key>
-    <string>Sunrise Point-LP Serial IO I2C Controller #0</string>
-</dict>
-<key>PciRoot(0x0)/Pci(0x15,0x1)</key>
-<dict>
-    <key>AAPL,slot-name</key>
-    <string>PCI-Express</string>
-    <key>device_type</key>
-    <string>I2C</string>
-    <key>model</key>
-    <string>Sunrise Point-LP Serial IO I2C Controller #1</string>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>IMEI</string>
+   <key>model</key>
+   <string>Sunrise Point-LP CSME HECI #1</string>
 </dict>
 ```
 
 * `$HACK/bin/gfxutil -f XHC` - `Properties > DevicePath = PciRoot(0x0)/Pci(0x14,0x0)`
+
+used what hackingtool provided the rest is being handled by the USB.kext:
+
+```xml
+<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>USB controller</string>
+   <key>model</key>
+   <string>Sunrise Point-LP USB 3.0 xHCI Controller</string>
+</dict>
+```
+
+this is what I had before
 
 ```xml
 <key>PciRoot(0x0)/Pci(0x14,0x0)</key>
@@ -726,32 +801,159 @@ In general I prefer the Clover Configurator although it it not reccomended
 ```xml
 <key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 <dict>
-    <key>AAPL,ig-platform-id</key>
-    <data>AAAWGQ==</data>
+   <key>AAPL,ig-platform-id</key>
+   <data>AAAWGQ==</data>
+   <key>AAPL,slot-name</key>
+   <string>PCI-Express</string>
+   <key>device-id</key>
+   <data>FhkAAA==</data>
+   <key>disable-external-gpu</key>
+   <data>AQAAAA==</data>
+   <key>framebuffer-con1-enable</key>
+   <data>AQAAAA==</data>
+   <key>framebuffer-con1-type</key>
+   <data>AAgAAA==</data>
+   <key>framebuffer-fbmem</key>
+   <data>AACQAA==</data>
+   <key>framebuffer-patch-enable</key>
+   <data>AQAAAA==</data>
+   <key>framebuffer-pipecount</key>
+   <data>AgAAAA==</data>
+   <key>framebuffer-portcount </key>
+   <data>AgAAAA==</data>
+   <key>framebuffer-stolenmem</key>
+   <data>AAAwAQ==</data>
+   <key>framebuffer-unifiedmem</key>
+   <data>AAAAgA==</data>
+   <key>hda-gfx</key>
+   <string>onboard-1</string>
+</dict>
+```
+
+* edits from hackingtool:
+
+```xml
+<key>PciRoot(0x0)/Pci(0x0,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>Host bridge</string>
+   <key>model</key>
+   <string>Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Host Bridge/DRAM Registers</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x17,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>SATA controller</string>
+   <key>model</key>
+   <string>Sunrise Point-LP SATA Controller [AHCI mode]</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1c,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>PCI bridge</string>
+   <key>model</key>
+   <string>Sunrise Point-LP PCI Express Root Port #1</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1c,0x4)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>PCI bridge</string>
+   <key>model</key>
+   <string>Sunrise Point-LP PCI Express Root Port #5</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1c,0x4)/Pci(0x0,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal@2,0,0</string>
+   <key>device_type</key>
+   <string>Network controller</string>
+   <key>model</key>
+   <string>Wireless 8260</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1d,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>PCI bridge</string>
+   <key>model</key>
+   <string>Sunrise Point-LP PCI Express Root Port #9</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1d,0x0)/Pci(0x0,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal@3,0,0</string>
+   <key>device_type</key>
+   <string>Non-Volatile memory controller</string>
+   <key>model</key>
+   <string>NVMe SSD Controller SM951/PM951</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
+<dict>
+   <key>AAPL,slot-name</key>
+   <string>Internal</string>
+   <key>device_type</key>
+   <string>ISA bridge</string>
+   <key>model</key>
+   <string>Wildcat Point-LP LPC Controller</string>
+</dict>
+```
+
+* ~~unknown copied from PRO retired~~
+
+```xml
+<key>PciRoot(0x0)/Pci(0x1c,0x0)</key>
+<dict>
+    <key>reg-ltrovr</key>
+    <data>AAQAAAAAAAA=</data>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1c,0x4)</key>
+<dict>
+    <key>reg-ltrovr</key>
+    <data>AAQAAAAAAAA=</data>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1c,0x7)</key>
+<dict>
+    <key>reg-ltrovr</key>
+    <data>AAQAAAAAAAA=</data>
+</dict>
+<key>PciRoot(0x0)/Pci(0x1c,0x8)</key>
+<dict>
+    <key>reg-ltrovr</key>
+    <data>AAQAAAAAAAA=</data>
+</dict>
+```
+
+* ~~these are the I2C controllers but I do not enter them from Pro retired~~
+
+these are not revelant since the new driver supports multitouch
+
+```xml
+<key>PciRoot(0x0)/Pci(0x15,0x0)</key>
+<dict>
     <key>AAPL,slot-name</key>
     <string>PCI-Express</string>
-    <key>device-id</key>
-    <data>FhkAAA==</data>
-    <key>disable-external-gpu</key>
-    <data>AQAAAA==</data>
-    <key>framebuffer-con1-enable</key>
-    <data>AQAAAA==</data>
-    <key>framebuffer-con1-type</key>
-    <data>AAgAAA==</data>
-    <key>framebuffer-fbmem</key>
-    <data>AACQAA==</data>
-    <key>framebuffer-patch-enable</key>
-    <data>AQAAAA==</data>
-    <key>framebuffer-pipecount</key>
-    <data>AgAAAA==</data>
-    <key>framebuffer-portcount </key>
-    <data>AgAAAA==</data>
-    <key>framebuffer-stolenmem</key>
-    <data>AAAwAQ==</data>
-    <key>framebuffer-unifiedmem</key>
-    <data>AAAAgA==</data>
-    <key>hda-gfx</key>
-    <string>onboard-1</string>
+    <key>device_type</key>
+    <string>I2C</string>
+    <key>model</key>
+    <string>Sunrise Point-LP Serial IO I2C Controller #0</string>
+</dict>
+<key>PciRoot(0x0)/Pci(0x15,0x1)</key>
+<dict>
+    <key>AAPL,slot-name</key>
+    <string>PCI-Express</string>
+    <key>device_type</key>
+    <string>I2C</string>
+    <key>model</key>
+    <string>Sunrise Point-LP Serial IO I2C Controller #1</string>
 </dict>
 ```
 
@@ -959,18 +1161,18 @@ If placed kexts on `EFI/CLOVER/kexts/Other` then:
 
 used 
 
-* `Clover_v2.4k_r4701.RM-4963.ca6cca7c.zip` - `Rehabman's Fork`
-* `as.vit9696.VirtualSMC (1.0.2)`  - `VirtualSMC.1.0.2.RELEASE.zip` **use only main kext**
-* `org.rehabman.driver.AppleSmartBatteryManager (1.90.1)` - `RehabMan-Battery-2018-1005.zip`
-* `org.rehabman.driver.NullEthernet (1.0.6)` - `RehabMan-NullEthernet-2016-1220.zip`
-* `org.rehabman.voodoo.driver.PS2Controller (1.9.2)` - `RehabMan-Voodoo-2018-1008.zip`
+* `Clover_v2.5k_r5033.zip` - `From Official Site`
+* `as.vit9696.VirtualSMC (1.0.6)`  - `VirtualSMC.1.0.6.RELEASE.zip` **used VirtualSMC.kext and SMCBatteryManager.kext**
 * `com.rehabman.driver.ACPIDebug (0.1.4)` - `RehabMan-Debug-2015-1230.zip`
-* `as.vit9696.Lilu (1.3.1)` - `Lilu.1.3.1.RELEASE.zip`
-* `as.vit9696.WhateverGreen (1.2.6)` - `WhateverGreen.1.2.6.RELEASE.zip`
-* `as.lvs1974.HibernationFixup (1.2.4)` - `HibernationFixup.1.2.4.RELEASE.zip`
-* `as.vit9696.AppleALC (1.3.4)` - `AppleALC.1.3.4.RELEASE.zip`
+* `as.vit9696.Lilu (1.3.7)` - `Lilu.1.3.7.RELEASE.zip`
+* `as.vit9696.WhateverGreen (1.3.0)` - `WhateverGreen.1.3.0.RELEASE.zip`
+* `as.lvs1974.HibernationFixup (1.2.6)` - `HibernationFixup.1.2.6.RELEASE.zip`
+* `as.vit9696.AppleALC (1.3.9)` - `AppleALC.1.3.9.RELEASE.zip`
 * `org.tw.CodecCommander (2.7.1)` - `RehabMan-CodecCommander-2018-1003.zip`
-* `org.vanilla.driver.CPUFriend (1.1.5)` - `CPUFriend.1.1.5.RELEASE.zip`
+* ~~`org.rehabman.driver.AppleSmartBatteryManager (1.90.1)` - `RehabMan-Battery-2018-1005.zip`~~ updated 20190801 [VirtualSMC+SMCBatteryManager is recommended](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/pull/204)
+* `org.rehabman.driver.NullEthernet (1.0.6)` - `RehabMan-NullEthernet-2016-1220.zip`
+* `VoodooPS2Controller.kext.2.0.1.1.zip` - `VoodooPS2Controller.kext.2.0.1.1.zip`
+* `org.vanilla.driver.CPUFriend (1.1.8)` - `CPUFriend.1.1.8.RELEASE.zip`
 * `CPUFriendDataProvider.kext` *based on `MiNote13-FrequenciesInjector-MPB13.1-I56200U.kext` from 2.1.JahStories`
 * `AppleIntelInfo.kext` - [Replacement for AppleIntelCPUPowerManagementInfo.kext](https://github.com/Piker-Alpha/AppleIntelInfo)
 * `SATA-unsupported.kext` *from [RehabMan/hack-tools](https://github.com/RehabMan/hack-tools/tree/master/kexts)*
@@ -978,7 +1180,6 @@ used
 * `LiluFriend.kext` - `LiluFriend.1.1.0.RELEASE.zip`
 * ~~`org.netkas.driver.FakeSMC (1800)` - `RehabMan-FakeSMC-2018-0905.zip`~~
 * ~~`com.rehabman.driver.USBInjectAll (0.7.1)` - `RehabMan-USBInjectAll-2018-1108.zip`~~
-* ~~`Clover 2.4k 4813` - `Clover_v2.4k_r4813.zip`~~
 
 not used
 
@@ -1174,7 +1375,7 @@ If Selective self-test is pending on power-up, resume after 0 minute delay.
 # Known Issues / Work in Progress
 [up up up](#)
 
-* include more devices in `SSDT-PXSX.dsl`
+* ~~ include more devices in `SSDT-PXSX.dsl` ~~
 * Make sure that the Properties injection is working right. It may be related with the USB related warning I see in the beggining.
 * I2C devices not shown in IOREG as shown in [voodooi2c](https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning)
 * VoodooI2C is not working for Multitouch Gestures
