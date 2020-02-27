@@ -44,3 +44,30 @@
     - update `SSDT-HPET.dsl` based on [daliansky/XiaoMi-Pro-Hackintosh](https://github.com/daliansky/XiaoMi-Pro-Hackintosh)
     - update `SSDT-MEM2.dsl` based on [daliansky/XiaoMi-Pro-Hackintosh](https://github.com/daliansky/XiaoMi-Pro-Hackintosh)
     - update `SSDT-PMCR.dsl` based on [daliansky/XiaoMi-Pro-Hackintosh](https://github.com/daliansky/XiaoMi-Pro-Hackintosh)
+
+- 26-02-2020
+
+    - updated for `10.15.3`
+    - upgrade clover to `Clover_v2.5k_r5099`
+    - `EFI/CLOVER/drivers/UEFI/ApfsDriverLoader.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/AudioDxe.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/EmuVariableUefi.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/FwRuntimeServices.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/HFSPlus.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/OcQuirks.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/OcQuirks.plist` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/UsbKbDxe.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/UsbMouseDxe.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/VirtualSmc.efi` from [z390 guide](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300)
+    - `EFI/CLOVER/drivers/UEFI/AppleGenericInput.efi` FileVault support from [The Vanilla Laptop Guide](https://fewtarius.gitbook.io/laptopguide/extras/enabling-filevault) from acidanthera/AppleSupportPkg AppleSupport-v2.0.9-RELEASE.zip
+    - `EFI/CLOVER/drivers/UEFI/AppleUiSupport.efi` FileVault support from [The Vanilla Laptop Guide](https://fewtarius.gitbook.io/laptopguide/extras/enabling-filevault) from acidanthera/AppleSupportPkg AppleSupport-v2.0.8-RELEASE.zip
+    - upgrade to `Lilu.1.4.1.RELEASE.zip`
+    - upgrade to `AppleALC.1.4.6.RELEASE.zip`
+    - upgrade to `CPUFriend.1.2.1.RELEASE.zip`
+    - upgrade to `HibernationFixup.1.3.2.RELEASE.zip`
+    - upgrade to `VirtualSMC.1.0.9.RELEASE.zip`
+    - upgrade to `WhateverGreen.1.3.6.RELEASE.zip`
+    - upgrade to `acidanthera/VoodooPS2 (VoodooPS2Controller-2.1.1)`
+    - upgrade to `acidanthera/VoodooPS2 (VoodooInput-1.0.2)`
+    - bluetooth injection `IntelBluetooth.1.0.2.zip`
+    - added small guide on readme for upgrading from `10.14.6` to `10.15.3`

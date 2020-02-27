@@ -1,4 +1,4 @@
-# Hackintosh Xiaomi Mi Air 13.3 Skylake-U 2016 for macOS Mojave & High Sierra
+# Hackintosh Xiaomi Mi Air 13.3 Skylake-U 2016 for macOS Catalina & Mojave & High Sierra
 
 Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a fully functional hackintosh for the Xiaomi Mi Notebook Air 13.3'' i5-6200U (Skylake-U 2016).
 
@@ -7,8 +7,8 @@ Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a ful
 
 * This guide is for the **XiaoMi Air 13.3 Skylake-U 2016**. It will probably work on the **XiaoMi Air 13.3 Kaby Lake-R 2018** models with minor modifications.
 * All files used and detailed readmes are located in github [sakoula/XiaoMi-Air-6200U](https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/Changelog.md)
-* The guide will work for either **BIOS A05** or **BIOS A06**
-* Following this guide you can run **High Sierra 10.13.6** or any version of **Mojave 10.14.x up to 10.14.6** 
+* The guide will work for either **BIOS A05** or **BIOS A06**. Bios A09 has **NOT** been tested
+* Following this guide you can run **High Sierra 10.13.6** or any version of **Mojave 10.14.x up to 10.14.6**, or any version of **Catalina 10.5.x up to 10.15.3**
 * macOS has been installed on a different disk on the second M.2 port of the laptop. I have no experience of having both Windows and macOS on a single disk. In order to boot to macOS you use `F12` upon power on and select the boot device.
 * In order to be able to help you please provide full debug information useing the excellent [black-dragon74/OSX-Debug
 ](https://github.com/black-dragon74/OSX-Debug) tool.
@@ -17,7 +17,7 @@ Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a ful
 Please note that this guide will be not possible without all the excellent resources:
 
 * [[Guide] XiaoMi Mi Notebook Air 13"](https://www.insanelymac.com/forum/topic/319656-guide-xiaomi-mi-notebook-air-13/) by *JahStories*
-* [XiaoMi NoteBook Pro for macOS Mojave & High Sierra & Sierra ](https://github.com/daliansky/XiaoMi-Pro) by *[daliansky](https://github.com/daliansky)* and *[stevezhengshiqi](https://github.com/stevezhengshiqi)*
+* [macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018](https://github.com/daliansky/XiaoMi-Pro) by *[daliansky](https://github.com/daliansky)* and *[stevezhengshiqi](https://github.com/stevezhengshiqi)*
 * All the **super amazing guides** from [RehabMan](https://www.tonymacx86.com/members/rehabman.429483/)
 
 ---
@@ -29,14 +29,15 @@ Please note that this guide will be not possible without all the excellent resou
 
 - [Known Issues / Work in Progress](#known-issues--work-in-progress)
 - [Hardware Specifications](#hardware-specifications)
+- [Upgrade Guide Mojave \(10.14.6\) to Catalina \(10.15.3\)](#upgrade-guide-mojave-10146-to-catalina-10153)
 - [Installation Guide](#installation-guide)
 	- [Installation SSD](#installation-ssd)
 	- [Disable Secure Boot](#disable-secure-boot)
 	- [Preparing USB Flash Drive](#preparing-usb-flash-drive)
-	- [Install mojave installer to the USB Flash Drive](#install-mojave-installer-to-the-usb-flash-drive)
+	- [Install Cataline installer to the USB Flash Drive](#install-cataline-installer-to-the-usb-flash-drive)
 	- [Install `Clover` to the USB Flash Drive](#install-clover-to-the-usb-flash-drive)
 	- [Customize Clover on the USB Flash Drive](#customize-clover-on-the-usb-flash-drive)
-	- [Install Mojave](#install-mojave)
+	- [Install Catalina](#install-catalina)
 	- [Install `Clover` on the macOS disk](#install-clover-on-the-macos-disk)
 	- [Customize Clover on the macOS disk](#customize-clover-on-the-macos-disk)
 	- [Move kexts to `/Library/Extensions`](#move-kexts-to-libraryextensions)
@@ -82,7 +83,7 @@ Please note that this guide will be not possible without all the excellent resou
 * Internal Wifi is not working *see Wi-Fi section for alternatives*
 * improve bettery life using a `CPUFriendDataProvider.kext` and `CPUTune.kext`
 * When sleeping by closing LID on wake loosing USB
-* Bluetooth works if using a VM to inject the FW
+* ~~Bluetooth works if using a VM to inject the FW~~ (February 2020 For Catalina [IntelBluetooth.1.0.2](https://github.com/zxystd/IntelBluetoothFirmware/releases/download/1.0.2/IntelBluetooth.zip) is used)
 
 If you face another problem please open a issue.
 
@@ -103,6 +104,53 @@ If you face another problem please open a issue.
 * Bluetooth: Bluetooth 4.1 wireless technology
 * Connectivity: USB Type-C charging port, 2× USB 3.0, 1× HDMI, 3,5 mm audio jack
 
+## Upgrade Guide Mojave (10.14.6) to Catalina (10.15.3)
+[up up up](#)
+
+* Step 1: Delete all hackintosh related kexts from `/Library/Extensions`:
+
+```
+sudo su -
+cd /Library/Extensions
+rm -rf AppleALC.kext 
+rm -rf CPUFriend.kext 
+rm -rf CPUFriendDataProvider.kext 
+rm -rf CodecCommander.kext 
+rm -rf HibernationFixup.kext 
+rm -rf Lilu.kext 
+rm -rf LiluFriendLite.kext 
+rm -rf NullEthernet.kext 
+rm -rf SATA-unsupported.kext 
+rm -rf SMCBatteryManager.kext 
+rm -rf USBPorts.kext 
+rm -rf VirtualSMC.kext 
+rm -rf VoodooPS2Controller.kext 
+rm -rf WhateverGreen.kext
+kextcache -i /
+```
+
+* Step 2: mount the hard disk EFI partition and delete everything but your smbios settings from **config.plist**
+
+```
+# somehow mount the EFI e.g. with clover configurator e.g. mounted at /Volumes/EFI
+cd /Volumes/EFI/EFI/CLOVER
+cp config.plist ~/config.plist
+cd /Volumes/EFI/
+rm -r EFI*
+```
+
+* Step 3: install clover to the disk
+
+follow `Install Clover on the macOS disk` and `Customize Clover on the macOS disk` from this guide. 
+
+**Important** copy your SMBIOS settings from your `~/config.plist` to the installed `/Volumes/ESP/EFI/CLOVER/config.plist`
+
+* Step 4: upgrade
+
+Do the upgrade from the `System Preferences > Software Update`
+
+Once you get on the 10.15.3 you should not do any further steps.
+
 ## Installation Guide
 [up up up](#)
 
@@ -116,8 +164,18 @@ Start by downloading the latest version the customization files from the [releas
 
 * `AIR_EFI/`: efi directory including all kexts and customization needed
 * `addons/LiluFriendLite.kext`: `LiluFriendLite.kext` used in the installation
+* `addons/ApfsDriverLoader.efi`: `ApfsDriverLoader.efi` used in the installation
+* `addons/AudioDxe.efi`: `AudioDxe.efi` used in the installation
+* `addons/EmuVariableUefi.efi`: `EmuVariableUefi.efi` Emulated NVRAM
+* `addons/FwRuntimeServices.efi`: `FwRuntimeServices.efi` required from OcQuirks*
 * `addons/HFSPlus.efi`: `HFSPlus.efi` used in the installation
+* `addons/OcQuirks.efi`: `OcQuirks.efi` instead of OsxAptio*
+* `addons/OcQuirks.plist`: `OcQuirks.plist` instead of OsxAptio*
+* `addons/UsbKbDxe.efi`: `UsbKbDxe.efi` used in the installation
+* `addons/UsbMouseDxe.efi`: `UsbMouseDxe.efi` used in the installation
 * `addons/VirtualSmc.efi`: `VirtualSmc.efi` used in the installation
+* `addons/AppleGenericInput.efi`: `AppleGenericInput.efi` FileVault
+* `addons/AppleUiSupport.efi`: `AppleUiSupport.efi` FileVault
 
 ### Installation SSD
 [up up up](#)
@@ -142,55 +200,45 @@ You do not have to change anything else from the defaults
 * Name: USB
 * Format: MacOS Extended (Journaled)
 
-### Install mojave installer to the USB Flash Drive
+### Install Cataline installer to the USB Flash Drive
 [up up up](#)
 
-Download mojave from Apple AppStore and run the following command to install it on the USB disk you just Erased.
+Download Cataline from Apple AppStore and run the following command to install it on the USB disk you just Erased.
 
-`$ sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/USB`
+`$ sudo /Applications/Install macOS Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/USB`
 
 ### Install `Clover` to the USB Flash Drive
 [up up up](#)
 
-Go with the stock clover and run `Clover_v2.5k_r5018` installer:
+Go with the stock clover and run `Clover_v2.5k_r5099` installer:
 
-*Continue* > *Continue* > *Change Install Location* > *Install macOS Mojave* > *Customize*
+*Continue* > *Continue* > *Change Install Location* > *Install macOS Catalina* > *Customize*
 
-*Clover for UEFI booting only*, *Install Clover in the ESP*, *Drivers off*
-
-*UEFI Drivers* / *Recommended drivers* :
-
-* `AudioDxe.efi`
-* `DataHubDxe.efi`
-* `FSInject.efi`
-
-*UEFI Drivers* / *FileVault 2 UEFI Drivers* :
-
-* `AppleKeyFeeder.efi`
+*Clover for UEFI booting only*, *Install Clover in the ESP*
 
 ### Customize Clover on the USB Flash Drive
 [up up up](#)
 
 Download the latest [release](https://github.com/sakoula/XiaoMi-Air-6200U/releases) from github and unzip the archive. You will find an `AIR_EFI` directory and a `addons` directory. Mount the USB Flash Drive's `EFI` partition on `/Volumes/EFI`:
 
-1. make sure that in `EFI/CLOVER/drivers/UEFI` you have only the following files: `AppleKeyFeeder.efi`, `AudioDxe.efi`, `DataHubDxe.efi`, `FSInject.efi`. Erase the rest (Clover installer sometimes installs other dependencies)
+1. create `EFI/CLOVER/drivers/UEFI` or erase everything in `EFI/CLOVER/drivers/UEFI` if it exists
 
 2. copy `AIR_EFI/CLOVER/kexts/Other` from the downloaded file to USB's EFI to `EFI/CLOVER/kexts/Other`
 
-3. copy `addons/HFSPlus.efi`, `addons/VirtualSmc.efi`, `addons/ApfsDriverLoader.efi`, `addons/AppleUiSupport.efi`, `addons/AptioInputFix.efi`, `addons/AptioMemoryFix.efi` from the downloaded file to USB's EFI to `EFI/CLOVER/drivers/UEFI/`
+3. copy `addons/*.efi` and `addons/*.plist` from the downloaded file to USB's EFI to `EFI/CLOVER/drivers/UEFI/`
 
 4. copy `AIR_EFI/CLOVER/ACPI/PATCHED/*` from the downloaded file to USB's EFI to `EFI/CLOVER/ACPI/PATCHED/*`
 
 5. copy `AIR_EFI/CLOVER/config.plist` from the downloaded file to USB's EFI to `EFI/CLOVER/config.plist`
 
-### Install Mojave
+### Install Catalina
 [up up up](#)
 
 To boot from the USB Flash Drive you can just hit `F12` and you will get the UEFI boot loader
 
-Boot from the USB and install Mojave on the hard disk. 
+Boot from the USB and install Catalina on the hard disk. 
 
-If your Xiaomi-Air already runs High Sierra 10.13.6 you can upgrade directly to Mojave using the installer from the AppleStore (no need of a USB Flash Drive).
+If your Xiaomi-Air already runs High Sierra 10.14.6 you can upgrade directly to Catalina using the installer from the AppleStore (no need of a USB Flash Drive).
 
 > **Important**: During installation you will ask to reboot the machine. While on clover make sure to boot from `Boot macOS install from *** disk` disk. If you do not see this disk hit `F3` to show all the hidden disks. You may need to reboot multiple times.
 
@@ -199,21 +247,13 @@ If your Xiaomi-Air already runs High Sierra 10.13.6 you can upgrade directly to 
 
 Once the installation is over you will need to install `Clover` bootloader on the hard disk that you have installed macOS in order to be able to boot without the USB Flash Drive.
 
-Run again the `Clover_v2.5k_r5018` installer:
+Run again the `Clover_v2.5k_r5099` installer:
 
 *Continue* > *Continue* > *Change Install Location* > *macOS location* > *Customize*
 
-*Clover for UEFI booting only*, *Install Clover in the ESP*, *Drivers off*
+*Clover for UEFI booting only*, *Install Clover in the ESP*
 
-*UEFI Drivers* / *Recommended drivers* :
-
-* `AudioDxe.efi`
-* `DataHubDxe.efi`
-* `FSInject.efi`
-
-*UEFI Drivers* / *FileVault 2 UEFI Drivers* :
-
-* `AppleKeyFeeder.efi`
+*Install RC scripts on target volume*
 
 *Install Clover Preference Pane*
 
@@ -222,20 +262,24 @@ Run again the `Clover_v2.5k_r5018` installer:
 
 Download the latest [release](https://github.com/sakoula/XiaoMi-Air-6200U/releases) from github and unzip the archive. You will find an `AIR_EFI` directory and a `addons` directory. 
 
+> **Important**: Before installing clover on disk make sure that you do `sudo mount -uw /` from the terminal. And ignore any message from clover saying that it is incompatible with your operating system
+
 Mount the EFI partition of the macOS boot parition on `/Volumes/EFI`:
 
-1. make sure that in `EFI/CLOVER/drivers/UEFI` you have only the following files: `AppleKeyFeeder.efi`, `AudioDxe.efi`, `DataHubDxe.efi`, `FSInject.efi`. Erase the rest (Clover installer sometimes installs other dependencies)
+1. create `EFI/CLOVER/drivers/UEFI` or erase everything in `EFI/CLOVER/drivers/UEFI` if it exists
 
-2. copy `AIR_EFI/CLOVER/kexts/Other` from the downloaded file to macOS location `EFI/CLOVER/kexts/Other`
+2. copy `AIR_EFI/CLOVER/kexts/Other` from the downloaded file to USB's EFI to `EFI/CLOVER/kexts/Other`
 
-3. copy `addons/HFSPlus.efi`, `addons/VirtualSmc.efi`, `addons/ApfsDriverLoader.efi`, `addons/AppleUiSupport.efi`, `addons/AptioInputFix.efi`, `addons/AptioMemoryFix.efi` from the downloaded file to macOS location `EFI/CLOVER/drivers/UEFI/`
+3. copy `addons/*.efi` and `addons/*.plist` from the downloaded file to USB's EFI to `EFI/CLOVER/drivers/UEFI/`
 
-4. copy `AIR_EFI/CLOVER/ACPI/PATCHED/*` from the downloaded file to macOS location `EFI/CLOVER/ACPI/PATCHED/*`
+4. copy `AIR_EFI/CLOVER/ACPI/PATCHED/*` from the downloaded file to USB's EFI to `EFI/CLOVER/ACPI/PATCHED/*`
 
-5. copy `AIR_EFI/CLOVER/config.plist` from the downloaded file to macOS location `EFI/CLOVER/config.plist`
+5. copy `AIR_EFI/CLOVER/config.plist` from the downloaded file to USB's EFI to `EFI/CLOVER/config.plist`
 
 ### Move kexts to `/Library/Extensions`
 [up up up](#)
+
+**February 2020** Starting with Catalina I do not do this step!
 
 The right way to load kexts is **not** by injecting them through clover but installing them in `/Library/Extensions` and building them into the kernel cache. 
 
@@ -265,29 +309,19 @@ Get a small (2GB will work just fine) USB Flash Drive and:
 * Name: CLOVER
 * Format: MS-DOS-FAT
 
-Run the `Clover_v2.5k_r5018` installer:
+Run the `Clover_v2.5k_r5099` installer:
 
 *Continue* > *Continue* > *Change Install Location* > *USB Flash Drive* > *Customize*
 
-*Clover for UEFI booting only*, *Install Clover in the ESP*, *Drivers off*
-
-*UEFI Drivers* / *Recommended drivers* :
-
-* `AudioDxe.efi`
-* `DataHubDxe.efi`
-* `FSInject.efi`
-
-*UEFI Drivers* / *FileVault 2 UEFI Drivers* :
-
-* `AppleKeyFeeder.efi`
+*Clover for UEFI booting only*, *Install Clover in the ESP*
 
 Download the latest [release](https://github.com/sakoula/XiaoMi-Air-6200U/releases) from github and unzip the archive. You will find an `AIR_EFI` directory and a `addons` directory. Mount the USB Flash Drive's `EFI` partition on `/Volumes/EFI`:
 
-1. make sure that in `EFI/CLOVER/drivers/UEFI` you have only the following files: `AppleKeyFeeder.efi`, `AudioDxe.efi`, `DataHubDxe.efi`, `FSInject.efi`. Erase the rest (Clover installer sometimes installs other dependencies)
+1. create `EFI/CLOVER/drivers/UEFI` or erase everything in `EFI/CLOVER/drivers/UEFI` if it exists
 
 2. copy `AIR_EFI/CLOVER/kexts/Other` from the downloaded file to USB's EFI to `EFI/CLOVER/kexts/Other`
 
-3. copy `addons/HFSPlus.efi`, `addons/VirtualSmc.efi`, `addons/ApfsDriverLoader.efi`, `addons/AppleUiSupport.efi`, `addons/AptioInputFix.efi`, `addons/AptioMemoryFix.efi` from the downloaded file to USB's EFI to `EFI/CLOVER/drivers/UEFI/`
+3. copy `addons/*.efi` and `addons/*.plist` from the downloaded file to USB's EFI to `EFI/CLOVER/drivers/UEFI/`
 
 4. copy `AIR_EFI/CLOVER/ACPI/PATCHED/*` from the downloaded file to USB's EFI to `EFI/CLOVER/ACPI/PATCHED/*`
 
@@ -354,6 +388,8 @@ kext patches in `/CLOVER/kexts/Other` applied:
 * ~~`ACPIBatteryManager.kext` Advanced Configuration and Power Interface (ACPI) based battery manager kernel extension~~ updated 20190801 [VirtualSMC+SMCBatteryManager is recommended](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/pull/204)
 * `VirtualSMC.kext` SMC emulator layer
 * `SMCBatteryManager.kext` SMC emulator layer use this instead of ACPIBatteryManager.kext
+* `SMCProcessor.kext` Virtual SMC plugin
+* `SMCSuperIO.kext` Virtual SMC plugin
 * `SATA-unsupported.kext` SATA unsupported
 
 ACPI patches in `/CLOVER/ACPI/patched` applied:
@@ -376,7 +412,6 @@ ACPI patches in `/CLOVER/ACPI/patched` applied:
 
 * Sound card is `Realtek ALC255` which is drived by `AppleALC` on layout-id ~~30 or~~ 99. I have noticed that on layout-id 30 internal microphone and heaphones microphone is too low so I switched back to layout-id 99.
 
-
 kext patches in `/CLOVER/kexts/Other` applied:
 
 * `AppleALC.kext` Native macOS HD audio for not officially supported codecs
@@ -391,7 +426,10 @@ kext patches in `/CLOVER/kexts/Other` applied:
 
 The card in the laptop is `Intel® Dual Band Wireless-AC 8260`
 
-* Bluetooth works if using a VM to inject the FW
+* Bluetooth works if using a VM to inject the FW or use injectors
+
+* `IntelBluetoothFirmware.kext` 
+* `IntelBluetoothInjector.kext` 
 
 ### Ethernet
 [up up up](#)
@@ -422,6 +460,7 @@ ACPI patches in `/CLOVER/ACPI/patched` applied:
 kext patches in `/CLOVER/kexts/Other` applied:
 
 * `VoodooPS2Controller.kext` RehabMan and now Acidanthera work on keyboard
+* `VoodooInput.kext` VoodooPS2Controller is now two kexts
 
 ### Touchpad
 [up up up](#)
@@ -429,6 +468,7 @@ kext patches in `/CLOVER/kexts/Other` applied:
 kext patches in `/CLOVER/kexts/Other` applied:
 
 * `VoodooPS2Controller.kext` RehabMan and now Acidanthera work on keyboard
+* `VoodooInput.kext` VoodooPS2Controller is now two kexts
 
 ### USB
 [up up up](#)

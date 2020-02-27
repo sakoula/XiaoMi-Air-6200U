@@ -6,6 +6,7 @@
 
 - [hardware specs](#hardware-specs)
 - [directory structure](#directory-structure)
+- [A09 Bios Update I5 6200U](#a09-bios-update-i5-6200u)
 - [A06 Bios Update I5 6200U August 27th 2017](#a06-bios-update-i5-6200u-august-27th-2017)
 - [DSDT patching \(active patches\)](#dsdt-patching-active-patches)
    - [`DSDT.dsl`](#dsdtdsl)
@@ -38,7 +39,7 @@
    - [~~`patches.air/SSDT-XHC.dsl`~~](#%7E%7Epatchesairssdt-xhcdsl%7E%7E)
    - [~~`patches.air/SSDT-UIAC.dsl`~~](#%7E%7Epatchesairssdt-uiacdsl%7E%7E)
    - [~~`patches.air/SSDT-USBX.dsl`~~](#%7E%7Epatchesairssdt-usbxdsl%7E%7E)
-- [`Clover installation`](#clover-installation)
+- [`Clover selection and installation`](#clover-selection-and-installation)
 - [`Clover Config`](#clover-config)
    - [`ACPI`](#acpi)
    - [`ACPI`](#acpi-1)
@@ -122,9 +123,17 @@ patches:
 * `$HACK/air/sources/JahStories.XiaoMi.Notebook.Air.13.(2.1).zip` *all files from [insanelymac post version 2.1](https://www.insanelymac.com/forum/files/file/675-xiaomi-notebook-air-13-filespack/)*
 * `$HACK/air/sources/Mi Notebook Air 13 (2016) A06 Bios update i5 6200U August 27th 2017.rar` *Bios A06*
 * `$HACK/air/sources/TouchPad_Synaptics_v19.2.17.14.zip`  *Windows synaptics driver*
+* `$HACK/air/sources/OcQuirks Rev 15 - Designare Z390.zip` *Provider for CLOVER/drivers/UEFI*
+* `$HACK/air/sources/Catalina Fresh Install.zip` *Provider for CLOVER/drivers/UEFI*
+* `$HACK/air/sources/AppleSupport-2.0.9-RELEASE.zip` *Provider for CLOVER/drivers/UEFI FileVault*
 * `$HACK/air/sources/windows.systeminfo` *systeminfo from windows*
 * `$HACK/air/sources/kexts` *updated list with source kexts used*
 * `$HACK/air/release` *the latest released files*
+
+# A09 Bios Update I5 6200U
+[up up up](#)
+
+**February 2020**: This is work in progress and most likely will not upgrade unless required
 
 # A06 Bios Update I5 6200U August 27th 2017
 [up up up](#)
@@ -422,28 +431,569 @@ This has the `USBX` device for the power injection according to the [article](ht
 
 USBX power injection device is inline with the latest *XiaoMi-Pro* edits based on the [rehadbman's recomendations](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/)
 
-# `Clover installation`
+# `Clover selection and installation`
 [up up up](#)
 
-**we are moving to a newer clover** : ~~I have read in many places including [here](https://www.tonymacx86.com/threads/guide-hp-elite-8300-hp-6300-pro-using-clover-uefi-hotpatch.265384/) that RehabMan's clover fork is more stable so this is the one we are going to use.~~
+**February 2020**: Currently using `Clover_v2.5k_r5099.pkg`. Turns out that `Clover_v2.5k_r5100.pkg` to `Clover_v2.5k_r5103.pkg` has a problem on both Mojave and Catalina with VirtualSMC and SMCBatteryManager. I think based on the changes I see on Github has to do with some type of DSDT patching. Perhaps I do some patches that I should not and Clover is mixed up. So the effect is that the battery reporting is not working (perhaps other as well) and I see the following on the boot logs:
 
-*Continue* > *Continue* > *Change Install Location* > *Install macOS Mojave* > *Customize*
+```
+$ log show --source --debug --info --last boot | grep -E 'kernel:|loginwindow:|ACPIDebug:'
+2020-02-26 09:24:23.000053+0200 0x0        Default     0x0                  0      0    kernel: PMAP: PCID enabled
+2020-02-26 09:24:23.000056+0200 0x0        Default     0x0                  0      0    kernel: PMAP: Supervisor Mode Execute Protection enabled
+2020-02-26 09:24:23.000058+0200 0x0        Default     0x0                  0      0    kernel: PMAP: Supervisor Mode Access Protection enabled
+2020-02-26 09:24:23.001959+0200 0x0        Default     0x0                  0      0    kernel: Darwin Kernel Version 19.3.0: Thu Jan  9 20:58:23 PST 2020; root:xnu-6153.81.5~1/RELEASE_X86_64
+2020-02-26 09:24:23.005426+0200 0x0        Default     0x0                  0      0    kernel: pmap_startup() delaying init/free of page nums > 0x200000
+2020-02-26 09:24:23.034828+0200 0x0        Default     0x0                  0      0    kernel: pmap_startup() init/release time: 29399 microsec
+2020-02-26 09:24:23.034831+0200 0x0        Default     0x0                  0      0    kernel: pmap_startup() delayed init/release of 631594 pages
+2020-02-26 09:24:23.034835+0200 0x0        Default     0x0                  0      0    kernel: vm_page_bootstrap: 1391665 free pages, 689103 wired pages, (up to 631594 of which are delayed free)
+2020-02-26 09:24:23.059319+0200 0x0        Default     0x0                  0      0    kernel: kext submap [0x<private> - 0x<private>], kernel text [0x<private> - 0x<private>]
+2020-02-26 09:24:23.059323+0200 0x0        Default     0x0                  0      0    kernel: zone leak detection enabled
+2020-02-26 09:24:23.059326+0200 0x0        Default     0x0                  0      0    kernel: zalloc: allocating memory for zone names buffer
+2020-02-26 09:24:23.059387+0200 0x0        Default     0x0                  0      0    kernel: "vm_compressor_mode" is 4
+2020-02-26 09:24:23.059793+0200 0x0        Default     0x0                  0      0    kernel: oslog_init completed, 16 chunks, 8 io pages
+2020-02-26 09:24:23.059807+0200 0x0        Default     0x0                  0      0    kernel: standard timeslicing quantum is 10000 us
+2020-02-26 09:24:23.059809+0200 0x0        Default     0x0                  0      0    kernel: standard background quantum is 2500 us
+2020-02-26 09:24:23.059841+0200 0x0        Default     0x0                  0      0    kernel: WQ[wql_init]: init linktable with max:262144 elements (8388608 bytes)
+2020-02-26 09:24:23.059853+0200 0x0        Default     0x0                  0      0    kernel: WQ[wqp_init]: init prepost table with max:262144 elements (8388608 bytes)
+2020-02-26 09:24:23.059899+0200 0x0        Default     0x0                  0      0    kernel: mig_table_max_displ = 53
+2020-02-26 09:24:23.153550+0200 0x0        Default     0x0                  0      0    kernel: TSC Deadline Timer supported and enabled
+2020-02-26 09:24:23.153869+0200 0x65       Default     0x0                  0      0    kernel: kdp_core zlib memory 0x7000
+2020-02-26 09:24:23.770805+0200 0x65       Default     0x0                  0      0    kernel: "name" not a kext
+2020-02-26 09:24:23.771493+0200 0x65       Default     0x0                  0      0    kernel: "FailedCLUT" not a kext
+2020-02-26 09:24:23.778383+0200 0x65       Default     0x0                  0      0    kernel: "FailedImage" not a kext
+2020-02-26 09:24:23.834996+0200 0x71       Default     0x0                  0      0    kernel: PMRD: PMTraceWorker <private>
+2020-02-26 09:24:23.835038+0200 0x71       Default     0x0                  0      0    kernel: PMRD: changePowerStateToPriv(4)
+2020-02-26 09:24:23.835140+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.835315+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) RSDP 0x000000007CEFD014 000024 (v02 XIAOMI)
+2020-02-26 09:24:23.836526+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.836590+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.838873+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.838974+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.841258+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.850033+0200 0x73       Default     0x0                  0      0    kernel: Warning - kext com.apple.driver.usb.AppleUSBHostPlatformProperties declares no com.apple.kpi.* dependencies. If it uses any KPIs, the link may fail with undefined symbols.
+2020-02-26 09:24:23.854465+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 7 args <private> 0x0
+2020-02-26 09:24:23.854512+0200 0x74       Default     0x0                  0      0    kernel: PMRD: destroyed capability client set <private>
+2020-02-26 09:24:23.854514+0200 0x74       Default     0x0                  0      0    kernel: PMRD: sysPowerDownHandler message kIOMessageSystemCapabilityChange
+2020-02-26 09:24:23.854516+0200 0x74       Default     0x0                  0      0    kernel: PMRD: sysPowerDownHandler cap f -> f (flags 1)
+2020-02-26 09:24:23.854538+0200 0x74       Default     0x0                  0      0    kernel: PMRD: sysPowerDownHandler message kIOMessageSystemCapabilityChange
+2020-02-26 09:24:23.854539+0200 0x74       Default     0x0                  0      0    kernel: PMRD: sysPowerDownHandler cap f -> f (flags 2)
+2020-02-26 09:24:23.854542+0200 0x74       Default     0x0                  0      0    kernel: PMRD: tellChangeUp OFF_STATE->ON_STATE
+2020-02-26 09:24:23.854546+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: OFF_STATE->ON_STATE
+2020-02-26 09:24:23.854549+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:23.854552+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:23.859096+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.859271+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) DSDT 0x000000007CE9A000 01CD2E (v02 XIAOMI SKL-ULT  00000000 INTL 20180427)
+2020-02-26 09:24:23.861382+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.861460+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.861632+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) FACS 0x000000007CE68000 000040
+2020-02-26 09:24:23.862477+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.862532+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.862706+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) FACS 0x000000007CE68000 000040
+2020-02-26 09:24:23.863550+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.863611+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.863784+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) TCPA 0x000000007CEFC000 000032 (v02 XIAOMI SKL-ULT  00000000 ACPI 00040000)
+2020-02-26 09:24:23.875922+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.876037+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.876212+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) UEFI 0x000000007CEFB000 000236 (v01 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.878323+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.878385+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.878557+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) UEFI 0x000000007CEFA000 000042 (v01 XIAOMI SKL-ULT  00000002 ACPI 00040000)
+2020-02-26 09:24:23.880668+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.880798+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.880971+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE98000 0004B7 (v02 XIAOMI SKL-ULT  00001000 ACPI 00040000)
+2020-02-26 09:24:23.883082+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.883144+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.883317+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE96000 00004B (v02 XIAOMI SKL-ULT  00003000 ACPI 00040000)
+2020-02-26 09:24:23.890374+0200 0x73       Default     0x0                  0      0    kernel: calling mpo_policy_init for Lilu
+2020-02-26 09:24:23.892047+0200 0x73       Default     0x0                  0      0    kernel: Security policy loaded: Lilu Kernel Extension 1.4.1 (Lilu)
+2020-02-26 09:24:23.895447+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.895537+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.895710+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) TPM2 0x000000007CEF7000 000034 (v03 XIAOMI SKL-ULT  00000000 ACPI 00040000)
+2020-02-26 09:24:23.897823+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.897885+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.898058+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) MSDM 0x000000007CEF6000 000055 (v03 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.900168+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.901551+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.901723+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE8F000 005030 (v02 XIAOMI SKL-ULT  00003000 ACPI 00040000)
+2020-02-26 09:24:23.903834+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.903895+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.904067+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) DBGP 0x000000007CEEF000 000034 (v01 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.916193+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.916276+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.916450+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) DBG2 0x000000007CEEE000 000054 (v00 XIAOMI SKL-ULT  00000000 ACPI 00040000)
+2020-02-26 09:24:23.918563+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.918631+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.918803+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ASF! 0x000000007CEED000 0000A5 (v32 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.920914+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.920975+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.921147+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ASPT 0x000000007CEEC000 000034 (v07 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.923258+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.923318+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.923491+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) BOOT 0x000000007CEEB000 000028 (v01 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.935620+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.935720+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.935893+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) DBGP 0x000000007CEEA000 000034 (v01 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.938010+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.938070+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.938243+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) HPET 0x000000007CEE8000 000038 (v01 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.940354+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.940420+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.940592+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) LPIT 0x000000007CEE7000 000094 (v01 XIAOMI SKL-ULT  00000000 ACPI 00040000)
+2020-02-26 09:24:23.942703+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.942771+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.942943+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) APIC 0x000000007CEE6000 0000BC (v03 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.945055+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.955142+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.955316+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) MCFG 0x000000007CEE5000 00003C (v01 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.957428+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.957517+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.957690+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE8D000 000209 (v01 XIAOMI SKL-ULT  00000000 ACPI 00040000)
+2020-02-26 09:24:23.959802+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.960108+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.960280+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE8B000 000ECB (v02 XIAOMI SKL-ULT  00001000 ACPI 00040000)
+2020-02-26 09:24:23.962391+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.962474+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.962646+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE89000 00019A (v02 XIAOMI SKL-ULT  00001000 ACPI 00040000)
+2020-02-26 09:24:23.964758+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.965058+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.975257+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE87000 000E73 (v02 XIAOMI SKL-ULT  00003000 ACPI 00040000)
+2020-02-26 09:24:23.977370+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.978375+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.978549+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE82000 00381B (v01 XIAOMI SKL-ULT  00001000 ACPI 00040000)
+2020-02-26 09:24:23.980660+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.980729+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.980902+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) FPDT 0x000000007CEE4000 000044 (v01 XIAOMI SKL-ULT  00000002 ACPI 00040000)
+2020-02-26 09:24:23.983018+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.983079+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.983251+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) BGRT 0x000000007CEBD000 000038 (v01 XIAOMI SKL-ULT  00000001 ACPI 00040000)
+2020-02-26 09:24:23.995379+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.995470+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.995644+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE81000 0000CE (v02 hack   _XOSI    00000000 INTL 20180427)
+2020-02-26 09:24:23.997756+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:23.997822+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:23.997994+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE80000 00008A (v02 hack   _SMBUS   00000000 INTL 20180427)
+2020-02-26 09:24:24.000106+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.000176+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.000349+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE7F000 0000D4 (v02 hack   _RMNE    00001000 INTL 20180427)
+2020-02-26 09:24:24.002459+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.002573+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.002747+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x000000007CE7E000 00038F (v02 hack   _RMCF    00000000 INTL 20180427)
+2020-02-26 09:24:24.004859+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.004955+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.005128+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F6D000 000272 (v02 hack   _PTSWAK  00000000 INTL 20180427)
+2020-02-26 09:24:24.017255+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.017340+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.017515+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F6C000 000050 (v02 hack   _PMCR    00000000 INTL 20180427)
+2020-02-26 09:24:24.019625+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.019693+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.019866+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F6B000 000094 (v02 hack   _MEM2    00000000 INTL 20180427)
+2020-02-26 09:24:24.021976+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.022059+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.022232+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F6A000 000186 (v02 hack   _LPC     00000000 INTL 20180427)
+2020-02-26 09:24:24.024342+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.024405+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.024578+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F69000 000066 (v02 hack   _HPET    00000000 INTL 20180427)
+2020-02-26 09:24:24.036708+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.041694+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.041869+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F68000 000086 (v02 hack   _GPRW    00000000 INTL 20180427)
+2020-02-26 09:24:24.043979+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.058926+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.059101+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F67000 000072 (v02 hack   _DMAC    00000000 INTL 20180427)
+2020-02-26 09:24:24.061212+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.066053+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.066226+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F66000 0000CD (v02 hack   _BCKS    00000000 INTL 20180427)
+2020-02-26 09:24:24.068337+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.083169+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.083344+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) SSDT 0x0000000064F65000 000053 (v01 PmRef  CpuPm    00003000 INTL 20120320)
+2020-02-26 09:24:24.085455+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.113207+0200 0x73       Default     0x0                  0      0    kernel: (CodecCommander) CodecCommander: Version 2.7.1 starting on OS X Darwin 19.3.
+2020-02-26 09:24:24.157797+0200 0x73       Default     0x0                  0      0    <IOTimeSyncFamily`IOTimeSyncClockManager::init(OSDictionary*)> kernel: (IOTimeSyncFamily) IOTimeSyncClockManager::init created and initing
+2020-02-26 09:24:24.157824+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`AppleCredentialManager::init(OSDictionary*)> kernel: (AppleCredentialManager) AppleCredentialManager: init: called, instance = <private>.
+2020-02-26 09:24:24.173977+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`AppleCredentialManager::init(OSDictionary*)> kernel: (AppleCredentialManager) AssertMacros: value (value: 0x0), ---, file: /BuildRoot/Library/Caches/com.apple.xbs/Sources/AppleCredentialManager/AppleCredentialManager-336.40.1/AppleCredentialManager/AppleCredentialManager.cpp:67
+2020-02-26 09:24:24.194810+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`AppleCredentialManager::init(OSDictionary*)> kernel: (AppleCredentialManager) AppleCredentialManager: init: Embedded OS: 0 (over KernelRelay: NO, over SEPManager: NO), in BaseSystem: NO, in InternalSystem: NO.
+2020-02-26 09:24:24.203776+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager) ACM: Env_SetVariable: set var[6].
+2020-02-26 09:24:24.211796+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.211968+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) 22 ACPI AML tables successfully acquired and loaded
+2020-02-26 09:24:24.213404+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.229510+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager) ACM: Env_SetVariable (len=1): new data:
+2020-02-26 09:24:24.230638+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager) 00
+2020-02-26 09:24:24.230723+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager)
+2020-02-26 09:24:24.235908+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`InitCredentialEngine> kernel: (AppleCredentialManager) ACM: InitCredentialEngine: Global credential set created, CS[10].
+2020-02-26 09:24:24.249210+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=1 LocalApicId=0 Enabled
+2020-02-26 09:24:24.255875+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager) ACM: Env_SetVariable: set var[5].
+2020-02-26 09:24:24.262063+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager) ACM: Env_SetVariable (len=1): new data:
+2020-02-26 09:24:24.263189+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager) 00
+2020-02-26 09:24:24.263274+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`Env_SetVariable> kernel: (AppleCredentialManager)
+2020-02-26 09:24:24.268595+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=2 LocalApicId=2 Enabled
+2020-02-26 09:24:24.275414+0200 0x7a       Default     0x0                  0      0    kernel: cpu_data_alloc(1) <private> desc_table: <private> ldt: <private> int_stack: 0x<private>-0x<private>
+2020-02-26 09:24:24.275420+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=3 LocalApicId=1 Enabled
+2020-02-26 09:24:24.281899+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`ACMFirstResponderKernelService::init(ACMKernelService* (*) [6], IOService*, IOCommandGate*)> kernel: (AppleCredentialManager) ACMFirstResponderKernelService: init: called, .
+2020-02-26 09:24:24.288245+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`AppleCredentialManager::init(OSDictionary*)> kernel: (AppleCredentialManager) AppleCredentialManager: init: returning, result = true, instance = <private>.
+2020-02-26 09:24:24.295562+0200 0x7a       Default     0x0                  0      0    kernel: cpu_data_alloc(2) <private> desc_table: <private> ldt: <private> int_stack: 0x<private>-0x<private>
+2020-02-26 09:24:24.295570+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=4 LocalApicId=3 Enabled
+2020-02-26 09:24:24.302066+0200 0x7a       Default     0x0                  0      0    kernel: cpu_data_alloc(3) <private> desc_table: <private> ldt: <private> int_stack: 0x<private>-0x<private>
+2020-02-26 09:24:24.302072+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=5 LocalApicId=255 Disabled
+2020-02-26 09:24:24.308828+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=6 LocalApicId=255 Disabled
+2020-02-26 09:24:24.315342+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=7 LocalApicId=255 Disabled
+2020-02-26 09:24:24.321819+0200 0x7a       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPICPU::startSerialized(IOService*, unsigned int, unsigned int)> kernel: (AppleACPIPlatform) AppleACPICPU: ProcessorId=8 LocalApicId=255 Disabled
+2020-02-26 09:24:24.334489+0200 0x65       Default     0x0                  0      0    kernel: calling mpo_policy_init for AMFI
+2020-02-26 09:24:24.341099+0200 0x65       Default     0x0                  0      0    kernel: Security policy loaded: Apple Mobile File Integrity (AMFI)
+2020-02-26 09:24:24.346796+0200 0x65       Default     0x0                  0      0    kernel: calling mpo_policy_init for Sandbox
+2020-02-26 09:24:24.352977+0200 0x65       Default     0x0                  0      0    kernel: Security policy loaded: Seatbelt sandbox policy (Sandbox)
+2020-02-26 09:24:24.358728+0200 0x65       Default     0x0                  0      0    kernel: calling mpo_policy_init for Quarantine
+2020-02-26 09:24:24.364876+0200 0x65       Default     0x0                  0      0    kernel: Security policy loaded: Quarantine policy (Quarantine)
+2020-02-26 09:24:24.365074+0200 0x65       Info        0x0                  0      0    <AppleSystemPolicy`ASPVnodeCache::ASPVnodeCache()> kernel: (AppleSystemPolicy) Initializing vnode cache
+2020-02-26 09:24:24.371035+0200 0x65       Default     0x0                  0      0    kernel: calling mpo_policy_init for TMSafetyNet
+2020-02-26 09:24:24.377606+0200 0x65       Default     0x0                  0      0    kernel: Security policy loaded: Safety net for Time Machine (TMSafetyNet)
+2020-02-26 09:24:24.378024+0200 0x65       Default     0x0                  0      0    <AppleImage4`img4_start> kernel: (AppleImage4) Darwin Image4 Validator Version 2.2.0: Thu Jan 23 00:24:01 PST 2020; root:AppleImage4-61.60.4~1383/AppleImage4/RELEASE_X86_64
+2020-02-26 09:24:24.481025+0200 0x7b       Default     0x0                  0      0    kernel: Started cpu 2 (lapic id 00000002)
+2020-02-26 09:24:24.481836+0200 0x7c       Default     0x0                  0      0    kernel: Started cpu 1 (lapic id 00000001)
+2020-02-26 09:24:24.482555+0200 0x7d       Default     0x0                  0      0    kernel: Started cpu 3 (lapic id 00000003)
+2020-02-26 09:24:24.484237+0200 0x8d       Default     0x0                  0      0    <AppleAPIC`AppleAPICInterruptController::start(IOService*)> kernel: (AppleAPIC) IOAPIC: Version 0x20 Vectors 64:111
+2020-02-26 09:24:24.492443+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.492443+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI:
+2020-02-26 09:24:24.492616+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) Executed 30 blocks of module-level executable AML code
+2020-02-26 09:24:24.492616+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) Executed 30 blocks of module-level executable AML code
+2020-02-26 09:24:24.494136+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.494136+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.518872+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`AppleACPIPlatformExpert::resolveSystemStateSupport()> kernel: (AppleACPIPlatform) ACPI: sleep states S3 S4 S5
+2020-02-26 09:24:24.524709+0200 0x71       Default     0x0                  0      0    kernel: PMRD: setSleepSupported(1)
+2020-02-26 09:24:24.524720+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 7 args <private> 0x0
+2020-02-26 09:24:24.524730+0200 0x74       Default     0x0                  0      0    kernel: PMRD: destroyed capability client set <private>
+2020-02-26 09:24:24.524738+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.534166+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`newObjectFromACPIObject(acpi_object const*)> kernel: (AppleACPIPlatform) ACPI: cannot translate ACPI object 14
+2020-02-26 09:24:24.534174+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`newObjectFromACPIObject(acpi_object const*)> kernel: (AppleACPIPlatform) ACPI: cannot translate ACPI object 14
+2020-02-26 09:24:24.534180+0200 0x71       Default     0x0                  0      0    <AppleACPIPlatform`newObjectFromACPIObject(acpi_object const*)> kernel: (AppleACPIPlatform) ACPI: cannot translate ACPI object 14
+2020-02-26 09:24:24.555402+0200 0x8f       Default     0x0                  0      0    <IOPCIFamily`IOPCIConfigurator::createRoot()> kernel: (IOPCIFamily) pci (build 21:27:54 Jan  9 2020), flags 0x20c3080
+2020-02-26 09:24:24.556563+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.556592+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PMTrace found PCI host bridge PCI0->AppleACPIPCI
+2020-02-26 09:24:24.556613+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.559659+0200 0x74       Default     0x0                  0      0    kernel: PMRD: Clamshell opened
+2020-02-26 09:24:24.559666+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell closed 0, disabled 1, desktopMode 0, ac 1 sleepDisabled 0
+2020-02-26 09:24:24.559669+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell closed 0, disabled 1, desktopMode 0, ac 1 sleepDisabled 0
+2020-02-26 09:24:24.559671+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell tickled 0 lastSleepReason 0
+2020-02-26 09:24:24.560166+0200 0xa5       Default     0x0                  0      0    <IOHIDFamily`IOHIDEventService::start(IOService*)> kernel: (IOHIDFamily) HID: Legacy shim 2
+2020-02-26 09:24:24.562019+0200 0x98       Default     0x0                  0      0    <AppleACPIEC`AppleACPIEC::start(IOService*)> kernel: (AppleACPIEC) ACPI: no ECDT
+2020-02-26 09:24:24.562466+0200 0x8f       Default     0x0                  0      0    <IOPCIFamily`IOPCIConfigurator::createRoot()> kernel: (IOPCIFamily) pci (build 21:27:54 Jan  9 2020), flags 0x20c3080
+2020-02-26 09:24:24.562503+0200 0xad       Default     0x0                  0      0    <IOHIDFamily`IOHIDEventService::start(IOService*)> kernel: (IOHIDFamily) HID: Legacy shim 2
+2020-02-26 09:24:24.562636+0200 0x8f       Default     0x0                  0      0    <IOPCIFamily`IOPCIConfigurator::configure(unsigned int)> kernel: (IOPCIFamily) [ PCI configuration begin ]
+2020-02-26 09:24:24.562725+0200 0x8f       Default     0x0                  0      0    kernel: kPEDisableScreen -1
+2020-02-26 09:24:24.562803+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 7 args <private> 0x0
+2020-02-26 09:24:24.562834+0200 0x74       Default     0x0                  0      0    kernel: PMRD: destroyed capability client set <private>
+2020-02-26 09:24:24.562851+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.568676+0200 0x8f       Default     0x0                  0      0    kernel: initialize_screen: b=7FA0000000, w=00000780, h=00000438, r=00001E00, d=00000001
+2020-02-26 09:24:24.568873+0200 0x8f       Default     0x0                  0      0    kernel: kPEEnableScreen 1
+2020-02-26 09:24:24.568876+0200 0x8f       Default     0x0                  0      0    <IOPCIFamily`IOPCIConfigurator::configure(unsigned int)> kernel: (IOPCIFamily) console relocated to 0x7fa0000000
+2020-02-26 09:24:24.573134+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.573183+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.575394+0200 0x8f       Default     0x0                  0      0    <IOPCIFamily`IOPCIConfigurator::configure(unsigned int)> kernel: (IOPCIFamily) [ PCI configuration end, bridges 4, devices 12 ]
+2020-02-26 09:24:24.601228+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.601272+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.618256+0200 0xbf       Default     0x0                  0      0    kernel: (kernel) SMCSuperIO:    ssio @ failed to detect supported SuperIO chip
+2020-02-26 09:24:24.619804+0200 0xbb       Default     0x0                  0      0    <IOAHCIFamily`IOAHCIPortMultiplierGlobals::IOAHCIPortMultiplierGlobals()> kernel: (IOAHCIFamily) [AHCI][PML][00000000]+IOAHCIPortMultiplierGlobals::IOAHCIPortMultiplierGlobals
+2020-02-26 09:24:24.619808+0200 0xbb       Default     0x0                  0      0    <IOAHCIFamily`IOAHCIPortMultiplierGlobals::IOAHCIPortMultiplierGlobals()> kernel: (IOAHCIFamily) [AHCI][PML][00000000]-IOAHCIPortMultiplierGlobals::IOAHCIPortMultiplierGlobals
+2020-02-26 09:24:24.625341+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeDebugAssert> kernel: (IONVMeFamily) AppleNVMe Assert failed: ( 0 != data )
+2020-02-26 09:24:24.627623+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeDebugAssert> kernel: (IONVMeFamily) ReleaseIDNode
+2020-02-26 09:24:24.628029+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeDebugAssert> kernel: (IONVMeFamily) file: /BuildRoot/Library/Caches/com.apple.xbs/Sources/IONVMeFamily/IONVMeFamily-470.80.1/IONVMeController.cpp
+2020-02-26 09:24:24.628248+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.628273+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.628830+0200 0x73       Default     0x0                  0      0    <IOTimeSyncFamily`IOTimeSyncClockManager::start(IOService*)> kernel: (IOTimeSyncFamily) IOTimeSyncClockManager::start starting
+2020-02-26 09:24:24.628863+0200 0x73       Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsHub::start(IOService*)> kernel: (CoreAnalyticsFamily) virtual bool CoreAnalyticsHub::start(IOService *)::97:CoreAnalyticsHub start
+2020-02-26 09:24:24.628977+0200 0x73       Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsHub::start(IOService*)> kernel: (CoreAnalyticsFamily) virtual bool CoreAnalyticsHub::start(IOService *)::97:CoreAnalyticsHub start
+2020-02-26 09:24:24.629056+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`AppleCredentialManager::start(IOService*)> kernel: (AppleCredentialManager) AppleCredentialManager: start: called, instance = <private>.
+2020-02-26 09:24:24.629211+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeDebugAssert> kernel: (IONVMeFamily) line: 5416
+2020-02-26 09:24:24.630145+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeDebugAssert> kernel: (IONVMeFamily)
+2020-02-26 09:24:24.630385+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`AppleCredentialManager::start(IOService*)> kernel: (AppleCredentialManager) AppleCredentialManager: start: started, instance = <private>.
+2020-02-26 09:24:24.630628+0200 0x73       Default     0x0                  0      0    <AppleCredentialManager`AppleCredentialManager::start(IOService*)> kernel: (AppleCredentialManager) AppleCredentialManager: start: returning, result = true, instance = <private>.
+2020-02-26 09:24:24.631618+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 7 args <private> 0x0
+2020-02-26 09:24:24.631626+0200 0x74       Default     0x0                  0      0    kernel: PMRD: destroyed capability client set <private>
+2020-02-26 09:24:24.631630+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.632429+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeController::CreateSubmissionQueue(unsigned short, unsigned char)> kernel: (IONVMeFamily) virtual IOReturn IONVMeController::CreateSubmissionQueue(uint16_t, uint8_t)::2816:SQ index=0 entrysize=64
+2020-02-26 09:24:24.632872+0200 0xdc       Default     0x0                  0      0    <apfs`log_debug> kernel: (apfs) apfs_module_start:1683: load: com.apple.filesystems.apfs, v1412.81.1, apfs-1412.81.1, 2020/01/09
+2020-02-26 09:24:24.632873+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeController::CreateSubmissionQueue(unsigned short, unsigned char)> kernel: (IONVMeFamily) virtual IOReturn IONVMeController::CreateSubmissionQueue(uint16_t, uint8_t)::2816:SQ index=0 entrysize=64
+2020-02-26 09:24:24.632888+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeController::CreateSubmissionQueue(unsigned short, unsigned char)> kernel: (IONVMeFamily) virtual IOReturn IONVMeController::CreateSubmissionQueue(uint16_t, uint8_t)::2816:SQ index=1 entrysize=64
+2020-02-26 09:24:24.633118+0200 0xc9       Default     0x0                  0      0    <IONVMeFamily`IONVMeController::CreateSubmissionQueue(unsigned short, unsigned char)> kernel: (IONVMeFamily) virtual IOReturn IONVMeController::CreateSubmissionQueue(uint16_t, uint8_t)::2816:SQ index=1 entrysize=64
+2020-02-26 09:24:24.636113+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 7 args <private> 0x0
+2020-02-26 09:24:24.636121+0200 0x74       Default     0x0                  0      0    kernel: PMRD: destroyed capability client set <private>
+2020-02-26 09:24:24.636126+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.699154+0200 0x73       Default     0x0                  0      0    <AppleKeyStore`AppleKeyStore::start(IOService*)> kernel: (AppleKeyStore) AppleKeyStore starting (BUILT: Jan  9 2020 22:48:19)
+2020-02-26 09:24:24.708987+0200 0x73       Default     0x0                  0      0    <AppleKeyStore`AppleKeyStore::start(IOService*)> kernel: (AppleKeyStore) AppleKeyStore::start: _kernel_relay_enable = 0
+2020-02-26 09:24:24.719502+0200 0x73       Default     0x0                  0      0    <AppleKeyStore`AppleKeyStore::start(IOService*)> kernel: (AppleKeyStore) AppleKeyStore::start: _sep_enabled = 0
+2020-02-26 09:24:24.729647+0200 0x73       Default     0x0                  0      0    kernel: IOGetBootKeyStoreData: data at address 0 size 0
+2020-02-26 09:24:24.729698+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.729725+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.729999+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:24.730000+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:24.730186+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBatteryManager::start(IOService*)> kernel: (AppleSmartBatteryManager) Provider is IOSMBusController
+2020-02-26 09:24:24.730214+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::clearBatteryState(bool)> kernel: (AppleSmartBatteryManager) Clearing out battery data
+2020-02-26 09:24:24.730224+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::pollBatteryState(int)> kernel: (AppleSmartBatteryManager) Starting poll type 1
+2020-02-26 09:24:24.730225+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::transactionCompletion(void*, int, unsigned long long, unsigned char*)> kernel: (AppleSmartBatteryManager) Restarting poll type 1
+2020-02-26 09:24:24.730227+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::smcKeysToDictionary(smcToRegistry*) const> kernel: (AppleSmartBatteryManager) smcKeysToDictionary without SMC driver
+2020-02-26 09:24:24.730228+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::smcKeysToDictionary(smcToRegistry*) const> kernel: (AppleSmartBatteryManager) smcKeysToDictionary without SMC driver
+2020-02-26 09:24:24.730229+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::smcKeysToDictionary(smcToRegistry*) const> kernel: (AppleSmartBatteryManager) smcKeysToDictionary without SMC driver
+2020-02-26 09:24:24.730254+0200 0xe9       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBatteryManager::start(IOService*)> kernel: (AppleSmartBatteryManager) AppleSmartBatteryManager started
+2020-02-26 09:24:24.730270+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.730304+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:24.730372+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [GBIF]
+2020-02-26 09:24:24.730544+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Namespace lookup failure, AE_NOT_FOUND
+2020-02-26 09:24:24.731652+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psargs-463)
+2020-02-26 09:24:24.739529+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [_BIF] @00029 #002D:
+2020-02-26 09:24:24.740263+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.747993+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.765801+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local1:
+2020-02-26 09:24:24.766249+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff8031c19730
+2020-02-26 09:24:24.766969+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:24.767586+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:24.767947+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  000000000000008D
+2020-02-26 09:24:24.768552+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.777869+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local6:
+2020-02-26 09:24:24.778254+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff8031c1c140
+2020-02-26 09:24:24.778836+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:24.779391+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:24.779649+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  0000000000000000
+2020-02-26 09:24:24.780309+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.789758+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local7:
+2020-02-26 09:24:24.790165+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff8031c1ccd0
+2020-02-26 09:24:24.790834+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:24.791453+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:24.791789+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  0000000000000014
+2020-02-26 09:24:24.792354+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.802121+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.811445+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) No Arguments are initialized for method [_BIF]
+2020-02-26 09:24:24.823090+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:24.832868+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:24.832874+0200 0xe2       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::readAdapterInfo()> kernel: (AppleSmartBatteryManager) readAdapterInfo without SMC driver
+2020-02-26 09:24:24.832886+0200 0xe2       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::clearBatteryState(bool)> kernel: (AppleSmartBatteryManager) Clearing out battery data
+2020-02-26 09:24:24.832891+0200 0xe2       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::handlePollingFinished(bool)> kernel: (AppleSmartBatteryManager) SmartBattery: abort polling
+2020-02-26 09:24:24.832897+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell closed 0, disabled 1, desktopMode 0, ac 1 sleepDisabled 0
+2020-02-26 09:24:24.833228+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) Method parse/execution failed
+2020-02-26 09:24:24.834080+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [\_SB.PCI0.LPCB.EC.BAT0._BIF] (Node ffffff8032e29de0)
+2020-02-26 09:24:24.835613+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) , AE_NOT_FOUND
+2020-02-26 09:24:24.836040+0200 0x73       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psparse-632)
+2020-02-26 09:24:25.129016+0200 0x10b      Info        0x0                  0      0    <AppleSystemPolicy`AppleSystemPolicy::init(OSDictionary*)> kernel: (AppleSystemPolicy) Per file malware scanning is: disabled
+2020-02-26 09:24:25.129194+0200 0x76       Info        0x0                  0      0    <IOHIDFamily`IOHIDDevice::start(IOService*)> kernel: (IOHIDFamily) IOHIDKeyboardEventDevice:0x1000002e3 start
+2020-02-26 09:24:25.133227+0200 0x112      Debug       0x0                  0      0    <IOHIDFamily`IOHIDDevice::createInterface(unsigned int)> kernel: (IOHIDFamily) IOHIDKeyboardEventDevice:0x1000002e3 creating interfaces
+2020-02-26 09:24:25.140510+0200 0x76       Info        0x0                  0      0    <IOHIDFamily`IOHIDDevice::start(IOService*)> kernel: (IOHIDFamily) IOHIDPointingEventDevice:0x1000002e9 start
+2020-02-26 09:24:25.140847+0200 0x65       Info        0x0                  0      0    kernel: Reinit'd ND information for interface lo0
+2020-02-26 09:24:25.140862+0200 0x116      Debug       0x0                  0      0    <IOHIDFamily`IOHIDDevice::createInterface(unsigned int)> kernel: (IOHIDFamily) IOHIDPointingEventDevice:0x1000002e9 creating interfaces
+2020-02-26 09:24:25.583285+0200 0x150      Info        0x0                  0      0    <IOHIDFamily`IOHIDDevice::start(IOService*)> kernel: (IOHIDFamily) VoodooInputSimulatorDevice:0x10000031c start
+2020-02-26 09:24:25.626242+0200 0x150      Info        0x0                  0      0    <IOHIDFamily`IOHIDDevice::start(IOService*)> kernel: (IOHIDFamily) VoodooInputActuatorDevice:0x10000031e start
+2020-02-26 09:24:25.626361+0200 0x151      Debug       0x0                  0      0    <IOHIDFamily`IOHIDDevice::createInterface(unsigned int)> kernel: (IOHIDFamily) VoodooInputSimulatorDevice:0x10000031c creating interfaces
+2020-02-26 09:24:25.626589+0200 0x153      Debug       0x0                  0      0    <IOHIDFamily`IOHIDDevice::createInterface(unsigned int)> kernel: (IOHIDFamily) VoodooInputActuatorDevice:0x10000031e creating interfaces
+2020-02-26 09:24:25.630283+0200 0x154      Debug       0x0                  0      0    <IOHIDFamily`IOHIDDevice::handleOpen(IOService*, unsigned int, void*)> kernel: (IOHIDFamily) VoodooInputActuatorDevice:0x10000031e open by AppleActuatorHIDEventDriver 0x100000323 (0x0)
+2020-02-26 09:24:25.632289+0200 0x152      Debug       0x0                  0      0    <IOHIDFamily`IOHIDDevice::handleOpen(IOService*, unsigned int, void*)> kernel: (IOHIDFamily) VoodooInputSimulatorDevice:0x10000031c open by AppleMultitouchTrackpadHIDEventDriver 0x100000324 (0x0)
+2020-02-26 09:24:25.635449+0200 0x12e      Info        0x0                  0      0    <IOHIDFamily`IOHIDDevice::start(IOService*)> kernel: (IOHIDFamily) IOHIDPointingEventDevice:0x10000032a start
+2020-02-26 09:24:25.635807+0200 0x156      Debug       0x0                  0      0    <IOHIDFamily`IOHIDDevice::createInterface(unsigned int)> kernel: (IOHIDFamily) IOHIDPointingEventDevice:0x10000032a creating interfaces
+2020-02-26 09:24:25.987871+0200 0x65       Debug       0x0                  0      0    <Sandbox`schedule_before_userret> kernel: (Sandbox) schedule_before_userret(101): 1/4 tasks scheduled
+2020-02-26 09:24:26.014613+0200 0x65       Debug       0x0                  0      0    <Sandbox`schedule_before_userret> kernel: (Sandbox) schedule_before_userret(101): 2/4 tasks scheduled
+2020-02-26 09:24:26.047631+0200 0x65       Debug       0x0                  0      0    <Sandbox`schedule_before_userret> kernel: (Sandbox) schedule_before_userret(101): 3/4 tasks scheduled
+2020-02-26 09:24:27.329441+0200 0x194      Debug       0x0                  0      0    <Sandbox`__removable_volume_init_block_invoke> kernel: (Sandbox) identified disk3 as removable
+2020-02-26 09:24:27.329639+0200 0x196      Debug       0x0                  0      0    <Sandbox`__removable_volume_init_block_invoke> kernel: (Sandbox) identified disk3s1 as removable
+2020-02-26 09:24:27.329749+0200 0x197      Debug       0x0                  0      0    <Sandbox`__removable_volume_init_block_invoke> kernel: (Sandbox) identified disk3s2 as removable
+2020-02-26 09:24:28.521426+0200 0x181      Info        0x0                  0      0    kernel: Reinit'd ND information for interface lo0
+2020-02-26 09:24:28.521443+0200 0x181      Info        0x0                  0      0    kernel: Reinit'd ND information for interface lo0
+2020-02-26 09:24:34.604031+0200 0x2b2      Default     0x0                  0      0    <ALF`sockwall_cntl_updaterules> kernel: (ALF) ALF, old data swfs_pid_entry <private>, updaterules_msg <private>, updaterules_state <private>
+2020-02-26 09:24:34.636655+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 4 args 0x1d9c1147ccdc695f 0x0
+2020-02-26 09:24:34.657001+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 6 args 0x1d9c1147d0992dbf 0x0
+2020-02-26 09:24:34.657004+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 6 args 0x1d9c1147d0992dbf 0x0
+2020-02-26 09:24:34.657019+0200 0x74       Default     0x0                  0      0    kernel: PMRD: destroyed capability client set 0x1d9c1147cf00460f
+2020-02-26 09:24:34.657033+0200 0x74       Default     0x0                  0      0    kernel: PMRD: PowerChangeDone: ON_STATE->ON_STATE
+2020-02-26 09:24:34.657417+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 12 args 0x1d9c1147cd9d367f 0x0
+2020-02-26 09:24:34.657419+0200 0x74       Default     0x0                  0      0    kernel: PMRD: SleepWake UUID queued: D2BCEB6C-83AB-4F0F-B482-DB2A1EAA4A10
+2020-02-26 09:24:34.658356+0200 0x23c      Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::pollBatteryState(int)> kernel: (AppleSmartBatteryManager) Starting poll type 1
+2020-02-26 09:24:34.658358+0200 0x23c      Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::transactionCompletion(void*, int, unsigned long long, unsigned char*)> kernel: (AppleSmartBatteryManager) Restarting poll type 1
+2020-02-26 09:24:34.658361+0200 0x23c      Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::smcKeysToDictionary(smcToRegistry*) const> kernel: (AppleSmartBatteryManager) smcKeysToDictionary without SMC driver
+2020-02-26 09:24:34.658362+0200 0x23c      Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::smcKeysToDictionary(smcToRegistry*) const> kernel: (AppleSmartBatteryManager) smcKeysToDictionary without SMC driver
+2020-02-26 09:24:34.658363+0200 0x23c      Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::smcKeysToDictionary(smcToRegistry*) const> kernel: (AppleSmartBatteryManager) smcKeysToDictionary without SMC driver
+2020-02-26 09:24:34.661221+0200 0x2a5      Default     0x0                  0      0    kernel: Waiting for DSMOS...
+2020-02-26 09:24:34.692819+0200 0x2c9      Default     0x0                  0      0    kernel: ifnet_attach: All kernel threads created for interface en0 have been scheduled at least once. Proceeding.
+2020-02-26 09:24:34.718332+0200 0xe2       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::readAdapterInfo()> kernel: (AppleSmartBatteryManager) readAdapterInfo without SMC driver
+2020-02-26 09:24:34.718355+0200 0xe2       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::clearBatteryState(bool)> kernel: (AppleSmartBatteryManager) Clearing out battery data
+2020-02-26 09:24:34.718355+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell closed 0, disabled 1, desktopMode 0, ac 1 sleepDisabled 0
+2020-02-26 09:24:34.718358+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell closed 0, disabled 1, desktopMode 0, ac 1 sleepDisabled 0
+2020-02-26 09:24:34.718375+0200 0xe2       Default     0x0                  0      0    <AppleSmartBatteryManager`AppleSmartBattery::handlePollingFinished(bool)> kernel: (AppleSmartBatteryManager) SmartBattery: abort polling
+2020-02-26 09:24:34.887690+0200 0x269      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: distnoted(123) deny(1) file-read-metadata /usr/sbin/distnoted
+2020-02-26 09:24:34.913518+0200 0x74       Default     0x0                  0      0    kernel: PMRD: power event 5 args 0x1d9c1147ccdc695f 0x0
+2020-02-26 09:24:34.916444+0200 0x23c      Default     0x0                  0      0    kernel: PMRD: setAggressiveness(0) kPMMinutesToSleep = 0
+2020-02-26 09:24:34.916457+0200 0x23c      Default     0x0                  0      0    kernel: PMRD: setAggressiveness(0) kPMMinutesToDim = 0
+2020-02-26 09:24:34.916830+0200 0x74       Default     0x0                  0      0    kernel: PMRD: aggressiveness changed: system 0->0, display 0
+2020-02-26 09:24:34.916832+0200 0x74       Default     0x0                  0      0    kernel: PMRD: idle time -> 0 secs (ena 0)
+2020-02-26 09:24:34.916833+0200 0x74       Default     0x0                  0      0    kernel: PMRD: extra sleep timer changed
+2020-02-26 09:24:34.919084+0200 0x23c      Default     0x0                  0      0    kernel: PMRD: setDisableClamShellSleep(0)
+2020-02-26 09:24:34.932185+0200 0x34a      Default     0x0                  0      0    kernel: PMRD: assertionsUser 0x40
+2020-02-26 09:24:34.959146+0200 0x352      Default     0x0                  0      0    <ALF`sockwall_cntl_updaterules> kernel: (ALF) ALF, old data swfs_pid_entry <private>, updaterules_msg <private>, updaterules_state <private>
+2020-02-26 09:24:34.979544+0200 0x352      Default     0x0                  0      0    <IOTimeSyncFamily`IOTimeSyncClockManager::addgPTPServices()> kernel: (IOTimeSyncFamily) IOTimeSyncClockManager::addgPTPServices adding services
+2020-02-26 09:24:34.979546+0200 0x352      Default     0x0                  0      0    <IOTimeSyncFamily`IOTimeSyncClockManager::addgPTPServices()> kernel: (IOTimeSyncFamily) IOTimeSyncClockManager::addgPTPServices requesting matching
+2020-02-26 09:24:34.987843+0200 0x294      Info        0x0                  0      0    <Sandbox`file_set_size> kernel: (Sandbox) successfully truncated syncroots to 0 bytes
+2020-02-26 09:24:34.987915+0200 0x294      Info        0x0                  0      0    <Sandbox`file_set_size> kernel: (Sandbox) successfully truncated syncroot_ancestors to 0 bytes
+2020-02-26 09:24:34.998862+0200 0x294      Info        0x0                  0      0    <Sandbox`file_set_size> kernel: (Sandbox) successfully truncated network-exemptions to 0 bytes
+2020-02-26 09:24:35.036121+0200 0x292      Default     0x0                  0      0    <ALF`sockwall_cntl_updaterules> kernel: (ALF) ALF, old data swfs_pid_entry <private>, updaterules_msg <private>, updaterules_state <private>
+2020-02-26 09:24:35.048501+0200 0x2e5      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: bluetoothd(117) deny(1) file-read-metadata /usr
+2020-02-26 09:24:35.068492+0200 0x292      Default     0x0                  0      0    kernel: _dlil_attach_flowswitch_nexus: en0 1500 1500
+2020-02-26 09:24:35.068533+0200 0x34a      Default     0x0                  0      0    kernel: PMRD: assertionsUser 0x50
+2020-02-26 09:24:35.081560+0200 0x292      Default     0x0                  0      0    kernel: _dlil_attach_flowswitch_nexus kern_nexus_ifattach host failed 45 en0
+2020-02-26 09:24:35.092346+0200 0x292      Info        0x0                  0      0    kernel: in6_ifattach: en0 is not multicast capable, IPv6 not enabled
+2020-02-26 09:24:35.169528+0200 0x263      Default     0x0                  0      0    <AppleActuatorDriver`AppleActuatorDeviceUserClient::start(IOService*)> kernel: (AppleActuatorDriver) AppleActuatorDeviceUserClient::start Entered
+2020-02-26 09:24:35.235502+0200 0x32e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: contextstored(173) deny(1) file-read-data /private/var/root/Library/Preferences/.GlobalPreferences.plist
+2020-02-26 09:24:35.235735+0200 0x32e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: contextstored(173) deny(1) file-read-data /Library/Preferences/.GlobalPreferences.plist
+2020-02-26 09:24:35.236255+0200 0x292      Default     0x0                  0      0    kernel: in6_domifattach: in6_ifattach_prelim returned 22 if=en0
+2020-02-26 09:24:35.245459+0200 0x292      Info        0x0                  0      0    kernel: in6_ifattach: en0 is not multicast capable, IPv6 not enabled
+2020-02-26 09:24:35.269195+0200 0x1ef      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: bluetoothd(117) deny(1) mach-lookup com.apple.server.bluetooth
+2020-02-26 09:24:35.318727+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:35.318729+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:35.319090+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [GBIF]
+2020-02-26 09:24:35.319091+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [GBIF]
+2020-02-26 09:24:35.319273+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Namespace lookup failure, AE_NOT_FOUND
+2020-02-26 09:24:35.319275+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Namespace lookup failure, AE_NOT_FOUND
+2020-02-26 09:24:35.320434+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psargs-463)
+2020-02-26 09:24:35.320436+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psargs-463)
+2020-02-26 09:24:35.331438+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [_BIF] @00029 #002D:
+2020-02-26 09:24:35.331440+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [_BIF] @00029 #002D:
+2020-02-26 09:24:35.332091+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.332092+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.342324+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.342326+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.354281+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsUserClient::initWithTask(task*, void*, unsigned int, OSDictionary*)> kernel: (CoreAnalyticsFamily) virtual bool CoreAnalyticsUserClient::initWithTask(task_t, void *, UInt32, OSDictionary *)::195:success
+2020-02-26 09:24:35.363515+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsUserClient::initWithTask(task*, void*, unsigned int, OSDictionary*)> kernel: (CoreAnalyticsFamily) virtual bool CoreAnalyticsUserClient::initWithTask(task_t, void *, UInt32, OSDictionary *)::195:success
+2020-02-26 09:24:35.363538+0200 0x388      Info        0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsUserClient::start(IOService*)> kernel: (CoreAnalyticsFamily) virtual bool CoreAnalyticsUserClient::start(IOService *)::150:success
+2020-02-26 09:24:35.363541+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsHub::setClient(CoreAnalyticsUserClient*)> kernel: (CoreAnalyticsFamily) IOReturn CoreAnalyticsHub::setClient(CoreAnalyticsUserClient *)::245:adding userClient
+2020-02-26 09:24:35.363970+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsHub::setClient(CoreAnalyticsUserClient*)> kernel: (CoreAnalyticsFamily) IOReturn CoreAnalyticsHub::setClient(CoreAnalyticsUserClient *)::245:adding userClient
+2020-02-26 09:24:35.363973+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsHub::newUserClient(task*, void*, unsigned int, OSDictionary*, IOUserClient**)> kernel: (CoreAnalyticsFamily) virtual IOReturn CoreAnalyticsHub::newUserClient(task_t, void *, UInt32, OSDictionary *, IOUserClient **)::222:Successfully opened
+2020-02-26 09:24:35.364207+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsHub::newUserClient(task*, void*, unsigned int, OSDictionary*, IOUserClient**)> kernel: (CoreAnalyticsFamily) virtual IOReturn CoreAnalyticsHub::newUserClient(task_t, void *, UInt32, OSDictionary *, IOUserClient **)::222:Successfully opened
+2020-02-26 09:24:35.369836+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsUserClient::clientMemoryForType(unsigned int, unsigned int*, IOMemoryDescriptor**)> kernel: (CoreAnalyticsFamily) virtual IOReturn CoreAnalyticsUserClient::clientMemoryForType(UInt32, IOOptionBits *, IOMemoryDescriptor **)::292: got memory descriptor with 16432
+2020-02-26 09:24:35.376471+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local1:
+2020-02-26 09:24:35.376473+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local1:
+2020-02-26 09:24:35.376702+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff803365b690
+2020-02-26 09:24:35.376703+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff803365b690
+2020-02-26 09:24:35.377401+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:35.377402+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:35.377869+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:35.377870+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:35.378103+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  000000000000008D
+2020-02-26 09:24:35.378104+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  000000000000008D
+2020-02-26 09:24:35.378570+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.378571+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.389067+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local6:
+2020-02-26 09:24:35.389069+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local6:
+2020-02-26 09:24:35.389531+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff8033651780
+2020-02-26 09:24:35.389532+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff8033651780
+2020-02-26 09:24:35.389764+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:35.389765+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:35.389999+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:35.390000+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:35.390233+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  0000000000000000
+2020-02-26 09:24:35.390234+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  0000000000000000
+2020-02-26 09:24:35.390473+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.390476+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.391178+0200 0x388      Default     0x0                  0      0    <CoreAnalyticsFamily`CoreAnalyticsUserClient::clientMemoryForType(unsigned int, unsigned int*, IOMemoryDescriptor**)> kernel: (CoreAnalyticsFamily) virtual IOReturn CoreAnalyticsUserClient::clientMemoryForType(UInt32, IOOptionBits *, IOMemoryDescriptor **)::292: got memory descriptor with 16432
+2020-02-26 09:24:35.442129+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local7:
+2020-02-26 09:24:35.442131+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)     Local7:
+2020-02-26 09:24:35.442484+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff8033651730
+2020-02-26 09:24:35.442486+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ffffff8033651730
+2020-02-26 09:24:35.442985+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:35.442987+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) <Obj>
+2020-02-26 09:24:35.443487+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:35.443489+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Integer
+2020-02-26 09:24:35.443728+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  0000000000000014
+2020-02-26 09:24:35.443729+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  0000000000000014
+2020-02-26 09:24:35.444229+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.444230+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.454041+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.454043+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.463561+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) No Arguments are initialized for method [_BIF]
+2020-02-26 09:24:35.463563+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) No Arguments are initialized for method [_BIF]
+2020-02-26 09:24:35.474258+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.474260+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:35.483529+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:35.483531+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:35.483888+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) Method parse/execution failed
+2020-02-26 09:24:35.483890+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) Method parse/execution failed
+2020-02-26 09:24:35.484781+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [\_SB.PCI0.LPCB.EC.BAT0._BIF] (Node ffffff8032e29de0)
+2020-02-26 09:24:35.484783+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [\_SB.PCI0.LPCB.EC.BAT0._BIF] (Node ffffff8032e29de0)
+2020-02-26 09:24:35.486346+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) , AE_NOT_FOUND
+2020-02-26 09:24:35.486347+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) , AE_NOT_FOUND
+2020-02-26 09:24:35.486764+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psparse-632)
+2020-02-26 09:24:35.486766+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psparse-632)
+2020-02-26 09:24:35.497484+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell closed 0, disabled 1, desktopMode 0, ac 1 sleepDisabled 0
+2020-02-26 09:24:35.497488+0200 0x74       Default     0x0                  0      0    kernel: PMRD: clamshell closed 0, disabled 1, desktopMode 0, ac 1 sleepDisabled 0
+2020-02-26 09:24:35.536955+0200 0x6f       Default     0x0                  0      0    <AppleActuatorDriver`AppleActuatorDeviceUserClient::stop(IOService*)> kernel: (AppleActuatorDriver) AppleActuatorDeviceUserClient::stop Entered
+2020-02-26 09:24:35.542620+0200 0x367      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: tccd(125) deny(1) network-outbound /private/var/run/systemkeychaincheck.socket
+2020-02-26 09:24:35.548021+0200 0x32a      Default     0x0                  0      0    <AppleActuatorDriver`AppleActuatorDeviceUserClient::start(IOService*)> kernel: (AppleActuatorDriver) AppleActuatorDeviceUserClient::start Entered
+2020-02-26 09:24:35.611192+0200 0x1f2      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: contextstored(173) deny(1) mach-lookup com.apple.tccd.system
+2020-02-26 09:24:35.850088+0200 0x28c      Default     0x0                  0      0    <AppleKeyStore`AppleKeyStoreUserClient::effective_bag_handle(int, int*) const> kernel: (AppleKeyStore) unexpected session: 100000 uid: -1 requested by: 60
+2020-02-26 09:24:35.861182+0200 0x28c      Default     0x0                  0      0    <AppleKeyStore`AppleKeyStoreUserClient::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)> kernel: (AppleKeyStore) AppleKeyStore: operation failed (pid: 60 sel: 7 ret: e00002c2 '-536870206', -1, 100000)
+2020-02-26 09:24:35.932552+0200 0x3e0      Info        0x0                  0      0    <AppleSystemPolicy`AppleSystemPolicy::setBlockedHashes(unsigned long long, syspolicyd_blocked_hash_entry*, unsigned long long)> kernel: (AppleSystemPolicy) Got new blocked hash data: 1 hashes
+2020-02-26 09:24:35.932554+0200 0x3e0      Info        0x0                  0      0    <AppleSystemPolicy`BlockData::setBlockedHashes(unsigned long long, syspolicyd_blocked_hash_entry const*)> kernel: (AppleSystemPolicy) Setting 1 new blocked hashes
+2020-02-26 09:24:35.932569+0200 0x3e0      Info        0x0                  0      0    <AppleSystemPolicy`AppleSystemPolicy::setBlockedTeams(unsigned long long, syspolicyd_blocked_team_entry*, unsigned long long)> kernel: (AppleSystemPolicy) Got new blocked team data: 1 teams
+2020-02-26 09:24:35.932570+0200 0x3e0      Info        0x0                  0      0    <AppleSystemPolicy`BlockData::setBlockedTeams(unsigned long long, syspolicyd_blocked_team_entry const*)> kernel: (AppleSystemPolicy) Setting 1 new blocked teams
+2020-02-26 09:24:36.066445+0200 0x294      Info        0x0                  0      0    <Sandbox`file_set_size> kernel: (Sandbox) successfully truncated homedirs to 22 bytes
+2020-02-26 09:24:36.066595+0200 0x294      Info        0x0                  0      0    <Sandbox`file_set_size> kernel: (Sandbox) successfully truncated homedir_ancestors to 16 bytes
+2020-02-26 09:24:36.432157+0200 0x234      Default     0x0                  0      0    kernel: Notice - new kext com.apple.driver.KextExcludeList, v15.1.1 matches prelinked kext but can't determine if executables are the same (no UUIDs).
+2020-02-26 09:24:36.481628+0200 0x19e      Default     0x0                  0      0    <Sandbox`sb_report> kernel: (Sandbox) Sandbox: 1 duplicate report for contextstored deny(1) mach-lookup com.apple.tccd.system
+2020-02-26 09:24:36.481631+0200 0x19e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: coreduetd(91) deny(1) mach-lookup com.apple.tccd
+2020-02-26 09:24:36.481807+0200 0x19e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: coreduetd(91) deny(1) mach-lookup com.apple.tccd.system
+2020-02-26 09:24:36.482138+0200 0x19e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: coreduetd(91) deny(1) mach-lookup com.apple.tccd
+2020-02-26 09:24:36.482264+0200 0x19e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: coreduetd(91) deny(1) mach-lookup com.apple.tccd.system
+2020-02-26 09:24:36.496468+0200 0x19e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: coreduetd(91) deny(1) mach-lookup com.apple.tccd
+2020-02-26 09:24:36.496713+0200 0x19e      Error       0x0                  0      0    <Sandbox`kernel_report> kernel: (Sandbox) Sandbox: coreduetd(91) deny(1) mach-lookup com.apple.tccd.system
+2020-02-26 09:24:36.497741+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:36.497743+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) ACPI Error:
+2020-02-26 09:24:36.498110+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [GBIF]
+2020-02-26 09:24:36.498111+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [GBIF]
+2020-02-26 09:24:36.498294+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Namespace lookup failure, AE_NOT_FOUND
+2020-02-26 09:24:36.498295+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  Namespace lookup failure, AE_NOT_FOUND
+2020-02-26 09:24:36.499448+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psargs-463)
+2020-02-26 09:24:36.499450+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)  (20160930/psargs-463)
+2020-02-26 09:24:36.510418+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [_BIF] @00029 #002D:
+2020-02-26 09:24:36.510420+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform) [_BIF] @00029 #002D:
+2020-02-26 09:24:36.511066+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:36.511066+0200 0xe2       Default     0x0                  0      0    <AppleACPIPlatform`AcpiOsVprintf> kernel: (AppleACPIPlatform)
+2020-02-26 09:24:36.511905+0200 0x234      Default     0x0                  0      0    kernel: Matching service count = 14
+2020-02-26 09:24:36.512299+0200 0x234      Default     0x0                  0      0    kernel: Matching service count = 21
+2020-02-26 09:24:36.514103+0200 0x234      Default     0x0                  0      0    kernel: Matching service count = 36
+2020-02-26 09:24:36.514267+0200 0x234      Default     0x0                  0      0    kernel: XiaoMi USB 2.0 Webcam: family specific matching fails
+2020-02-26 09:24:36.514269+0200 0x234      Default     0x0                  0      0    kernel: AppleUSBInterface: family specific matching fails
+2020-02-26 09:24:36.514272+0200 0x234      Default     0x0                  0      0    kernel: CDC Communications Control: family specific matching fails
+2020-02-26 09:24:36.514274+0200 0x234      Default     0x0                  0      0    kernel: AppleUSBInterface: family specific matching fails
+2020-02-26 09:24:36.514276+0200 0x234      Default     0x0                  0      0    kernel: AppleUSBInterface: family specific matching fails
+2020-02-26 09:24:36.514278+0200 0x234      Default     0x0                  0      0    kernel: AppleUSBInterface: family specific matching fails
+2020-02-26 09:24:36.514280+0200 0x234      Default     0x0                  0      0    kernel: AppleUSBInterface: family specific matching fails
+2020-02-26 09:24:36.514281+0200 0x234      Default     0x0                  0      0    kernel: Matching service count = 37
+```
 
-*Clover for UEFI booting only*, *Install Clover in the ESP*, *Drivers off*
+~~**we are moving to a newer clover** : I have read in many places including [here](https://www.tonymacx86.com/threads/guide-hp-elite-8300-hp-6300-pro-using-clover-uefi-hotpatch.265384/) that RehabMan's clover fork is more stable so this is the one we are going to use.~~
 
-*UEFI Drivers* / *Recommended drivers* :
+*Continue* > *Continue* > *Change Install Location* > *Install macOS Catalina* > *Customize*
 
-* `AudioDxe.efi`
-* `DataHubDxe.efi`
-* `FSInject.efi`
+*Clover for UEFI booting only*, *Install Clover in the ESP*
 
-*UEFI Drivers* / *FileVault 2 UEFI Drivers* :
+*Install RC scripts on target volume* **Only on the hard disk for NVRAM emulation**
 
-* `AppleKeyFeeder.efi`
+*Install Clover Preference Pane* **Only on the hard disk**
 
-*Install Clover Preference Pane*
+> Create `EFI/CLOVER/drivers/UEFI` or Erase all files in `EFI/CLOVER/drivers/UEFI` if exitsts and copy the ones from the release directory
 
-> make sure that in `EFI/CLOVER/drivers/UEFI` you have only the following files: `AppleKeyFeeder.efi`, `AudioDxe.efi`, `DataHubDxe.efi`, `FSInject.efi`. Erase the rest (Clover installer sometimes installs other dependencies)
+`EFI/CLOVER/drivers/UEFI` will have the following:
+
+* ApfsDriverLoader.efi
+* AppleGenericInput.efi
+* AppleUiSupport.efi
+* AudioDxe.efi
+* EmuVariableUefi.efi
+* FwRuntimeServices.efi
+* HFSPlus.efi
+* OcQuirks.efi
+* OcQuirks.plist
+* UsbKbDxe.efi
+* UsbMouseDxe.efi
+* VirtualSmc.efi
+
+These files come from:
+
+* [Designare Z390](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/page-1131#post-2046300). Use the `OcQuirks Rev 15 - Designare Z390.zip` and `Catalina Fresh Install.zip`
+* [Filevault](https://fewtarius.gitbook.io/laptopguide/extras/enabling-filevault). Use the `AppleSupport-2.0.9-RELEASE.zip`
+
+
 
 # `Clover Config`
 [up up up](#)
@@ -1161,23 +1711,26 @@ If placed kexts on `EFI/CLOVER/kexts/Other` then:
 
 used 
 
-* `Clover_v2.5k_r5033.zip` - `From Official Site`
-* `as.vit9696.VirtualSMC (1.0.6)`  - `VirtualSMC.1.0.6.RELEASE.zip` **used VirtualSMC.kext and SMCBatteryManager.kext**
+* `Clover_v2.5k_r5099.pkg` - `From [Github](https://github.com/CloverHackyColor/CloverBootloader/releases) Site`
+* `as.vit9696.VirtualSMC (1.0.9)`  - `VirtualSMC-1.0.9-RELEASE.zip` **used VirtualSMC.kext and SMCBatteryManager.kext**
 * `com.rehabman.driver.ACPIDebug (0.1.4)` - `RehabMan-Debug-2015-1230.zip`
-* `as.vit9696.Lilu (1.3.7)` - `Lilu.1.3.7.RELEASE.zip`
-* `as.vit9696.WhateverGreen (1.3.0)` - `WhateverGreen.1.3.0.RELEASE.zip`
-* `as.lvs1974.HibernationFixup (1.2.6)` - `HibernationFixup.1.2.6.RELEASE.zip`
-* `as.vit9696.AppleALC (1.3.9)` - `AppleALC.1.3.9.RELEASE.zip`
+* `s.vit9696.Lilu (1.4.1)` - `Lilu-1.4.1-RELEASE.zip`
+* `as.vit9696.WhateverGreen (1.3.6)` - `WhateverGreen-1.3.6-RELEASE.zip`
+* `as.lvs1974.HibernationFixup (1.3.2)` - `HibernationFixup-1.3.2-RELEASE.zip`
+* `as.vit9696.AppleALC (1.4.6)` - `AppleALC-1.4.6-RELEASE.zip`
 * `org.tw.CodecCommander (2.7.1)` - `RehabMan-CodecCommander-2018-1003.zip`
 * ~~`org.rehabman.driver.AppleSmartBatteryManager (1.90.1)` - `RehabMan-Battery-2018-1005.zip`~~ updated 20190801 [VirtualSMC+SMCBatteryManager is recommended](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/pull/204)
 * `org.rehabman.driver.NullEthernet (1.0.6)` - `RehabMan-NullEthernet-2016-1220.zip`
-* `VoodooPS2Controller.kext.2.0.1.1.zip` - `VoodooPS2Controller.kext.2.0.1.1.zip`
-* `org.vanilla.driver.CPUFriend (1.1.8)` - `CPUFriend.1.1.8.RELEASE.zip`
+* `VoodooPS2Controller-2.1.1.zip` - `VoodooPS2Controller-2.1.1-RELEASE.zip`
+* `VoodooInput-1.0.2.zip` - `VoodooInput-1.0.2-RELEASE.zip`
+* `org.vanilla.driver.CPUFriend (1.2.0)` - `CPUFriend-1.2.0-RELEASE.zip`
 * `CPUFriendDataProvider.kext` *based on `MiNote13-FrequenciesInjector-MPB13.1-I56200U.kext` from 2.1.JahStories`
 * `AppleIntelInfo.kext` - [Replacement for AppleIntelCPUPowerManagementInfo.kext](https://github.com/Piker-Alpha/AppleIntelInfo)
 * `SATA-unsupported.kext` *from [RehabMan/hack-tools](https://github.com/RehabMan/hack-tools/tree/master/kexts)*
 * `USBPorts.kext` created with [FB-Patcher](https://www.insanelymac.com/forum/topic/335018-intel-fb-patcher-v168/) very similar to the procedure from Rehabman's USBInjectAll
 * `LiluFriend.kext` - `LiluFriend.1.1.0.RELEASE.zip`
+* `LiluFriendLite.kext` - `LiluFriendLite.kext.zip`
+* `com.zxystd.IntelBluetoothFirmware (1.0.2)` - `IntelBluetooth.1.0.2.zip`
 * ~~`org.netkas.driver.FakeSMC (1800)` - `RehabMan-FakeSMC-2018-0905.zip`~~
 * ~~`com.rehabman.driver.USBInjectAll (0.7.1)` - `RehabMan-USBInjectAll-2018-1108.zip`~~
 
@@ -1270,6 +1823,8 @@ sudo cat /tmp/AppleIntelInfo.dat
 2. See this [post `CPU Power management`](https://github.com/daliansky/XiaoMi-Pro/issues/22) on how to create one. And this [post `Problem with CPU CPUFriendDataProvider and Geekbench score`](https://github.com/daliansky/XiaoMi-Pro/issues/53) on an optimized one. I know they are from the Pro model but it is the closest I have found to a guide.
 3. Check this [freqVectosEdits](https://pikeralpha.wordpress.com/2017/03/11/freqvectorsedit-v3-1-released/) on the subject as well
 4. finally check [syscl/CPUTune](https://github.com/syscl/CPUTune)
+5. Check thi [CPUFriendFriend python](https://github.com/corpnewt/CPUFriendFriend) to create CPUFriendDataProvider
+
 
 # Check disks with `smartclt`
 [up up up](#)
@@ -1377,8 +1932,8 @@ If Selective self-test is pending on power-up, resume after 0 minute delay.
 
 * ~~ include more devices in `SSDT-PXSX.dsl` ~~
 * Make sure that the Properties injection is working right. It may be related with the USB related warning I see in the beggining.
-* I2C devices not shown in IOREG as shown in [voodooi2c](https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning)
-* VoodooI2C is not working for Multitouch Gestures
+* ~~I2C devices not shown in IOREG as shown in [voodooi2c](https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning)~~ **February 2020**: New VoodooPS2 driver supports multitouch.
+* ~~VoodooI2C is not working for Multitouch Gestures~~ **February 2020**: New VoodooPS2 driver supports multitouch.
 * Use `Piker-Alpha/freqVectorsEdit.sh` to create `CPUFriendDataProvider.kext`. Check also [stevezhengshiqi's process](https://github.com/daliansky/XiaoMi-Pro/issues/22). Also check [syscl/CPUTune](https://github.com/syscl/CPUTune)
 * When sleeping by closing LID on wake loosing USB
 * Shutdown is not working as expected. The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.
