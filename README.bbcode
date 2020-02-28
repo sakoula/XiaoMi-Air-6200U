@@ -28,7 +28,6 @@ Please note that this guide will be not possible without all the excellent resou
 [*] No audio output from HDMI port *I am not using it so ignore for now*
 [*] Shutdown is not working as expected. The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.
 [*] Internal Wifi is not working *see Wi-Fi section for alternatives*
-[*] improve bettery life using a `CPUFriendDataProvider.kext` and `CPUTune.kext`
 [*] When sleeping by closing LID on wake loosing USB
 [/list]
 
@@ -430,6 +429,32 @@ You can view [url=https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/Change
 [*] [icode]LuxMark-v3.1 OpenCL CPU[/icode] 776
 [*] [icode]Heaven FPS[/icode] 13.8 [icode]Score[/icode] 349 [icode]Min FPS[/icode] 6.2 [icode]Max FPS[/icode] 25.3
 [*] [icode]AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:[/icode] 469MB/sec write, 489MB/sec read
+[/list]
+
+[b]8.3 Benchmarking macOS 10.15.3 (JahStories CPUFriendProvider)
+[list]
+[*] [icode]GeekBench x64 4.3.2 CPU[/icode] 3356/6486
+[*] [icode]GeekBench x64 4.3.2 GPU/OpenCl[/icode] 23481
+[*] [icode]GeekBench x64 4.3.2 GPU/Metal[/icode] 16968
+[*] [icode]CINEBENCH R15.038_RC184115 OpenGL[/icode] 22.26fps
+[*] [icode]CINEBENCH R15.038_RC184115 CPU[/icode] 268cb
+[*] [icode]LuxMark-v3.1 OpenCL GPU[/icode] 1465
+[*] [icode]LuxMark-v3.1 OpenCL CPU[/icode] 776
+[*] [icode]Heaven FPS[/icode] 13.4 [icode]Score[/icode] 336 [icode]Min FPS[/icode] 6.0 [icode]Max FPS[/icode] 22.9
+[*] [icode]AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:[/icode] 474MB/sec write, 494MB/sec read
+[/list]
+
+[b]8.4 Benchmarking macOS 10.15.3 (corpnewt/CPUFriendFriend LFM=08/EPP=80)
+[list]
+[*] [icode]GeekBench x64 4.3.2 CPU[/icode] 3348/6462
+[*] [icode]GeekBench x64 4.3.2 GPU/OpenCl[/icode] 23762
+[*] [icode]GeekBench x64 4.3.2 GPU/Metal[/icode] 17023
+[*] [icode]CINEBENCH R15.038_RC184115 OpenGL[/icode] 22.33fps
+[*] [icode]CINEBENCH R15.038_RC184115 CPU[/icode] 286cb
+[*] [icode]LuxMark-v3.1 OpenCL GPU[/icode] 1460
+[*] [icode]LuxMark-v3.1 OpenCL CPU[/icode] 771
+[*] [icode]Heaven FPS[/icode] 13.2 [icode]Score[/icode] 333 [icode]Min FPS[/icode] 5.9 [icode]Max FPS[/icode] 24.7
+[*] [icode]AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:[/icode] 466MB/sec write, 497MB/sec read
 [/list]
 
 [b]9. Credits[/b]

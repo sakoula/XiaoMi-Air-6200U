@@ -60,6 +60,8 @@ Please note that this guide will be not possible without all the excellent resou
 - [Benchmarking](#benchmarking)
 	- [Benchmarking Windows 10](#benchmarking-windows-10)
 	- [Benchmarking macOS 10.14.2](#benchmarking-macos-10142)
+	- [Benchmarking macOS 10.15.3 \(JahStories CPUFriendProvider\)](#benchmarking-macos-10153-jahstories-cpufriendprovider)
+	- [Benchmarking macOS 10.15.3 \(corpnewt/CPUFriendFriend LFM=08/EPP=80\)](#benchmarking-macos-10153-corpnewtcpufriendfriend-lfm08epp80)
 - [Buy me a coffee or a beer](#buy-me-a-coffee-or-a-beer)
 - [Credits](#credits)
 
@@ -79,11 +81,11 @@ Please note that this guide will be not possible without all the excellent resou
 * After Sleep distorted or know audio from Headphones Port *work in progress using ALCPlugFix*
 * No audio output from HDMI port *I am not using it so ignore for now*
 * Shutdown is not working as expected. The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.
-* Multitouch Gestures *work in progress through VoodooI2c*
 * Internal Wifi is not working *see Wi-Fi section for alternatives*
-* improve bettery life using a `CPUFriendDataProvider.kext` and `CPUTune.kext`
 * When sleeping by closing LID on wake loosing USB
-* ~~Bluetooth works if using a VM to inject the FW~~ (February 2020 For Catalina [IntelBluetooth.1.0.2](https://github.com/zxystd/IntelBluetoothFirmware/releases/download/1.0.2/IntelBluetooth.zip) is used)
+* ~~Bluetooth works if using a VM to inject the FW~~ **February 2020** For Catalina [IntelBluetooth.1.0.2](https://github.com/zxystd/IntelBluetoothFirmware/releases/download/1.0.2/IntelBluetooth.zip) is used
+* ~~Multitouch Gestures *work in progress through VoodooI2c*~~ **February 2020** not used anymore
+* ~~improve bettery life using a `CPUFriendDataProvider.kext` and `CPUTune.kext`~~~ **February 2020** based on [corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) min hex freq 800Mhz=08 and EPP Range: (0x80-0xBF:Balance power) = 80
 
 If you face another problem please open a issue.
 
@@ -520,6 +522,30 @@ You can view [Changelog](Changelog.md) for detailed information.
 * `LuxMark-v3.1 OpenCL CPU` 776
 * `Heaven FPS` 13.8 `Score` 349 `Min FPS` 6.2 `Max FPS` 25.3
 * `AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:` 469MB/sec write, 489MB/sec read
+
+### Benchmarking macOS 10.15.3 (JahStories CPUFriendProvider)
+
+* `GeekBench x64 4.3.2 CPU` 3356/6486
+* `GeekBench x64 4.3.2 GPU/OpenCl` 23481
+* `GeekBench x64 4.3.2 GPU/Metal` 16968
+* `CINEBENCH R15.038_RC184115 OpenGL` 22.26fps
+* `CINEBENCH R15.038_RC184115 CPU` 268cb
+* `LuxMark-v3.1 OpenCL GPU` 1465
+* `LuxMark-v3.1 OpenCL CPU` 776
+* `Heaven FPS` 13.4 `Score` 336 `Min FPS` 6.0 `Max FPS` 22.9 (fullscreen/Quality:Medium/Tessellation:Disabled/Anti-aliasing:off/Stereo3D:Disabled)
+* `AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:` 474MB/sec write, 494MB/sec read
+
+### Benchmarking macOS 10.15.3 (corpnewt/CPUFriendFriend LFM=08/EPP=80)
+
+* `GeekBench x64 4.3.2 CPU` 3348/6462
+* `GeekBench x64 4.3.2 GPU/OpenCl` 23762
+* `GeekBench x64 4.3.2 GPU/Metal` 17023
+* `CINEBENCH R15.038_RC184115 OpenGL` 22.33fps
+* `CINEBENCH R15.038_RC184115 CPU` 286cb
+* `LuxMark-v3.1 OpenCL GPU` 1460
+* `LuxMark-v3.1 OpenCL CPU` 771
+* `Heaven FPS` 13.2 `Score` 333 `Min FPS` 5.9 `Max FPS` 24.7 (fullscreen/Quality:Medium/Tessellation:Disabled/Anti-aliasing:off/Stereo3D:Disabled)
+* `AJA System Test Lite (with trim) Samsung SSD 850 EVO M.2 500GB:` 466MB/sec write, 497MB/sec read
 
 ## Buy me a coffee or a beer
 [up up up](#)

@@ -71,3 +71,9 @@
     - upgrade to `acidanthera/VoodooPS2 (VoodooInput-1.0.2)`
     - bluetooth injection `IntelBluetooth.1.0.2.zip`
     - added small guide on readme for upgrading from `10.14.6` to `10.15.3`
+
+- 28-02-2020
+
+    - new `CPUFriendDataProvider.kext` based on [corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) with min hex freq 800Mhz=08 and EPP Range: (0x80-0xBF:Balance power) = 80
+    - updated Benchmarks for `10.15.3`
+    - added `TP-Link_Installer_Mac 10.15_Beta.zip Published Date: 2019-11-22` from [tplink](https://www.tp-link.com/us/support/download/archer-t3u/#Driver) 

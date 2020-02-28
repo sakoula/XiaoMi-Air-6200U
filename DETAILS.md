@@ -1724,7 +1724,8 @@ used
 * `VoodooPS2Controller-2.1.1.zip` - `VoodooPS2Controller-2.1.1-RELEASE.zip`
 * `VoodooInput-1.0.2.zip` - `VoodooInput-1.0.2-RELEASE.zip`
 * `org.vanilla.driver.CPUFriend (1.2.0)` - `CPUFriend-1.2.0-RELEASE.zip`
-* `CPUFriendDataProvider.kext` *based on `MiNote13-FrequenciesInjector-MPB13.1-I56200U.kext` from 2.1.JahStories`
+* ~~`CPUFriendDataProvider.kext.JahStories.zip` based on `MiNote13-FrequenciesInjector-MPB13.1-I56200U.kext` from 2.1.JahStories`~~
+* `CPUFriendDataProvider.kext.corpnewt.800.80.zip` based on [corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) min hex freq 800Mhz=08 and EPP Range: (0x80-0xBF:Balance power) = 80
 * `AppleIntelInfo.kext` - [Replacement for AppleIntelCPUPowerManagementInfo.kext](https://github.com/Piker-Alpha/AppleIntelInfo)
 * `SATA-unsupported.kext` *from [RehabMan/hack-tools](https://github.com/RehabMan/hack-tools/tree/master/kexts)*
 * `USBPorts.kext` created with [FB-Patcher](https://www.insanelymac.com/forum/topic/335018-intel-fb-patcher-v168/) very similar to the procedure from Rehabman's USBInjectAll
@@ -1741,6 +1742,88 @@ not used
 
 # Power Management
 [up up up](#)
+
+**Frebruary 2020**
+
+I used a custom `CPUFriendDataProvider` based on [corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend).
+
+The procedure I followed:
+
+1. Check @ [Intel® Core™ i5-6200U Processor](https://ark.intel.com/content/www/us/en/ark/products/88193/intel-core-i5-6200u-processor-3m-cache-up-to-2-80-ghz.html) and get the Configurable TDP-down Frequency which is 800Mhz which is 08 in HEX
+
+2. check @ [corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) table and assume you want 0x80 for Balance power
+
+3. run the script:
+
+```shell
+$ git clone https://github.com/corpnewt/CPUFriendFriend.git
+$ cd CPUFriendFriend
+$ ./CPUFriendFriend.command
+
+#######################################################
+#                  CPUFriendFriend                    #
+#######################################################
+
+Current Board:  Mac-473D31EABEB93F9B
+Current SMBIOS: MacBookPro13,1
+
+Current Frequency Vector:
+
+1 of 2: 0D (1300 MHz)
+
+Enter the new min hex freq (800Mhz would be 08, 1300Mhz would be 0D):08
+
+
+#######################################################
+#                  CPUFriendFriend                    #
+#######################################################
+
+Current Board:  Mac-473D31EABEB93F9B
+Current SMBIOS: MacBookPro13,1
+
+EPP Range:
+  0x00-0x3F    :    Performance
+  0x40-0x7F    :    Balance performance
+  0x80-0xBF    :    Balance power
+  0xC0-0xFF    :    Power
+
+1 of 2: EPP 80 (Balanced Power)
+
+Enter the new EPP value in hex:80
+
+#######################################################
+#                  CPUFriendFriend                    #
+#######################################################
+
+Current Board:  Mac-473D31EABEB93F9B
+Current SMBIOS: MacBookPro13,1
+
+Current Frequency Vector:
+
+2 of 2: 0D (1300 MHz)
+
+Enter the new min hex freq (800Mhz would be 08, 1300Mhz would be 0D):08
+
+
+#######################################################
+#                  CPUFriendFriend                    #
+#######################################################
+
+Current Board:  Mac-473D31EABEB93F9B
+Current SMBIOS: MacBookPro13,1
+
+EPP Range:
+  0x00-0x3F    :    Performance
+  0x40-0x7F    :    Balance performance
+  0x80-0xBF    :    Balance power
+  0xC0-0xFF    :    Power
+
+2 of 2: EPP 80 (Balanced Power)
+
+Enter the new EPP value in hex:80
+```
+
+install the updated `CPUFriendDataProvider.kext`
 
 # General
 [up up up](#)
@@ -1819,12 +1902,13 @@ sudo cat /tmp/AppleIntelInfo.dat
 ## Work in Progress
 [up up up](#)
 
-1. In my guide I have used the one I found in the original port from JahStories which I converted it in the format of CPUFriend.
-2. See this [post `CPU Power management`](https://github.com/daliansky/XiaoMi-Pro/issues/22) on how to create one. And this [post `Problem with CPU CPUFriendDataProvider and Geekbench score`](https://github.com/daliansky/XiaoMi-Pro/issues/53) on an optimized one. I know they are from the Pro model but it is the closest I have found to a guide.
-3. Check this [freqVectosEdits](https://pikeralpha.wordpress.com/2017/03/11/freqvectorsedit-v3-1-released/) on the subject as well
-4. finally check [syscl/CPUTune](https://github.com/syscl/CPUTune)
-5. Check thi [CPUFriendFriend python](https://github.com/corpnewt/CPUFriendFriend) to create CPUFriendDataProvider
+~~Performance Tuning~~
 
+* ~~In my guide I have used the one I found in the original port from JahStories which I converted it in the format of CPUFriend.~~
+* ~~See this [post `CPU Power management`](https://github.com/daliansky/XiaoMi-Pro/issues/22) on how to create one. And this [post `Problem with CPU CPUFriendDataProvider and Geekbench score`](https://github.com/daliansky/XiaoMi-Pro/issues/53) on an optimized one. I know they are from the Pro model but it is the closest I have found to a guide.~~
+* ~~Check this [freqVectosEdits](https://pikeralpha.wordpress.com/2017/03/11/freqvectorsedit-v3-1-released/) on the subject as well~~
+* ~~finally check [syscl/CPUTune](https://github.com/syscl/CPUTune)~~
+* ~~Check thi [CPUFriendFriend python](https://github.com/corpnewt/CPUFriendFriend) to create CPUFriendDataProvider~~
 
 # Check disks with `smartclt`
 [up up up](#)
