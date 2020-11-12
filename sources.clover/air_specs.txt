@@ -1,0 +1,3217 @@
+Summary
+		Operating System
+			Windows 10 Pro 64-bit
+		CPU
+			Intel Core i5 6200U @ 2.30GHz	40 °C
+			Skylake-U/Y 14nm Technology
+		RAM
+			8,00GB Single-Channel Unknown @ 1064MHz (15-15-15-36)
+		Motherboard
+			Timi TM1613 (U3E1)
+		Graphics
+			Generic PnP Monitor (1920x1080@60Hz)
+			Intel HD Graphics 520 (Unknown)
+			1023MB NVIDIA GeForce 940MX (Unknown)	38 °C
+			ForceWare version: 382.05
+			SLI Disabled
+		Storage
+			465GB Samsung SSD 850 EVO M.2 500GB (SATA (SSD))	30 °C
+			238GB SAMSUNG MZVLV256HCHP-00000 (Unknown (SSD))
+			115GB Kingston DataTraveler 3.0 USB Device (USB )
+		Optical Drives
+			ELBY CLONEDRIVE SCSI CdRom Device
+		Audio
+			Realtek High Definition Audio
+Operating System
+	Windows 10 Pro 64-bit
+	Computer type: Notebook
+	Installation Date: 01/03/2020 16:11:06
+	Serial Number: XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+		Windows Security Center
+			User Account Control (UAC)	Enabled
+			Notify level	2 - Default
+			Firewall	Enabled
+		Windows Update
+			AutoUpdate	Not configured
+		Windows Defender
+			Windows Defender	Enabled
+		Antivirus
+			Antivirus	Enabled
+			Display Name	Windows Defender
+			Virus Signature Database	Up to date
+		.NET Frameworks installed
+			v4.8 Full
+			v4.8 Client
+			v3.5 SP1
+			v3.0 SP2
+			v2.0 SP2
+		Internet Explorer
+			Version	11.1139.18362.0
+		PowerShell
+			Version	5.1.18362.1
+		Environment Variables
+			USERPROFILE	C:\Users\jo
+			SystemRoot	C:\WINDOWS
+				User Variables
+					OneDrive	C:\Users\jo\OneDrive
+					Path	C:\Users\jo\AppData\Local\Programs\Python\Python39\Scripts\
+					C:\Users\jo\AppData\Local\Programs\Python\Python39\
+					C:\Users\jo\AppData\Local\Microsoft\WindowsApps
+					TEMP	C:\Users\jo\AppData\Local\Temp
+					TMP	C:\Users\jo\AppData\Local\Temp
+				Machine Variables
+					ComSpec	C:\WINDOWS\system32\cmd.exe
+					DriverData	C:\Windows\System32\Drivers\DriverData
+					NUMBER_OF_PROCESSORS	4
+					OS	Windows_NT
+					Path	C:\Program Files (x86)\Intel\iCLS Client\
+					C:\Program Files\Intel\iCLS Client\
+					C:\WINDOWS\system32
+					C:\WINDOWS
+					C:\WINDOWS\System32\Wbem
+					C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+					C:\Program Files (x86)\Intel\Intel Management Engine Components\DAL
+					C:\Program Files\Intel\Intel Management Engine Components\DAL
+					C:\Program Files (x86)\Intel\Intel Management Engine Components\IPT
+					C:\Program Files\Intel\Intel Management Engine Components\IPT
+					C:\Program Files\PuTTY\
+					C:\WINDOWS\System32\OpenSSH\
+					PATHEXT	.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+					PROCESSOR_ARCHITECTURE	AMD64
+					PROCESSOR_IDENTIFIER	Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+					PROCESSOR_LEVEL	6
+					PROCESSOR_REVISION	4e03
+					PSModulePath	%ProgramFiles%\WindowsPowerShell\Modules
+					C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+					TEMP	C:\WINDOWS\TEMP
+					TMP	C:\WINDOWS\TEMP
+					USERNAME	SYSTEM
+					windir	C:\WINDOWS
+		Battery
+			AC Line	Offline
+			Battery Charge %	48 %
+			Battery State	Unknown status
+			Remaining Battery Time	1 : 38
+		Power Profile
+			Active power scheme	Balanced
+			Hibernation	Enabled
+			Turn Off Monitor after: (On AC Power)	20 min
+			Turn Off Monitor after: (On Battery Power)	20 min
+			Turn Off Hard Disk after: (On AC Power)	20 min
+			Turn Off Hard Disk after: (On Battery Power)	10 min
+			Suspend after: (On AC Power)	Never
+			Suspend after: (On Battery Power)	300 min
+			Screen saver	Enabled
+		Uptime
+				Current Session
+					Current Time	27/10/2020 07:33:22
+					Current Uptime	134.224 sec (1 d, 13 h, 17 m, 04 s)
+					Last Boot Time	25/10/2020 18:16:18
+		Services
+			Running	Apple Mobile Device Service
+			Running	Application Information
+			Running	AppX Deployment Service (AppXSVC)
+			Running	AVCTP service
+			Running	Background Tasks Infrastructure Service
+			Running	Base Filtering Engine
+			Running	Bluetooth Audio Gateway Service
+			Running	Bluetooth Support Service
+			Running	Bonjour Service
+			Running	Capability Access Manager Service
+			Running	Cisco AnyConnect Secure Mobility Agent
+			Running	Clipboard User Service_c8c85c
+			Running	CNG Key Isolation
+			Running	COM+ Event System
+			Running	Connected Devices Platform Service
+			Running	Connected Devices Platform User Service_c8c85c
+			Running	Connected User Experiences and Telemetry
+			Running	CoreMessaging
+			Running	Credential Manager
+			Running	Cryptographic Services
+			Running	Data Usage
+			Running	DCOM Server Process Launcher
+			Running	Delivery Optimization
+			Running	Device Association Service
+			Running	DHCP Client
+			Running	Diagnostic Policy Service
+			Running	Diagnostic Service Host
+			Running	Diagnostic System Host
+			Running	Display Enhancement Service
+			Running	Display Policy Service
+			Running	Distributed Link Tracking Client
+			Running	DNS Client
+			Running	Dolby DAX2 API Service
+			Running	Geolocation Service
+			Running	Group Policy Client
+			Running	Intel Bluetooth Service
+			Running	Intel Content Protection HDCP Service
+			Running	Intel Content Protection HECI Service
+			Running	Intel Dynamic Application Loader Host Interface Service
+			Running	Intel HD Graphics Control Panel Service
+			Running	Intel Management and Security Application Local Management Service
+			Running	Intel Security Assist
+			Running	IP Helper
+			Running	iPod Service
+			Running	IPsec Policy Agent
+			Running	Local Session Manager
+			Running	Microsoft Passport Container
+			Running	Microsoft Store Install Service
+			Running	MiService
+			Running	Network Connection Broker
+			Running	Network List Service
+			Running	Network Location Awareness
+			Running	Network Store Interface Service
+			Running	NVIDIA Display Container LS
+			Running	Payments and NFC/SE Manager
+			Running	Peer Name Resolution Protocol
+			Running	Peer Networking Identity Manager
+			Running	Phone Service
+			Running	Plug and Play
+			Running	Power
+			Running	Print Spooler
+			Running	Program Compatibility Assistant Service
+			Running	Realtek Audio Service
+			Running	Remote Access Connection Manager
+			Running	Remote Procedure Call (RPC)
+			Running	RPC Endpoint Mapper
+			Running	Secure Socket Tunneling Protocol Service
+			Running	Security Accounts Manager
+			Running	Security Center
+			Running	Server
+			Running	Service KMSELDI
+			Running	Shell Hardware Detection
+			Running	SSDP Discovery
+			Running	State Repository Service
+			Running	Storage Service
+			Running	Sync Host_c8c85c
+			Running	SynTPEnh Caller Service
+			Running	SysMain
+			Running	System Event Notification Service
+			Running	System Events Broker
+			Running	System Guard Runtime Monitor Broker
+			Running	Task Scheduler
+			Running	TCP/IP NetBIOS Helper
+			Running	Themes
+			Running	Time Broker
+			Running	Touch Keyboard and Handwriting Panel Service
+			Running	Update Orchestrator Service
+			Running	User Manager
+			Running	User Profile Service
+			Running	Web Account Manager
+			Running	Web Update Service by PowerProgrammer
+			Running	Windows Audio
+			Running	Windows Audio Endpoint Builder
+			Running	Windows Connection Manager
+			Running	Windows Defender Antivirus Network Inspection Service
+			Running	Windows Defender Antivirus Service
+			Running	Windows Defender Firewall
+			Running	Windows Event Log
+			Running	Windows Font Cache Service
+			Running	Windows Image Acquisition (WIA)
+			Running	Windows License Manager Service
+			Running	Windows Management Instrumentation
+			Running	Windows Presentation Foundation Font Cache 3.0.0.0
+			Running	Windows Push Notifications System Service
+			Running	Windows Push Notifications User Service_c8c85c
+			Running	Windows Search
+			Running	Windows Security Service
+			Running	Windows Time
+			Running	Windows Update
+			Running	WinHTTP Web Proxy Auto-Discovery Service
+			Running	WLAN AutoConfig
+			Running	Workstation
+			Stopped	ActiveX Installer (AxInstSV)
+			Stopped	Agent Activation Runtime_c8c85c
+			Stopped	AllJoyn Router Service
+			Stopped	App Readiness
+			Stopped	Application Identity
+			Stopped	Application Layer Gateway Service
+			Stopped	Application Management
+			Stopped	AssignedAccessManager Service
+			Stopped	Auto Time Zone Updater
+			Stopped	Background Intelligent Transfer Service
+			Stopped	BitLocker Drive Encryption Service
+			Stopped	Block Level Backup Engine Service
+			Stopped	Bluetooth User Support Service_c8c85c
+			Stopped	BranchCache
+			Stopped	CaptureService_c8c85c
+			Stopped	Cellular Time
+			Stopped	Certificate Propagation
+			Stopped	Client License Service (ClipSVC)
+			Stopped	COM+ System Application
+			Stopped	Computer Browser
+			Stopped	ConsentUX_c8c85c
+			Stopped	Contact Data_c8c85c
+			Stopped	CredentialEnrollmentManagerUserSvc_c8c85c
+			Stopped	Data Sharing Service
+			Stopped	Device Install Service
+			Stopped	Device Management Enrollment Service
+			Stopped	Device Management Wireless Application Protocol (WAP) Push message Routing Service
+			Stopped	Device Setup Manager
+			Stopped	DeviceAssociationBroker_c8c85c
+			Stopped	DevicePicker_c8c85c
+			Stopped	DevicesFlow_c8c85c
+			Stopped	DevQuery Background Discovery Broker
+			Stopped	Diagnostic Execution Service
+			Stopped	Distributed Transaction Coordinator
+			Stopped	Downloaded Maps Manager
+			Stopped	Embedded Mode
+			Stopped	Encrypting File System (EFS)
+			Stopped	Enterprise App Management Service
+			Stopped	Extensible Authentication Protocol
+			Stopped	Fax
+			Stopped	File History Service
+			Stopped	Function Discovery Provider Host
+			Stopped	Function Discovery Resource Publication
+			Stopped	GameDVR and Broadcast User Service_c8c85c
+			Stopped	Google Chrome Elevation Service
+			Stopped	Google Update Service (gupdate)
+			Stopped	Google Update Service (gupdatem)
+			Stopped	GraphicsPerfSvc
+			Stopped	Human Interface Device Service
+			Stopped	HV Host Service
+			Stopped	Hyper-V Data Exchange Service
+			Stopped	Hyper-V Guest Service Interface
+			Stopped	Hyper-V Guest Shutdown Service
+			Stopped	Hyper-V Heartbeat Service
+			Stopped	Hyper-V PowerShell Direct Service
+			Stopped	Hyper-V Remote Desktop Virtualization Service
+			Stopped	Hyper-V Time Synchronization Service
+			Stopped	Hyper-V Volume Shadow Copy Requestor
+			Stopped	IKE and AuthIP IPsec Keying Modules
+			Stopped	Intel Capability Licensing Service TCP IP Interface
+			Stopped	Intel Security Assist Helper
+			Stopped	Internet Connection Sharing (ICS)
+			Stopped	IP Translation Configuration Service
+			Stopped	KtmRm for Distributed Transaction Coordinator
+			Stopped	Language Experience Service
+			Stopped	Link-Layer Topology Discovery Mapper
+			Stopped	Local Profile Assistant Service
+			Stopped	MessagingService_c8c85c
+			Stopped	Microsoft Diagnostics Hub Standard Collector Service
+			Stopped	Microsoft Account Sign-in Assistant
+			Stopped	Microsoft App-V Client
+			Stopped	Microsoft Edge Elevation Service
+			Stopped	Microsoft Edge Update Service (edgeupdate)
+			Stopped	Microsoft Edge Update Service (edgeupdatem)
+			Stopped	Microsoft iSCSI Initiator Service
+			Stopped	Microsoft Passport
+			Stopped	Microsoft Software Shadow Copy Provider
+			Stopped	Microsoft Storage Spaces SMP
+			Stopped	Microsoft Update Health Service
+			Stopped	Microsoft Windows SMS Router Service.
+			Stopped	Mozilla Maintenance Service
+			Stopped	Natural Authentication
+			Stopped	Net.Tcp Port Sharing Service
+			Stopped	Netlogon
+			Stopped	Network Connected Devices Auto-Setup
+			Stopped	Network Connections
+			Stopped	Network Connectivity Assistant
+			Stopped	Network Setup Service
+			Stopped	Office Source Engine
+			Stopped	Offline Files
+			Stopped	OpenSSH Authentication Agent
+			Stopped	Optimize drives
+			Stopped	Parental Controls
+			Stopped	Peer Networking Grouping
+			Stopped	Performance Counter DLL Host
+			Stopped	Performance Logs & Alerts
+			Stopped	PNRP Machine Name Publication Service
+			Stopped	Portable Device Enumerator Service
+			Stopped	Printer Extensions and Notifications
+			Stopped	PrintWorkflow_c8c85c
+			Stopped	Problem Reports and Solutions Control Panel Support
+			Stopped	Quality Windows Audio Video Experience
+			Stopped	Radio Management Service
+			Stopped	Recommended Troubleshooting Service
+			Stopped	Remote Access Auto Connection Manager
+			Stopped	Remote Desktop Configuration
+			Stopped	Remote Desktop Services
+			Stopped	Remote Desktop Services UserMode Port Redirector
+			Stopped	Remote Procedure Call (RPC) Locator
+			Stopped	Remote Registry
+			Stopped	Retail Demo Service
+			Stopped	Routing and Remote Access
+			Stopped	Secondary Logon
+			Stopped	Sensor Data Service
+			Stopped	Sensor Monitoring Service
+			Stopped	Sensor Service
+			Stopped	Shared PC Account Manager
+			Stopped	Smart Card
+			Stopped	Smart Card Device Enumeration Service
+			Stopped	Smart Card Removal Policy
+			Stopped	SNMP Trap
+			Stopped	Software Protection
+			Stopped	Spatial Data Service
+			Stopped	Spot Verifier
+			Stopped	Still Image Acquisition Events
+			Stopped	Storage Tiers Management
+			Stopped	Telephony
+			Stopped	UPnP Device Host
+			Stopped	User Data Access_c8c85c
+			Stopped	User Data Storage_c8c85c
+			Stopped	User Experience Virtualization Service
+			Stopped	Virtual Disk
+			Stopped	Volume Shadow Copy
+			Stopped	Volumetric Audio Compositor Service
+			Stopped	WalletService
+			Stopped	WarpJITSvc
+			Stopped	WebClient
+			Stopped	Wi-Fi Direct Services Connection Manager Service
+			Stopped	Windows Backup
+			Stopped	Windows Biometric Service
+			Stopped	Windows Camera Frame Server
+			Stopped	Windows Connect Now - Config Registrar
+			Stopped	Windows Defender Advanced Threat Protection Service
+			Stopped	Windows Encryption Provider Host Service
+			Stopped	Windows Error Reporting Service
+			Stopped	Windows Event Collector
+			Stopped	Windows Insider Service
+			Stopped	Windows Installer
+			Stopped	Windows Management Service
+			Stopped	Windows Media Player Network Sharing Service
+			Stopped	Windows Mixed Reality OpenXR Service
+			Stopped	Windows Mobile Hotspot Service
+			Stopped	Windows Modules Installer
+			Stopped	Windows Perception Service
+			Stopped	Windows Perception Simulation Service
+			Stopped	Windows PushToInstall Service
+			Stopped	Windows Remote Management (WS-Management)
+			Stopped	Windows Update Medic Service
+			Stopped	Wired AutoConfig
+			Stopped	WMI Performance Adapter
+			Stopped	Work Folders
+			Stopped	WWAN AutoConfig
+			Stopped	Xbox Accessory Management Service
+			Stopped	Xbox Live Auth Manager
+			Stopped	Xbox Live Game Save
+			Stopped	Xbox Live Networking Service
+		TimeZone
+			TimeZone	GMT +2:00 Hours
+			Language	English (United States)
+			Location	Greece
+			Format	English (Europe)
+			Currency	XDR
+			Date Format	dd/MM/yyyy
+			Time Format	HH:mm:ss
+		Scheduler
+			27/10/2020 07:34;	MicrosoftEdgeUpdateTaskMachineCore
+			27/10/2020 07:34;	MicrosoftEdgeUpdateTaskMachineUA
+			27/10/2020 08:01;	GoogleUpdateTaskMachineUA
+			27/10/2020 13:01;	GoogleUpdateTaskMachineCore1d49a9c8069f23
+			27/10/2020 17:52;	GoogleUpdateTaskMachineCore
+			27/10/2020 19:12;	OneDrive Standalone Update Task-S-1-5-21-72215721-3642816691-2435616442-1001
+			27/10/2020 21:46;	OneDrive Standalone Update Task-S-1-5-21-72215721-3642816691-2435616442-1002
+			27/10/2020 23:59;	AutoPico Daily Restart
+			RtHDVBg_PushButton
+		Hotfixes
+				Installed
+						26/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.1486.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						25/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.1407.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						25/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.1403.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						25/10/2020  2020-10 Security Update for Adobe Flash Player for Windows 10 Version 1909 for x64-based Systems (KB4580325)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						25/10/2020  2020-10 Cumulative Update for .NET Framework 3.5 and 4.8 for Windows 10 Version 1909 for x64 (KB4578974)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						25/10/2020  2020-10 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4577671)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						24/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.1346.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						23/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.1286.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						23/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.1284.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						22/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.1237.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						08/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.353.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						07/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.311.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						07/10/2020  Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.2009.7)
+							This package will update Microsoft Defender Antivirus antimalware
+							platform’s components on the user machine.
+						06/10/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.325.247.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						30/09/2020  2020-09 Update for Windows 10 Version 1909 for x64-based Systems (KB4023057)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						30/09/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.323.2230.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						28/09/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.323.2101.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						26/09/2020  2020-09 Cumulative Update for .NET Framework 3.5 and 4.8 for Windows 10 Version 1909 for x64 (KB4576484)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						26/09/2020  Windows Malicious Software Removal Tool x64 - v5.83 (KB890830)
+							After the download, this tool runs one time to check your computer
+							for infection by specific, prevalent malicious software (including
+							Blaster, Sasser, and Mydoom) and helps remove any infection that
+							is found. If an infection is found, the tool will display a status
+							report the next time that you start your computer. A new version
+							of the tool will be offered every month. If you want to manually
+							run the tool on your computer, you can download a copy from the
+							Microsoft Download Center, or you can run an online version from
+							microsoft.com. This tool is not a replacement for an antivirus
+							product. To help protect your computer, you should use an antivirus
+							product.
+						26/09/2020  2020-09 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4574727)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						26/09/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.323.1940.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						24/09/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.323.1803.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						06/09/2020  Intel Corporation - Display - 27.20.100.7989
+							Intel Corporation Display driver update released in June 2020
+						06/09/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.323.606.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						05/09/2020  2020-08 Cumulative Update for .NET Framework 3.5 and 4.8 for Windows 10 Version 1909 for x64 (KB4569751)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						05/09/2020  2020-08 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4565351)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						05/09/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.323.544.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						03/09/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.323.424.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						03/09/2020  Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.2008.9)
+							This package will update Microsoft Defender Antivirus antimalware
+							platform’s components on the user machine.
+						30/07/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.321.170.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						27/07/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.319.2368.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						26/07/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.319.2331.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						26/07/2020  2020-07 Cumulative Update for .NET Framework 3.5 and 4.8 for Windows 10 Version 1909 for x64 (KB4565633)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						26/07/2020  2020-06 Security Update for Adobe Flash Player for Windows 10 Version 1909 for x64-based Systems (KB4561600)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						26/07/2020  2020-05 Microsoft Edge Update for Windows 10 Version 1909 for x64-based Systems (KB4559309)
+							This update provides the latest feature and quality updates to
+							Microsoft Edge.
+						26/07/2020  2020-07 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4565483)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						15/07/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.319.1488.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						15/07/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.319.1488.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						15/07/2020  Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.2006.10)
+							This package will update Microsoft Defender Antivirus antimalware
+							platform’s components on the user machine.
+						30/06/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.319.519.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						30/06/2020  Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.2005.5)
+							This package will update Microsoft Defender Antivirus antimalware
+							platform’s components on the user machine.
+						03/06/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.317.516.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						29/05/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.317.182.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						29/05/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.317.165.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						27/05/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.317.26.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						19/05/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.315.962.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						14/05/2020  2020-05 Cumulative Update for .NET Framework 3.5 and 4.8 for Windows 10 Version 1909 for x64 (KB4552931)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						14/05/2020  Windows Malicious Software Removal Tool x64 - v5.82 (KB890830)
+							After the download, this tool runs one time to check your computer
+							for infection by specific, prevalent malicious software (including
+							Blaster, Sasser, and Mydoom) and helps remove any infection that
+							is found. If an infection is found, the tool will display a status
+							report the next time that you start your computer. A new version
+							of the tool will be offered every month. If you want to manually
+							run the tool on your computer, you can download a copy from the
+							Microsoft Download Center, or you can run an online version from
+							microsoft.com. This tool is not a replacement for an antivirus
+							product. To help protect your computer, you should use an antivirus
+							product.
+						14/05/2020  2020-05 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4556799)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						14/05/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.315.617.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						05/05/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2918.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						03/05/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2828.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						03/05/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2826.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						03/05/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2822.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						03/05/2020  Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.2004.6)
+							This package will update Microsoft Defender Antivirus antimalware
+							platform’s components on the user machine.
+						30/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2652.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						28/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2474.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						24/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2244.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						24/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2217.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						23/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2141.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						22/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2080.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						22/04/2020  2020-04 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4549951)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						22/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.2062.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						17/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.1734.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						14/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.1489.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						14/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.1478.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						13/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.1404.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						09/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.1115.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						08/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.1029.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						08/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.1016.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						04/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.766.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						03/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.696.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						02/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.588.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						01/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.530.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						01/04/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.526.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						31/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.459.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						30/03/2020  wch.cn - Ports - 1/30/2019 12:00:00 AM - 3.5.2019.1
+							wch.cn Ports driver update released in January 2019
+						30/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.382.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						27/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.183.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						27/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.170.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						26/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.93.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						25/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.313.26.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						25/03/2020  Update for Windows Defender Antivirus antimalware platform - KB4052623 (Version 4.18.2003.8)
+							This package will update Windows Defender Antivirus antimalware
+							platform’s components on the user machine.
+						24/03/2020  Samsung - Printers - Samsung Universal Print Driver 3
+							Samsung Printers software update released in January, 2016
+						24/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1859.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						22/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1752.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						21/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1684.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						20/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1574.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						20/03/2020  Update for Windows Defender Antivirus antimalware platform - KB4052623 (Version 4.18.2003.6)
+							This package will update Windows Defender Antivirus antimalware
+							platform’s components on the user machine.
+						19/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1523.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						18/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1451.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						18/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1426.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						17/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1375.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						16/03/2020  Windows Malicious Software Removal Tool x64 - March 2020 (KB890830)
+							After the download, this tool runs one time to check your computer
+							for infection by specific, prevalent malicious software (including
+							Blaster, Sasser, and Mydoom) and helps remove any infection that
+							is found. If an infection is found, the tool will display a status
+							report the next time that you start your computer. A new version
+							of the tool will be offered every month. If you want to manually
+							run the tool on your computer, you can download a copy from the
+							Microsoft Download Center, or you can run an online version from
+							microsoft.com. This tool is not a replacement for an antivirus
+							product. To help protect your computer, you should use an antivirus
+							product.
+						16/03/2020  2020-03 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4551762)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						16/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1307.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						06/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.635.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						02/03/2020  2020-02 Cumulative Update for Windows 10 Version 1909 for x64-based Systems (KB4535996)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						02/03/2020  Feature update to Windows 10, version 1909
+							Install the latest update for Windows 10: Windows 10, version
+							1909.
+						02/03/2020  Feature update to Windows 10, version 1909
+							Install the latest update for Windows 10: Windows 10, version
+							1909.
+						02/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.383.0)
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						01/03/2020  2020-02 Cumulative Update for .NET Framework 3.5 and 4.8 for Windows 10 Version 1903 for x64 (KB4537572)
+							Install this update to resolve issues in Windows. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article for more information.
+							After you install this item, you may have to restart your computer.
+						01/03/2020  2020-02 Security Update for Adobe Flash Player for Windows 10 Version 1903 for x64-based Systems (KB4537759)
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						01/03/2020  Feature update to Windows 10, version 1903
+							Install the latest update for Windows 10: Windows 10, version
+							1903.
+				Not Installed
+						25/10/2020  2020-10 Security Update for Adobe Flash Player for Windows 10 Version 1909 for x64-based Systems (KB4580325)
+							Installation Status	Failed
+							A security issue has been identified in a Microsoft software
+							product that could affect your system. You can help protect your
+							system by installing this update from Microsoft. For a complete
+							listing of the issues that are included in this update, see the
+							associated Microsoft Knowledge Base article. After you install
+							this update, you may have to restart your system.
+						05/09/2020  9WZDNCRFHVQM-MICROSOFT.WINDOWSCOMMUNICATIONSAPPS
+							Installation Status	Failed
+							9WZDNCRFHVQM-1152921505691053688
+						30/06/2020  Security Intelligence Update for Microsoft Defender Antivirus - KB2267602 (Version 1.319.519.0)
+							Installation Status	Canceled
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+						19/05/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						19/05/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						19/05/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						05/05/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						05/05/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						28/04/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						28/04/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						28/04/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						22/04/2020  9NBLGGH4RV3K-Microsoft.VCLibs.140.00.UWPDesktop
+							Installation Status	Failed
+							9NBLGGH4RV3K-1152921505689205016
+						13/04/2020  9NMPJ99VJBWV-Microsoft.YourPhone
+							Installation Status	Failed
+							9NMPJ99VJBWV-1152921505689563089
+						27/03/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						27/03/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						23/03/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						23/03/2020  9NBLGGH3FRZM-Microsoft.VCLibs.140.00
+							Installation Status	Failed
+							9NBLGGH3FRZM-1152921505689205002
+						20/03/2020  Security Intelligence Update for Windows Defender Antivirus - KB2267602 (Version 1.311.1574.0)
+							Installation Status	Canceled
+							Install this update to revise the files that are used to detect
+							viruses, spyware, and other potentially unwanted software. Once
+							you have installed this item, it cannot be removed.
+		System Folders
+			Application Data	C:\ProgramData
+			Cookies	C:\Users\jo\AppData\Local\Microsoft\Windows\INetCookies
+			Desktop	C:\Users\jo\Desktop
+			Documents	C:\Users\Public\Documents
+			Fonts	C:\WINDOWS\Fonts
+			Global Favorites	C:\Users\jo\Favorites
+			Internet History	C:\Users\jo\AppData\Local\Microsoft\Windows\History
+			Local Application Data	C:\Users\jo\AppData\Local
+			Music	C:\Users\Public\Music
+			Path for burning CD	C:\Users\jo\AppData\Local\Microsoft\Windows\Burn\Burn
+			Physical Desktop	C:\Users\jo\Desktop
+			Pictures	C:\Users\Public\Pictures
+			Program Files	C:\Program Files
+			Public Desktop	C:\Users\Public\Desktop
+			Start Menu	C:\ProgramData\Microsoft\Windows\Start Menu
+			Start Menu Programs	C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+			Startup	C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+			Templates	C:\ProgramData\Microsoft\Windows\Templates
+			Temporary Internet Files	C:\Users\jo\AppData\Local\Microsoft\Windows\INetCache
+			User Favorites	C:\Users\jo\Favorites
+			Videos	C:\Users\Public\Videos
+			Windows Directory	C:\WINDOWS
+			Windows/System	C:\WINDOWS\system32
+		Process List
+				AppleMobileDeviceService.exe
+					Process ID	4728
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\Common Files\Apple\Mobile Device Support\AppleMobileDeviceService.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	13 MB
+				ApplicationFrameHost.exe
+					Process ID	12196
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\ApplicationFrameHost.exe
+					Memory Usage	32 MB
+					Peak Memory Usage	35 MB
+				audiodg.exe
+					Process ID	8652
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\audiodg.exe
+					Memory Usage	15 MB
+					Peak Memory Usage	22 MB
+				Calculator.exe
+					Process ID	6604
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2009.4.0_x64__8wekyb3d8bbwe\Calculator.exe
+					Memory Usage	41 MB
+					Peak Memory Usage	66 MB
+				conhost.exe
+					Process ID	3576
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\conhost.exe
+					Memory Usage	5.23 MB
+					Peak Memory Usage	10 MB
+				csrss.exe
+					Process ID	616
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\csrss.exe
+					Memory Usage	5.60 MB
+					Peak Memory Usage	5.86 MB
+				csrss.exe
+					Process ID	8664
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\csrss.exe
+					Memory Usage	5.68 MB
+					Peak Memory Usage	30 MB
+				ctfmon.exe
+					Process ID	10476
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\ctfmon.exe
+					Memory Usage	14 MB
+					Peak Memory Usage	14 MB
+				dasHost.exe
+					Process ID	2264
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\dasHost.exe
+					Memory Usage	8.31 MB
+					Peak Memory Usage	8.52 MB
+				dllhost.exe
+					Process ID	7076
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\dllhost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	13 MB
+				dllhost.exe
+					Process ID	2968
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\dllhost.exe
+					Memory Usage	6.70 MB
+					Peak Memory Usage	6.71 MB
+				DolbyDAX2API.exe
+					Process ID	9380
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\Dolby\Dolby DAX2\DAX2_API\DolbyDAX2API.exe
+					Memory Usage	40 MB
+					Peak Memory Usage	52 MB
+				Duplicati.GUI.TrayIcon.exe
+					Process ID	8416
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe
+					Memory Usage	29 MB
+					Peak Memory Usage	30 MB
+				Duplicati.GUI.TrayIcon.exe
+					Process ID	6000
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe
+					Memory Usage	59 MB
+					Peak Memory Usage	60 MB
+				dwm.exe
+					Process ID	5448
+					User	DWM-10
+					Domain	Window Manager
+					Path	C:\Windows\System32\dwm.exe
+					Memory Usage	80 MB
+					Peak Memory Usage	96 MB
+				explorer.exe
+					Process ID	6240
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\explorer.exe
+					Memory Usage	109 MB
+					Peak Memory Usage	114 MB
+				fontdrvhost.exe
+					Process ID	7204
+					User	UMFD-10
+					Domain	Font Driver Host
+					Path	C:\Windows\System32\fontdrvhost.exe
+					Memory Usage	7.98 MB
+					Peak Memory Usage	7.98 MB
+				fontdrvhost.exe
+					Process ID	976
+					User	UMFD-0
+					Domain	Font Driver Host
+					Path	C:\Windows\System32\fontdrvhost.exe
+					Memory Usage	2.72 MB
+					Peak Memory Usage	3.49 MB
+				GoogleUpdate.exe
+					Process ID	6260
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files (x86)\Google\Update\GoogleUpdate.exe
+					Memory Usage	736 KB
+					Peak Memory Usage	10 MB
+				ibtsiva.exe
+					Process ID	4904
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\ibtsiva.exe
+					Memory Usage	4.29 MB
+					Peak Memory Usage	4.48 MB
+				igfxCUIService.exe
+					Process ID	428
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\DriverStore\FileRepository\igdlh64.inf_amd64_bdd37d808cfdf045\igfxCUIService.exe
+					Memory Usage	8.37 MB
+					Peak Memory Usage	8.68 MB
+				igfxEM.exe
+					Process ID	9856
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\DriverStore\FileRepository\igdlh64.inf_amd64_bdd37d808cfdf045\igfxEM.exe
+					Memory Usage	20 MB
+					Peak Memory Usage	20 MB
+				IntelCpHDCPSvc.exe
+					Process ID	4768
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\DriverStore\FileRepository\igdlh64.inf_amd64_bdd37d808cfdf045\IntelCpHDCPSvc.exe
+					Memory Usage	6.88 MB
+					Peak Memory Usage	7.33 MB
+				IntelCpHeciSvc.exe
+					Process ID	5776
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\DriverStore\FileRepository\igdlh64.inf_amd64_bdd37d808cfdf045\IntelCpHeciSvc.exe
+					Memory Usage	6.52 MB
+					Peak Memory Usage	6.89 MB
+				iPodService.exe
+					Process ID	7580
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\iPod\bin\iPodService.exe
+					Memory Usage	8.28 MB
+					Peak Memory Usage	8.45 MB
+				isa.exe
+					Process ID	1336
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files (x86)\Intel\Intel Security Assist\isa.exe
+					Memory Usage	22 MB
+					Peak Memory Usage	23 MB
+				iTunesHelper.exe
+					Process ID	5580
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\iTunes\iTunesHelper.exe
+					Memory Usage	15 MB
+					Peak Memory Usage	16 MB
+				jhi_service.exe
+					Process ID	9824
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files (x86)\Intel\Intel Management Engine Components\DAL\jhi_service.exe
+					Memory Usage	5.79 MB
+					Peak Memory Usage	6.33 MB
+				LMS.exe
+					Process ID	7900
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files (x86)\Intel\Intel Management Engine Components\LMS\LMS.exe
+					Memory Usage	11 MB
+					Peak Memory Usage	13 MB
+				lsass.exe
+					Process ID	800
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\lsass.exe
+					Memory Usage	17 MB
+					Peak Memory Usage	17 MB
+				mDNSResponder.exe
+					Process ID	4756
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\Bonjour\mDNSResponder.exe
+					Memory Usage	6.64 MB
+					Peak Memory Usage	6.75 MB
+				Memory Compression
+					Process ID	2436
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Memory Usage	46 MB
+					Peak Memory Usage	108 MB
+				MicrosoftEdgeUpdate.exe
+					Process ID	10984
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
+					Memory Usage	1.65 MB
+					Peak Memory Usage	10 MB
+				MiOSDApp.exe
+					Process ID	3032
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\MiOSDApp\MiOSDApp.exe
+					Memory Usage	14 MB
+					Peak Memory Usage	14 MB
+				MiService.exe
+					Process ID	4924
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files (x86)\Timi Personal Computing\MiTongBu\MiService.exe
+					Memory Usage	41 MB
+					Peak Memory Usage	57 MB
+				MsMpEng.exe
+					Process ID	5140
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2009.7-0\MsMpEng.exe
+					Memory Usage	303 MB
+					Peak Memory Usage	675 MB
+				NisSrv.exe
+					Process ID	6456
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2009.7-0\NisSrv.exe
+					Memory Usage	9.37 MB
+					Peak Memory Usage	10 MB
+				NVDisplay.Container.exe
+					Process ID	2192
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\NVIDIA Corporation\Display.NvContainer\NVDisplay.Container.exe
+					Memory Usage	11 MB
+					Peak Memory Usage	12 MB
+				NVDisplay.Container.exe
+					Process ID	2456
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\NVIDIA Corporation\Display.NvContainer\NVDisplay.Container.exe
+					Memory Usage	24 MB
+					Peak Memory Usage	26 MB
+				nvtray.exe
+					Process ID	1828
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\NVIDIA Corporation\Display\nvtray.exe
+					Memory Usage	15 MB
+					Peak Memory Usage	18 MB
+				PresentationFontCache.exe
+					Process ID	3968
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\Microsoft.NET\Framework64\v3.0\WPF\PresentationFontCache.exe
+					Memory Usage	18 MB
+					Peak Memory Usage	21 MB
+				RAVBg64.exe
+					Process ID	11540
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Realtek\Audio\HDA\RAVBg64.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	15 MB
+				RAVBg64.exe
+					Process ID	8380
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\Realtek\Audio\HDA\RAVBg64.exe
+					Memory Usage	15 MB
+					Peak Memory Usage	16 MB
+				RAVBg64.exe
+					Process ID	8468
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Realtek\Audio\HDA\RAVBg64.exe
+					Memory Usage	15 MB
+					Peak Memory Usage	16 MB
+				Registry
+					Process ID	96
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Memory Usage	75 MB
+					Peak Memory Usage	148 MB
+				RtkAudioService64.exe
+					Process ID	2732
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\Realtek\Audio\HDA\RtkAudioService64.exe
+					Memory Usage	7.33 MB
+					Peak Memory Usage	7.80 MB
+				RtkNGUI64.exe
+					Process ID	5716
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Realtek\Audio\HDA\RtkNGUI64.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	13 MB
+				RuntimeBroker.exe
+					Process ID	8324
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\RuntimeBroker.exe
+					Memory Usage	30 MB
+					Peak Memory Usage	31 MB
+				RuntimeBroker.exe
+					Process ID	5076
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\RuntimeBroker.exe
+					Memory Usage	20 MB
+					Peak Memory Usage	33 MB
+				RuntimeBroker.exe
+					Process ID	11280
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\RuntimeBroker.exe
+					Memory Usage	16 MB
+					Peak Memory Usage	18 MB
+				RuntimeBroker.exe
+					Process ID	1260
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\RuntimeBroker.exe
+					Memory Usage	25 MB
+					Peak Memory Usage	27 MB
+				RuntimeBroker.exe
+					Process ID	7864
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\RuntimeBroker.exe
+					Memory Usage	41 MB
+					Peak Memory Usage	43 MB
+				RuntimeBroker.exe
+					Process ID	11124
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\RuntimeBroker.exe
+					Memory Usage	26 MB
+					Peak Memory Usage	27 MB
+				SearchFilterHost.exe
+					Process ID	12008
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\SearchFilterHost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	12 MB
+				SearchIndexer.exe
+					Process ID	7704
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\SearchIndexer.exe
+					Memory Usage	43 MB
+					Peak Memory Usage	53 MB
+				SearchProtocolHost.exe
+					Process ID	1352
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\SearchProtocolHost.exe
+					Memory Usage	20 MB
+					Peak Memory Usage	20 MB
+				SearchUI.exe
+					Process ID	9056
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe
+					Memory Usage	187 MB
+					Peak Memory Usage	204 MB
+				SecurityHealthService.exe
+					Process ID	8576
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\SecurityHealthService.exe
+					Memory Usage	17 MB
+					Peak Memory Usage	17 MB
+				SecurityHealthSystray.exe
+					Process ID	2800
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\SecurityHealthSystray.exe
+					Memory Usage	8.77 MB
+					Peak Memory Usage	8.84 MB
+				Service_KMS.exe
+					Process ID	5084
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\KMSpico\Service_KMS.exe
+					Memory Usage	34 MB
+					Peak Memory Usage	40 MB
+				services.exe
+					Process ID	792
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\services.exe
+					Memory Usage	10 MB
+					Peak Memory Usage	11 MB
+				SgrmBroker.exe
+					Process ID	8988
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\SgrmBroker.exe
+					Memory Usage	6.19 MB
+					Peak Memory Usage	6.64 MB
+				ShellExperienceHost.exe
+					Process ID	2056
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+					Memory Usage	50 MB
+					Peak Memory Usage	54 MB
+				sihost.exe
+					Process ID	6992
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\sihost.exe
+					Memory Usage	26 MB
+					Peak Memory Usage	26 MB
+				smss.exe
+					Process ID	392
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\smss.exe
+					Memory Usage	1.11 MB
+					Peak Memory Usage	1.24 MB
+				Speccy64.exe
+					Process ID	5920
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Speccy\Speccy64.exe
+					Memory Usage	34 MB
+					Peak Memory Usage	34 MB
+				spoolsv.exe
+					Process ID	3656
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\spoolsv.exe
+					Memory Usage	15 MB
+					Peak Memory Usage	16 MB
+				SpotifyWebHelper.exe
+					Process ID	1184
+					User	jo
+					Domain	KERASIA
+					Path	C:\Users\jo\AppData\Roaming\Spotify\SpotifyWebHelper.exe
+					Memory Usage	7.61 MB
+					Peak Memory Usage	7.68 MB
+				StartMenuExperienceHost.exe
+					Process ID	8728
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+					Memory Usage	71 MB
+					Peak Memory Usage	90 MB
+				svchost.exe
+					Process ID	4160
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	18 MB
+					Peak Memory Usage	19 MB
+				svchost.exe
+					Process ID	4344
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	21 MB
+					Peak Memory Usage	21 MB
+				svchost.exe
+					Process ID	4456
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.73 MB
+					Peak Memory Usage	8.02 MB
+				svchost.exe
+					Process ID	4808
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	15 MB
+				svchost.exe
+					Process ID	4820
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	19 MB
+					Peak Memory Usage	20 MB
+				svchost.exe
+					Process ID	4864
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	25 MB
+					Peak Memory Usage	50 MB
+				svchost.exe
+					Process ID	4888
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	18 MB
+					Peak Memory Usage	37 MB
+				svchost.exe
+					Process ID	4952
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	13 MB
+				svchost.exe
+					Process ID	5060
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	5.80 MB
+					Peak Memory Usage	6.64 MB
+				svchost.exe
+					Process ID	5112
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	11 MB
+					Peak Memory Usage	13 MB
+				svchost.exe
+					Process ID	4980
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	5.28 MB
+					Peak Memory Usage	5.56 MB
+				svchost.exe
+					Process ID	5132
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	23 MB
+					Peak Memory Usage	23 MB
+				svchost.exe
+					Process ID	5296
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	4.98 MB
+					Peak Memory Usage	5.45 MB
+				svchost.exe
+					Process ID	5644
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	12 MB
+				svchost.exe
+					Process ID	2464
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.64 MB
+					Peak Memory Usage	7.93 MB
+				svchost.exe
+					Process ID	6068
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	5.63 MB
+					Peak Memory Usage	6.16 MB
+				svchost.exe
+					Process ID	5216
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	19 MB
+				svchost.exe
+					Process ID	1764
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	14 MB
+				svchost.exe
+					Process ID	6748
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	6.99 MB
+					Peak Memory Usage	9.37 MB
+				svchost.exe
+					Process ID	7192
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	12 MB
+				svchost.exe
+					Process ID	7408
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	20 MB
+					Peak Memory Usage	20 MB
+				svchost.exe
+					Process ID	2308
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	6.93 MB
+					Peak Memory Usage	7.33 MB
+				svchost.exe
+					Process ID	1640
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	19 MB
+					Peak Memory Usage	21 MB
+				svchost.exe
+					Process ID	7092
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	17 MB
+					Peak Memory Usage	19 MB
+				svchost.exe
+					Process ID	7840
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	12 MB
+				svchost.exe
+					Process ID	1576
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	5.91 MB
+					Peak Memory Usage	5.91 MB
+				svchost.exe
+					Process ID	932
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	3.54 MB
+					Peak Memory Usage	3.92 MB
+				svchost.exe
+					Process ID	6832
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	16 MB
+					Peak Memory Usage	41 MB
+				svchost.exe
+					Process ID	7620
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	9.26 MB
+					Peak Memory Usage	9.82 MB
+				svchost.exe
+					Process ID	8452
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.32 MB
+					Peak Memory Usage	7.46 MB
+				svchost.exe
+					Process ID	952
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	33 MB
+					Peak Memory Usage	34 MB
+				svchost.exe
+					Process ID	352
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	17 MB
+					Peak Memory Usage	18 MB
+				svchost.exe
+					Process ID	480
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	8.75 MB
+					Peak Memory Usage	9.39 MB
+				svchost.exe
+					Process ID	1224
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.94 MB
+					Peak Memory Usage	8.68 MB
+				svchost.exe
+					Process ID	9280
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.12 MB
+					Peak Memory Usage	7.23 MB
+				svchost.exe
+					Process ID	5872
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	12 MB
+				svchost.exe
+					Process ID	1232
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.21 MB
+					Peak Memory Usage	7.89 MB
+				svchost.exe
+					Process ID	1244
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	11 MB
+					Peak Memory Usage	12 MB
+				svchost.exe
+					Process ID	1316
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	11 MB
+					Peak Memory Usage	11 MB
+				svchost.exe
+					Process ID	6952
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	17 MB
+					Peak Memory Usage	17 MB
+				svchost.exe
+					Process ID	5668
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	32 MB
+					Peak Memory Usage	32 MB
+				svchost.exe
+					Process ID	1328
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	12 MB
+				svchost.exe
+					Process ID	1424
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	16 MB
+					Peak Memory Usage	16 MB
+				svchost.exe
+					Process ID	3208
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	17 MB
+					Peak Memory Usage	17 MB
+				svchost.exe
+					Process ID	1544
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	13 MB
+				svchost.exe
+					Process ID	3320
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.11 MB
+					Peak Memory Usage	7.17 MB
+				svchost.exe
+					Process ID	8560
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	5.66 MB
+					Peak Memory Usage	5.67 MB
+				svchost.exe
+					Process ID	1600
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	8.57 MB
+					Peak Memory Usage	8.75 MB
+				svchost.exe
+					Process ID	1656
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	18 MB
+					Peak Memory Usage	21 MB
+				svchost.exe
+					Process ID	1672
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.54 MB
+					Peak Memory Usage	7.96 MB
+				svchost.exe
+					Process ID	1724
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	8.62 MB
+					Peak Memory Usage	9.69 MB
+				svchost.exe
+					Process ID	8756
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	5.37 MB
+					Peak Memory Usage	5.40 MB
+				svchost.exe
+					Process ID	1816
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	10 MB
+					Peak Memory Usage	10 MB
+				svchost.exe
+					Process ID	1884
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	9.36 MB
+					Peak Memory Usage	9.38 MB
+				svchost.exe
+					Process ID	1916
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	8.50 MB
+					Peak Memory Usage	8.67 MB
+				svchost.exe
+					Process ID	1992
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	6.94 MB
+					Peak Memory Usage	7.34 MB
+				svchost.exe
+					Process ID	712
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.23 MB
+					Peak Memory Usage	7.71 MB
+				svchost.exe
+					Process ID	1116
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	6.89 MB
+					Peak Memory Usage	7.11 MB
+				svchost.exe
+					Process ID	2124
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	15 MB
+					Peak Memory Usage	23 MB
+				svchost.exe
+					Process ID	2204
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	11 MB
+					Peak Memory Usage	11 MB
+				svchost.exe
+					Process ID	2348
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	17 MB
+				svchost.exe
+					Process ID	2356
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	5.50 MB
+					Peak Memory Usage	5.77 MB
+				svchost.exe
+					Process ID	2380
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	13 MB
+				svchost.exe
+					Process ID	2472
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	8.61 MB
+					Peak Memory Usage	15 MB
+				svchost.exe
+					Process ID	2608
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.89 MB
+					Peak Memory Usage	8.29 MB
+				svchost.exe
+					Process ID	2752
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	8.90 MB
+					Peak Memory Usage	9.03 MB
+				svchost.exe
+					Process ID	2900
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.10 MB
+					Peak Memory Usage	7.52 MB
+				svchost.exe
+					Process ID	3008
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	13 MB
+				svchost.exe
+					Process ID	2564
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	10 MB
+					Peak Memory Usage	11 MB
+				svchost.exe
+					Process ID	7532
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	23 MB
+					Peak Memory Usage	36 MB
+				svchost.exe
+					Process ID	3140
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	6.18 MB
+					Peak Memory Usage	6.55 MB
+				svchost.exe
+					Process ID	4548
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	12 MB
+					Peak Memory Usage	12 MB
+				svchost.exe
+					Process ID	3148
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	9.67 MB
+					Peak Memory Usage	10 MB
+				svchost.exe
+					Process ID	3312
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	19 MB
+					Peak Memory Usage	21 MB
+				svchost.exe
+					Process ID	3528
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	14 MB
+					Peak Memory Usage	15 MB
+				svchost.exe
+					Process ID	3604
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	8.45 MB
+					Peak Memory Usage	9.05 MB
+				svchost.exe
+					Process ID	3872
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	20 MB
+					Peak Memory Usage	25 MB
+				svchost.exe
+					Process ID	3904
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	7.49 MB
+					Peak Memory Usage	8.18 MB
+				svchost.exe
+					Process ID	7896
+					User	LOCAL SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\svchost.exe
+					Memory Usage	6.34 MB
+					Peak Memory Usage	6.34 MB
+				SynTPEnh.exe
+					Process ID	2796
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Synaptics\SynTP\SynTPEnh.exe
+					Memory Usage	21 MB
+					Peak Memory Usage	22 MB
+				SynTPEnhService.exe
+					Process ID	5124
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files\Synaptics\SynTP\SynTPEnhService.exe
+					Memory Usage	4.38 MB
+					Peak Memory Usage	4.51 MB
+				SynTPHelper.exe
+					Process ID	464
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\Synaptics\SynTP\SynTPHelper.exe
+					Memory Usage	4.64 MB
+					Peak Memory Usage	4.70 MB
+				System
+					Process ID	4
+					Memory Usage	2.55 MB
+					Peak Memory Usage	11 MB
+				System Idle Process
+					Process ID	0
+				taskhostw.exe
+					Process ID	6544
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\taskhostw.exe
+					Memory Usage	13 MB
+					Peak Memory Usage	15 MB
+				unsecapp.exe
+					Process ID	9496
+					User	jo
+					Domain	KERASIA
+					Path	C:\Windows\System32\wbem\unsecapp.exe
+					Memory Usage	7.11 MB
+					Peak Memory Usage	7.16 MB
+				VCDDaemon.exe
+					Process ID	5332
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files (x86)\Elaborate Bytes\VirtualCloneDrive\VCDDaemon.exe
+					Memory Usage	7.88 MB
+					Peak Memory Usage	7.96 MB
+				vpnagent.exe
+					Process ID	3156
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Program Files (x86)\Cisco\Cisco AnyConnect Secure Mobility Client\vpnagent.exe
+					Memory Usage	21 MB
+					Peak Memory Usage	21 MB
+				vpnui.exe
+					Process ID	7928
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files (x86)\Cisco\Cisco AnyConnect Secure Mobility Client\vpnui.exe
+					Memory Usage	38 MB
+					Peak Memory Usage	38 MB
+				WebUpdateSvc.exe
+					Process ID	4716
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\SysWOW64\WebUpdateSvc.exe
+					Memory Usage	7.22 MB
+					Peak Memory Usage	8.84 MB
+				wininit.exe
+					Process ID	720
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\wininit.exe
+					Memory Usage	7.20 MB
+					Peak Memory Usage	7.62 MB
+				winlogon.exe
+					Process ID	9264
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\winlogon.exe
+					Memory Usage	9.70 MB
+					Peak Memory Usage	18 MB
+				WinStore.App.exe
+					Process ID	12220
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\WindowsApps\Microsoft.WindowsStore_12010.1001.2.0_x64__8wekyb3d8bbwe\WinStore.App.exe
+					Memory Usage	71 MB
+					Peak Memory Usage	129 MB
+				wlanext.exe
+					Process ID	3556
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\wlanext.exe
+					Memory Usage	4.26 MB
+					Peak Memory Usage	4.42 MB
+				WmiPrvSE.exe
+					Process ID	9028
+					User	SYSTEM
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\wbem\WmiPrvSE.exe
+					Memory Usage	9.20 MB
+					Peak Memory Usage	9.75 MB
+				WmiPrvSE.exe
+					Process ID	7956
+					User	NETWORK SERVICE
+					Domain	NT AUTHORITY
+					Path	C:\Windows\System32\wbem\WmiPrvSE.exe
+					Memory Usage	19 MB
+					Peak Memory Usage	19 MB
+				YourPhone.exe
+					Process ID	9048
+					User	jo
+					Domain	KERASIA
+					Path	C:\Program Files\WindowsApps\Microsoft.YourPhone_1.20092.123.0_x64__8wekyb3d8bbwe\YourPhone.exe
+					Memory Usage	41 MB
+					Peak Memory Usage	70 MB
+		Security Options
+			Accounts: Administrator account status	Disabled
+			Accounts: Block Microsoft accounts	Not Defined
+			Accounts: Guest account status	Disabled
+			Accounts: Limit local account use of blank passwords to console logon only	Enabled
+			Accounts: Rename administrator account	Administrator
+			Accounts: Rename guest account	Guest
+			Audit: Audit the access of global system objects	Disabled
+			Audit: Audit the use of Backup and Restore privilege	Disabled
+			Audit: Force audit policy subcategory settings (Windows Vista or later) to override audit policy category settings	Not Defined
+			Audit: Shut down system immediately if unable to log security audits	Disabled
+			DCOM: Machine Access Restrictions in Security Descriptor Definition Language (SDDL) syntax	Not Defined
+			DCOM: Machine Launch Restrictions in Security Descriptor Definition Language (SDDL) syntax	Not Defined
+			Devices: Allow undock without having to log on	Enabled
+			Devices: Allowed to format and eject removable media	Not Defined
+			Devices: Prevent users from installing printer drivers	Disabled
+			Devices: Restrict CD-ROM access to locally logged-on user only	Not Defined
+			Devices: Restrict floppy access to locally logged-on user only	Not Defined
+			Domain controller: Allow server operators to schedule tasks	Not Defined
+			Domain controller: Allow vulnerable Netlogon secure channel connections	Not Defined
+			Domain controller: LDAP server channel binding token requirements	Not Defined
+			Domain controller: LDAP server signing requirements	Not Defined
+			Domain controller: Refuse machine account password changes	Not Defined
+			Domain member: Digitally encrypt or sign secure channel data (always)	Enabled
+			Domain member: Digitally encrypt secure channel data (when possible)	Enabled
+			Domain member: Digitally sign secure channel data (when possible)	Enabled
+			Domain member: Disable machine account password changes	Disabled
+			Domain member: Maximum machine account password age	30 days
+			Domain member: Require strong (Windows 2000 or later) session key	Enabled
+			Interactive logon: Display user information when the session is locked	Not Defined
+			Interactive logon: Do not require CTRL+ALT+DEL	Not Defined
+			Interactive logon: Don't display last signed-in	Disabled
+			Interactive logon: Don't display username at sign-in	Not Defined
+			Interactive logon: Machine account lockout threshold	Not Defined
+			Interactive logon: Machine inactivity limit	Not Defined
+			Interactive logon: Message text for users attempting to log on
+			Interactive logon: Message title for users attempting to log on
+			Interactive logon: Number of previous logons to cache (in case domain controller is not available)	10 logons
+			Interactive logon: Prompt user to change password before expiration	5 days
+			Interactive logon: Require Domain Controller authentication to unlock workstation	Disabled
+			Interactive logon: Require Windows Hello for Business or smart card	Disabled
+			Interactive logon: Smart card removal behavior	No Action
+			Microsoft network client: Digitally sign communications (always)	Disabled
+			Microsoft network client: Digitally sign communications (if server agrees)	Enabled
+			Microsoft network client: Send unencrypted password to third-party SMB servers	Disabled
+			Microsoft network server: Amount of idle time required before suspending session	Not Defined
+			Microsoft network server: Attempt S4U2Self to obtain claim information	Not Defined
+			Microsoft network server: Digitally sign communications (always)	Disabled
+			Microsoft network server: Digitally sign communications (if client agrees)	Disabled
+			Microsoft network server: Disconnect clients when logon hours expire	Enabled
+			Microsoft network server: Server SPN target name validation level	Not Defined
+			Minimum password length audit	Not Defined
+			Network access: Allow anonymous SID/Name translation	Disabled
+			Network access: Do not allow anonymous enumeration of SAM accounts	Enabled
+			Network access: Do not allow anonymous enumeration of SAM accounts and shares	Disabled
+			Network access: Do not allow storage of passwords and credentials for network authentication	Disabled
+			Network access: Let Everyone permissions apply to anonymous users	Disabled
+			Network access: Named Pipes that can be accessed anonymously
+			Network access: Remotely accessible registry paths	System\CurrentControlSet\Control\ProductOptions,System\CurrentControlSet\Control\Server Applications,Software\Microsoft\Windows NT\CurrentVersion
+			Network access: Remotely accessible registry paths and sub-paths	System\CurrentControlSet\Control\Print\Printers,System\CurrentControlSet\Services\Eventlog,Software\Microsoft\OLAP Server,Software\Microsoft\Windows NT\CurrentVersion\Print,Software\Microsoft\Windows NT\CurrentVersion\Windows,System\CurrentControlSet\Control\ContentIndex,System\CurrentControlSet\Control\Terminal Server,System\CurrentControlSet\Control\Terminal Server\UserConfig,System\CurrentControlSet\Control\Terminal Server\DefaultUserConfiguration,Software\Microsoft\Windows NT\CurrentVersion\Perflib,System\CurrentControlSet\Services\SysmonLog
+			Network access: Restrict anonymous access to Named Pipes and Shares	Enabled
+			Network access: Restrict clients allowed to make remote calls to SAM
+			Network access: Shares that can be accessed anonymously	Not Defined
+			Network access: Sharing and security model for local accounts	Classic - local users authenticate as themselves
+			Network security: Allow Local System to use computer identity for NTLM	Not Defined
+			Network security: Allow LocalSystem NULL session fallback	Not Defined
+			Network security: Allow PKU2U authentication requests to this computer to use online identities.
+
+	Not Defined
+			Network security: Configure encryption types allowed for Kerberos	Not Defined
+			Network security: Do not store LAN Manager hash value on next password change	Enabled
+			Network security: Force logoff when logon hours expire	Disabled
+			Network security: LAN Manager authentication level	Not Defined
+			Network security: LDAP client signing requirements	Negotiate signing
+			Network security: Minimum session security for NTLM SSP based (including secure RPC) clients	Require 128-bit encryption
+			Network security: Minimum session security for NTLM SSP based (including secure RPC) servers	Require 128-bit encryption
+			Network security: Restrict NTLM: Add remote server exceptions for NTLM authentication	Not Defined
+			Network security: Restrict NTLM: Add server exceptions in this domain	Not Defined
+			Network security: Restrict NTLM: Audit Incoming NTLM Traffic	Not Defined
+			Network security: Restrict NTLM: Audit NTLM authentication in this domain	Not Defined
+			Network security: Restrict NTLM: Incoming NTLM traffic	Not Defined
+			Network security: Restrict NTLM: NTLM authentication in this domain	Not Defined
+			Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers	Not Defined
+			Recovery console: Allow automatic administrative logon	Not Defined
+			Recovery console: Allow floppy copy and access to all drives and all folders	Not Defined
+			Shutdown: Allow system to be shut down without having to log on	Enabled
+			Shutdown: Clear virtual memory pagefile	Disabled
+			System cryptography: Force strong key protection for user keys stored on the computer	Not Defined
+			System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing	Disabled
+			System objects: Require case insensitivity for non-Windows subsystems	Enabled
+			System objects: Strengthen default permissions of internal system objects (e.g. Symbolic Links)	Enabled
+			System settings: Optional subsystems
+			System settings: Use Certificate Rules on Windows Executables for Software Restriction Policies	Disabled
+			User Account Control: Admin Approval Mode for the Built-in Administrator account	Disabled
+			User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop	Disabled
+			User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode	Prompt for consent for non-Windows binaries
+			User Account Control: Behavior of the elevation prompt for standard users	Prompt for credentials
+			User Account Control: Detect application installations and prompt for elevation	Enabled
+			User Account Control: Only elevate executables that are signed and validated	Disabled
+			User Account Control: Only elevate UIAccess applications that are installed in secure locations	Enabled
+			User Account Control: Run all administrators in Admin Approval Mode	Enabled
+			User Account Control: Switch to the secure desktop when prompting for elevation	Enabled
+			User Account Control: Virtualize file and registry write failures to per-user locations	Enabled
+		Device Tree
+				ACPI x64-based PC
+						Microsoft ACPI-Compliant System
+							ACPI Fixed Feature Button
+							ACPI Lid
+							ACPI Processor Aggregator
+							ACPI Sleep Button
+							ACPI Thermal Zone
+							ACPI Thermal Zone
+							Intel Core i5-6200U CPU @ 2.30GHz
+							Intel Core i5-6200U CPU @ 2.30GHz
+							Intel Core i5-6200U CPU @ 2.30GHz
+							Intel Core i5-6200U CPU @ 2.30GHz
+							Microsoft Windows Management Interface for ACPI
+							Microsoft Windows Management Interface for ACPI
+							Microsoft Windows Management Interface for ACPI
+							Motherboard resources
+							Unknown Device
+								PCI Express Root Complex
+									Intel Management Engine Interface
+									Intel Serial IO GPIO Host Controller - INT344B
+									Microsoft Windows Management Interface for ACPI
+									Mobile 6th/7th Generation Intel Processor Family I/O PMC - 9D21
+									Motherboard resources
+									Motherboard resources
+									Motherboard resources
+									Motherboard resources
+									PCI standard host CPU bridge
+									Synaptics SMBus Driver
+										Intel(R) HD Graphics 520
+											Generic PnP Monitor
+											Unknown Device
+										Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft)
+												USB Root Hub (USB 3.0)
+													TP-LINK Gigabit Ethernet USB Adapter
+														USB Composite Device
+															XiaoMi USB 2.0 Webcam
+														Intel(R) Wireless Bluetooth(R)
+															Bluetooth Device (Personal Area Network)
+															Microsoft Bluetooth LE Enumerator
+																Bluetooth Device (RFCOMM Protocol TDI)
+																	Standard Serial over Bluetooth link (COM4)
+																	Standard Serial over Bluetooth link (COM5)
+																Microsoft Bluetooth Enumerator
+																	??????
+																	?????? Avrcp Transport
+																	?????? Avrcp Transport
+																	?????? Stereo
+																		?????? Hands-Free AG
+																			?????? Hands-Free AG Audio
+										Standard SATA AHCI Controller
+											Samsung SSD 850 EVO M.2 500GB
+										Mobile 6th/7th Generation Intel(R) Processor Family I/O PCI Express Root Port #1 - 9D10
+											NVIDIA GeForce 940MX
+										Mobile 6th/7th Generation Intel(R) Processor Family I/O PCI Express Root Port #5 - 9D14
+												Intel(R) Dual Band Wireless-AC 8260
+													Microsoft Wi-Fi Direct Virtual Adapter
+													Microsoft Wi-Fi Direct Virtual Adapter #2
+										Mobile 6th/7th Generation Intel(R) Processor Family I/O PCI Express Root Port #9 - 9D18
+												Standard NVM Express Controller
+													SAMSUNG MZVLV256HCHP-00000
+										Mobile 6th/7th Generation Intel(R) Processor Family I/O LPC Controller (U Premium SKU) - 9D48
+											High precision event timer
+											Legacy device
+											Motherboard resources
+											Motherboard resources
+											Programmable interrupt controller
+											Standard PS/2 Keyboard
+											Synaptics SMBus TouchPad
+											System CMOS/real time clock
+											System timer
+												Microsoft ACPI-Compliant Embedded Controller
+													Microsoft AC Adapter
+													Microsoft ACPI-Compliant Control Method Battery
+										High Definition Audio Controller
+											Intel Display Audio
+												Realtek High Definition Audio
+													Microphone (Realtek High Definition Audio)
+													Speakers (Realtek High Definition Audio)
+								Radio Switch HID Mini-driver
+									Radio Switch Collection
+						Microsoft UEFI-Compliant System
+							Device Firmware
+							System Firmware
+CPU
+		Intel Core i5 6200U
+			Cores	2
+			Threads	4
+			Name	Intel Core i5 6200U
+			Code Name	Skylake-U/Y
+			Package	Socket 1356 FCBGA
+			Technology	14nm
+			Specification	Intel Core i5-6200U CPU @ 2.30GHz
+			Family	6
+			Extended Family	6
+			Model	E
+			Extended Model	4E
+			Stepping	3
+			Revision	D0/K0/K1
+			Instructions	MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, Intel 64, NX, VMX, AES, AVX, AVX2, FMA3
+			Virtualization	Supported, Enabled
+			Hyperthreading	Supported, Enabled
+			Bus Speed	99.8 MHz
+			Stock Core Speed	2400 MHz
+			Stock Bus Speed	100 MHz
+			Average Temperature	40 °C
+				Caches
+					L1 Data Cache Size	2 x 32 KBytes
+					L1 Instructions Cache Size	2 x 32 KBytes
+					L2 Unified Cache Size	2 x 256 KBytes
+					L3 Unified Cache Size	3072 KBytes
+				Cores
+						Core 0
+							Core Speed	2294.9 MHz
+							Multiplier	x 23.0
+							Bus Speed	99.8 MHz
+							Temperature	41 °C
+							Threads	APIC ID: 0, 1
+						Core 1
+							Core Speed	2294.9 MHz
+							Multiplier	x 23.0
+							Bus Speed	99.8 MHz
+							Temperature	39 °C
+							Threads	APIC ID: 2, 3
+RAM
+		Memory
+			Type	Unknown
+			Size	8088 MBytes
+			Channels #	Single
+			DRAM Frequency	1064.4 MHz
+			CAS# Latency (CL)	15 clocks
+			RAS# to CAS# Delay (tRCD)	15 clocks
+			RAS# Precharge (tRP)	15 clocks
+			Cycle Time (tRAS)	36 clocks
+			Command Rate (CR)	2T
+		Physical Memory
+			Memory Usage	31 %
+			Total Physical	7.90 GB
+			Available Physical	5.41 GB
+			Total Virtual	9.15 GB
+			Available Virtual	6.60 GB
+		SPD
+			Number Of SPD Modules	0
+Motherboard
+	Manufacturer	Timi
+	Model	TM1613 (U3E1)
+	Version	A06
+	Chipset Vendor	Intel
+	Chipset Model	Skylake-U
+	Chipset Revision	08
+	Southbridge Vendor	Intel
+	Southbridge Model	Skylake-Y PCH
+	Southbridge Revision	21
+		BIOS
+			Brand	Insyde Corp.
+			Version	A06
+			Date	28/10/2016
+		PCI Data
+Graphics
+		Monitor
+			Name	Generic PnP Monitor on Intel HD Graphics 520
+			Current Resolution	1280x720 pixels
+			Work Resolution	1280x680 pixels
+			State	Enabled, Primary
+			Monitor Width	1920
+			Monitor Height	1080
+			Monitor BPP	32 bits per pixel
+			Monitor Frequency	60 Hz
+			Device	\\.\DISPLAY1\Monitor0
+		Intel HD Graphics 520
+			Manufacturer	Intel
+			Model	HD Graphics 520
+			Device ID	8086-1916
+			Revision	8
+			Subvendor	Unknown (1D72)
+			Current Performance Level	Level 0
+			Current GPU Clock	0 MHz
+			Driver version	27.20.100.7989
+				Count of performance levels : 1
+					Level 1 - "Perf Level 0"
+		NVIDIA GeForce 940MX
+			Manufacturer	NVIDIA
+			Model	GeForce 940MX
+			Device ID	10DE-134B
+			Revision	A3
+			Subvendor	Unknown (1D72)
+			Current Performance Level	Level 0
+			Bus Interface	PCI Express x4
+			Temperature	38 °C
+			Driver version	22.21.13.8205
+			BIOS Version	82.08.62.00.0e
+			Physical Memory	1023 MB
+			Virtual Memory	1024 MB
+				Count of performance levels : 1
+					Level 1 - "Perf Level 0"
+Storage
+		Hard drives
+				Samsung SSD 850 EVO M.2 500GB (SSD)
+					Manufacturer	SAMSUNG
+					Heads	16
+					Cylinders	60.801
+					Tracks	15.504.255
+					Sectors	976.768.065
+					SATA type	SATA-III 6.0Gb/s
+					Device type	Fixed
+					ATA Standard	ACS2
+					Serial Number	XXXXXXXXXXXXXXX
+					Firmware Version Number	EMT21B6Q
+					LBA Size	48-bit LBA
+					Power On Count	1324 times
+					Power On Time	35,8 days
+					Speed	Not used (SSD Drive)
+					Features	S.M.A.R.T., NCQ, TRIM, SSD
+					Max. Transfer Mode	SATA III 6.0Gb/s
+					Used Transfer Mode	SATA III 6.0Gb/s
+					Interface	SATA
+					Capacity	465 GB
+					Real size	500.107.862.016 bytes
+					RAID Type	None
+						S.M.A.R.T
+							Status	Good
+							Temperature	30 °C
+							Temperature Range	OK (less than 50 °C)
+								S.M.A.R.T attributes
+										05
+											Attribute name	Reallocated Sectors Count
+											Real value	0
+											Current	100
+											Worst	100
+											Threshold	10
+											Raw Value	0000000000
+											Status	Good
+										09
+											Attribute name	Power-On Hours (POH)
+											Real value	35d 20h
+											Current	99
+											Worst	99
+											Threshold	0
+											Raw Value	000000035C
+											Status	Good
+										0C
+											Attribute name	Device Power Cycle Count
+											Real value	1.324
+											Current	98
+											Worst	98
+											Threshold	0
+											Raw Value	000000052C
+											Status	Good
+										B1
+											Attribute name	Wear Leveling Count
+											Real value	2
+											Current	99
+											Worst	99
+											Threshold	0
+											Raw Value	0000000002
+											Status	Good
+										B3
+											Attribute name	Used Reserved Block Count (Total)
+											Real value	0
+											Current	100
+											Worst	100
+											Threshold	10
+											Raw Value	0000000000
+											Status	Good
+										B5
+											Attribute name	Program Fail Count (Total)
+											Real value	0
+											Current	100
+											Worst	100
+											Threshold	10
+											Raw Value	0000000000
+											Status	Good
+										B6
+											Attribute name	Erase Fail Count (Total)
+											Real value	0
+											Current	100
+											Worst	100
+											Threshold	10
+											Raw Value	0000000000
+											Status	Good
+										B7
+											Attribute name	Runtime Bad Block (Total)
+											Real value	0
+											Current	100
+											Worst	100
+											Threshold	10
+											Raw Value	0000000000
+											Status	Good
+										BB
+											Attribute name	Uncorrectable Error Count
+											Real value	0
+											Current	100
+											Worst	100
+											Threshold	0
+											Raw Value	0000000000
+											Status	Good
+										BE
+											Attribute name	Temperature Exceed Count
+											Real value	30
+											Current	70
+											Worst	43
+											Threshold	0
+											Raw Value	000000001E
+											Status	Good
+										C3
+											Attribute name	ECC Rate
+											Real value	0
+											Current	200
+											Worst	200
+											Threshold	0
+											Raw Value	0000000000
+											Status	Good
+										C7
+											Attribute name	CRC Error Count
+											Real value	0
+											Current	100
+											Worst	100
+											Threshold	0
+											Raw Value	0000000000
+											Status	Good
+										EB
+											Attribute name	Power Recovery Count
+											Real value	205
+											Current	99
+											Worst	99
+											Threshold	0
+											Raw Value	00000000CD
+											Status	Good
+										F1
+											Attribute name	Total LBAs Written
+											Real value	2.201.048.644
+											Current	99
+											Worst	99
+											Threshold	0
+											Raw Value	0083315644
+											Status	Good
+						Partition 0
+							Partition ID	Disk #0, Partition #0
+							File System	FAT32
+							Volume Serial Number	67E317ED
+							Size	196 MB
+							Used Space	154 MB (78%)
+							Free Space	42 MB (22%)
+						Partition 1
+							Partition ID	Disk #0, Partition #1
+							Size	465 GB
+				SAMSUNG MZVLV256HCHP-00000 (SSD)
+					Manufacturer	SAMSUNG
+					Interface	Unknown
+					Capacity	238 GB
+					Real size	256.060.514.304 bytes
+					RAID Type	None
+						S.M.A.R.T
+							S.M.A.R.T not supported
+						Partition 0
+							Partition ID	Disk #1, Partition #0
+							File System	FAT32
+							Volume Serial Number	30F47E03
+							Size	96 MB
+							Used Space	35,9 MB (37%)
+							Free Space	60 MB (63%)
+						Partition 1
+							Partition ID	Disk #1, Partition #1
+							Disk Letter	C:
+							File System	NTFS
+							Volume Serial Number	B0881798
+							Size	236 GB
+							Used Space	200 GB (84%)
+							Free Space	36,2 GB (16%)
+						Partition 2
+							Partition ID	Disk #1, Partition #2
+							File System	NTFS
+							Volume Serial Number	DE067D31
+							Size	833 MB
+							Used Space	534 MB (64%)
+							Free Space	299 MB (36%)
+						Partition 3
+							Partition ID	Disk #1, Partition #3
+							File System	NTFS
+							Volume Serial Number	A8F59E3E
+							Size	799 MB
+							Used Space	304 MB (38%)
+							Free Space	495 MB (62%)
+		Flash drives
+				Kingston DataTraveler 3.0 USB Device
+					Interface	USB
+					Capacity	115 GB
+					Real size	124.017.180.672 bytes
+					RAID Type	None
+						S.M.A.R.T
+							S.M.A.R.T not supported
+						Partition 0
+							Partition ID	Disk #2, Partition #0
+							Disk Letter	E:
+							File System	FAT32
+							Volume Serial Number	10173F3D
+							Size	115 GB
+							Used Space	12,7 GB (11%)
+							Free Space	102 GB (89%)
+Optical Drives
+		ELBY CLONEDRIVE SCSI CdRom Device
+			Media Type	BD Reader
+			Name	ELBY CLONEDRIVE SCSI CdRom Device
+			Availability	Running/Full Power
+			Capabilities	Random Access, Supports Removable Media
+			Read capabilities	CD-R, CD-RW, CD-ROM, DVD-RAM, DVD-ROM, DVD-R, HD DVD-ROM, BD-R, BD-ROM, BD-RE
+			Config Manager Error Code	Device is working properly
+			Config Manager User Config	FALSE
+			Drive	D:
+			Media Loaded	FALSE
+			SCSI Bus	0
+			SCSI Logical Unit	0
+			SCSI Port	2
+			SCSI Target Id	0
+			Status	OK
+Audio
+		Sound Cards
+			Intel Display Audio
+			Realtek High Definition Audio
+		Playback Device
+			Speakers (Realtek High Definition Audio)
+		Recording Device
+			Microphone (Realtek High Definition Audio)
+		Speaker Configuration
+			Speaker type	Stereo
+Peripherals
+		Standard PS/2 Keyboard
+			Device Kind	Keyboard
+			Device Name	Standard PS/2 Keyboard
+			Vendor	TIMI
+			Location	Mobile 6th/7th Generation Intel Processor Family I/O LPC Controller (U Premium SKU) - 9D48
+				Driver
+					Date	6-21-2006
+					Version	10.0.18362.1
+					File	C:\WINDOWS\system32\DRIVERS\i8042prt.sys
+					File	C:\WINDOWS\system32\DRIVERS\kbdclass.sys
+		Synaptics SMBus TouchPad
+			Device Kind	Mouse
+			Device Name	Synaptics SMBus TouchPad
+			Vendor	SYN
+			Location	Mobile 6th/7th Generation Intel Processor Family I/O LPC Controller (U Premium SKU) - 9D48
+				Driver
+					Date	11-30-2016
+					Version	19.2.17.28
+					File	C:\WINDOWS\system32\DRIVERS\SynTP.sys
+					File	C:\WINDOWS\system32\DRIVERS\Smb_driver_Intel_Aux.sys
+					File	C:\WINDOWS\system32\DRIVERS\Smb_driver_AMDASF_Aux.sys
+					File	C:\WINDOWS\system32\SynTPAPI.dll
+					File	C:\WINDOWS\system32\SynCOM.dll
+					File	C:\Program Files\Synaptics\SynTP\SynTPRes.dll
+					File	C:\Program Files\Synaptics\SynTP\SynTPCpl.dll
+					File	C:\Program Files\Synaptics\SynTP\SynCntxt.rtf
+					File	C:\Program Files\Synaptics\SynTP\SynZMetr.exe
+					File	C:\Program Files\Synaptics\SynTP\SynMood.exe
+					File	C:\Program Files\Synaptics\SynTP\SynTPEnh.exe
+					File	C:\Program Files\Synaptics\SynTP\Tutorial.exe
+					File	C:\Program Files\Synaptics\SynTP\InstNT.exe
+					File	C:\Program Files\Synaptics\SynTP\SynISDLL.dll
+					File	C:\Program Files\Synaptics\SynTP\SynUnst.ini
+					File	C:\Program Files\Synaptics\SynTP\SynRemoveUserSettings.dat
+					File	C:\Program Files\Synaptics\SynTP\SynTPHelper.exe
+					File	C:\Program Files\Synaptics\SynTP\SynTPEnhService.exe
+					File	C:\Program Files\Synaptics\SynTP\SynPivotRotate.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynChiralRotate.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynFlick.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynPinch.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynMomentum.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynLinearVHScroll.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynChiralVHScroll.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynTwoFingerVHScroll.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynPivotRotate_ChiralRotate.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynThreeFingerFlick.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynThreeFingersDown.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynTwistRotate.mpg
+					File	C:\Program Files\Synaptics\SynTP\SynChiralTwistRotate.mpg
+					File	C:\Program Files\Synaptics\SynTP\StaticImg.html
+					File	C:\Program Files\Synaptics\SynTP\StaticImg.png
+					File	C:\Program Files\Synaptics\SynTP\SynSysDetect.js
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerFlick.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlick.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FFlickVNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynSmartSense.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynSmartSenseNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickUpDown.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickUpDownNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickLeftRight.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickLeftRightNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerPress.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotion.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynMomentum.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynMomentumScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPinchZoom.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynBlackScreen.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPivotRotate.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTwistRotate.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynCoverGesture.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynChiralRotate.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynChiralScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynCoastingScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPointing.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPalmCheck.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynSensitivity.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynWindowConstrained.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynSlowMotion.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynConstrainedMotion.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapping.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynButtons.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTouchStykSelect.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTouchStykButton.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTouchStykSensitivity.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionDragging.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionFixedSpeed.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionPointing.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionPressure.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynNoButtons.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapZones.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearHScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerHScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapHoldToDrag.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapLockingDrag.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn1FingerClickNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn1FingerClickDrag.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerClickDrag.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerFlickNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerFlickLR.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerHScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerFlickNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerPressNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynButtonsNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynChiralRotateNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynChiralScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynCoastingScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynCoverGestureNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionDraggingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionFixedSpeedNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionPointingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionPressureNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearHScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynMomentumScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPinchZoomNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPivotRotateNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapHoldToDragNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapLockingDragNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTwistRotateNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPointingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerMomentumVHScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerMomentumVHScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerMomentumVScrolling_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerMomentumVScrollingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerMomentumHScrolling_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerMomentumHScrollingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerVHCoasting.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerVHCoastingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerVCoasting_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerHCoasting_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerVCoastingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerHCoastingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynMomentumVHScrolling.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynMomentumVHScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynVHCoasting.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerHScrolling_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerHScrollingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynChiralScrolling_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynChiralScrollingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearHScrolling_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearHScrollingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearScrolling_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearScrollingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPivotRotate_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPivotRotateNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTwistRotate_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTwistRotateNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgePulls.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlick_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerScrolling.html
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerFlick.html
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerFlick.html
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlick.html
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickUpDown.html
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerFlickLeftRight.html
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerPress.html
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotion.html
+					File	C:\Program Files\Synaptics\SynTP\SynMomentum.html
+					File	C:\Program Files\Synaptics\SynTP\SynPinchZoom.html
+					File	C:\Program Files\Synaptics\SynTP\SynRotating.html
+					File	C:\Program Files\Synaptics\SynTP\SynTwistRotate.html
+					File	C:\Program Files\Synaptics\SynTP\SynCoverGesture.html
+					File	C:\Program Files\Synaptics\SynTP\SynAccessibility.html
+					File	C:\Program Files\Synaptics\SynTP\SynSmartSense.html
+					File	C:\Program Files\Synaptics\SynTP\SynButtons.html
+					File	C:\Program Files\Synaptics\SynTP\SynClicking.html
+					File	C:\Program Files\Synaptics\SynTP\SynMultiFingerGestures.html
+					File	C:\Program Files\Synaptics\SynTP\SynPalmCheck.html
+					File	C:\Program Files\Synaptics\SynTP\SynPointing.html
+					File	C:\Program Files\Synaptics\SynTP\SynScrolling.html
+					File	C:\Program Files\Synaptics\SynTP\SynSensitivity.html
+					File	C:\Program Files\Synaptics\SynTP\SynTapping.html
+					File	C:\Program Files\Synaptics\SynTP\SynTouchStykButton.html
+					File	C:\Program Files\Synaptics\SynTP\SynTouchStykSelect.html
+					File	C:\Program Files\Synaptics\SynTP\SynTouchStykSensitivity.html
+					File	C:\Program Files\Synaptics\SynTP\SynScrollingVertical.html
+					File	C:\Program Files\Synaptics\SynTP\SynScrollingHorizontal.html
+					File	C:\Program Files\Synaptics\SynTP\SynScrollingChiral.html
+					File	C:\Program Files\Synaptics\SynTP\SynLockingDrags.html
+					File	C:\Program Files\Synaptics\SynTP\SynEdgePulls.html
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerTapping.html
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerScrolling_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerScrollingNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTappingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerRightClickNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynVHCoastingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgePullsNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynPalmCheckNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynLinearScrollingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynSensitivityNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynMomentumNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapZonesNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynTapZonesNB_win8.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynEdgeMotionNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynSlowMotionNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynConstrainedMotionNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynWindowConstrainedNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FHSlide.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FHSlideNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FTapActionCenter.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FTapActionCenterNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FTapCortana.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FTapCortanaNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FTapActionCenter.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FTapActionCenterNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FTapCortana.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FTapCortanaNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FClickActionCenterNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FClickCortanaNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FClickActionCenterNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn4FClickCortanaNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FVSlide.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn3FVSlideNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\dpinst.exe
+					File	C:\Program Files\Synaptics\SynTP\SynSmbDrv.ini
+					File	C:\Program Files\Synaptics\SynTP\SynHidMini.ini
+					File	C:\Program Files\Synaptics\SynTP\SynOneFingerGestures.html
+					File	C:\Program Files\Synaptics\SynTP\SynAdditionalFeatures.html
+					File	C:\Program Files\Synaptics\SynTP\Syn4FingerTapping.html
+					File	C:\Program Files\Synaptics\SynTP\fx04.wav
+					File	C:\Program Files\Synaptics\SynTP\SynThreeFingerHFlick.mpg
+					File	C:\Program Files\Synaptics\SynTP\Syn3FingerVFlickNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerTappingNB.wmv
+					File	C:\Program Files\Synaptics\SynTP\Syn2FingerTapping.html
+					File	C:\Program Files\Synaptics\SynTP\SynChiralScrollingArrow.wmv
+					File	C:\Program Files\Synaptics\SynTP\SynChiralScrollingArrowNB.wmv
+					File	C:\WINDOWS\SysWOW64\SynCom.dll
+					File	C:\WINDOWS\system32\DRIVERS\mouclass.sys
+					File	C:\WINDOWS\system32\DRIVERS\i8042prt.sys
+					File	C:\WINDOWS\system32\SynTPCo46-01.dll
+					File	C:\WINDOWS\system32\WdfCoInstaller01011.dll
+		HID-compliant mouse
+			Device Kind	Mouse
+			Device Name	HID-compliant mouse
+			Vendor	Synaptics Inc
+			Location	Synaptics HID-Compliant Touch pad Device
+				Driver
+					Date	6-21-2006
+					Version	10.0.18362.1
+					File	C:\WINDOWS\system32\DRIVERS\mouhid.sys
+					File	C:\WINDOWS\system32\DRIVERS\mouclass.sys
+		HID-compliant mouse
+			Device Kind	Mouse
+			Device Name	HID-compliant mouse
+			Vendor	Synaptics Inc
+			Location	Synaptics HID-Compliant Touch pad Device
+				Driver
+					Date	6-21-2006
+					Version	10.0.18362.1
+					File	C:\WINDOWS\system32\DRIVERS\mouhid.sys
+					File	C:\WINDOWS\system32\DRIVERS\mouclass.sys
+		DataTraveler 3.0
+			Device Kind	Portable Device
+			Device Name	DataTraveler 3.0
+			Vendor	Kingston
+			Comment	ESD-ISO
+			Location	Volume
+				Driver
+					Date	6-21-2006
+					Version	10.0.18362.1
+					File	C:\WINDOWS\system32\DRIVERS\WUDFRd.sys
+		Printers
+				Fax
+					Printer Port	SHRFAX:
+					Print Processor	winprint
+					Availability	Always
+					Priority	1
+					Duplex	None
+					Print Quality	200 * 200 dpi Monochrome
+					Status	Unknown
+						Driver
+							Driver Name	Microsoft Shared Fax Driver (v4.00)
+							Driver Path	C:\WINDOWS\system32\spool\DRIVERS\x64\3\FXSDRV.DLL
+				Microsoft Print to PDF
+					Printer Port	PORTPROMPT:
+					Print Processor	winprint
+					Availability	Always
+					Priority	1
+					Duplex	None
+					Print Quality	600 * 600 dpi Color
+					Status	Unknown
+						Driver
+							Driver Name	Microsoft Print To PDF (v6.03)
+							Driver Path	C:\WINDOWS\System32\DriverStore\FileRepository\ntprint.inf_amd64_9739b9b0059f5e67\Amd64\mxdwdrv.dll
+				Microsoft XPS Document Writer
+					Printer Port	PORTPROMPT:
+					Print Processor	winprint
+					Availability	Always
+					Priority	1
+					Duplex	None
+					Print Quality	600 * 600 dpi Color
+					Status	Unknown
+						Driver
+							Driver Name	Microsoft XPS Document Writer v4 (v6.03)
+							Driver Path	C:\WINDOWS\System32\DriverStore\FileRepository\ntprint.inf_amd64_9739b9b0059f5e67\Amd64\mxdwdrv.dll
+				OneNote for Windows 10
+					Printer Port	Microsoft.Office.OneNote_16001.13127.20190.0_x64__8wekyb3d8bbwe_microsoft.onenoteim_S-1-5-21-72215721-3642816691-2435616442-1001
+					Print Processor	winprint
+					Availability	Always
+					Priority	1
+					Duplex	None
+					Print Quality	300 * 300 dpi Color
+					Status	Unknown
+						Driver
+							Driver Name	Microsoft Software Printer Driver (v6.03)
+							Driver Path	C:\WINDOWS\System32\DriverStore\FileRepository\ntprint.inf_amd64_9739b9b0059f5e67\Amd64\mxdwdrv.dll
+				sam (Default Printer)
+					Printer Port	WSD-a376f949-8cae-4528-8883-cd42e01cc13a
+					Print Processor	us008PC
+					Availability	Always
+					Priority	1
+					Duplex	None
+					Print Quality	600 dpi
+					Status	The printer is offline
+						Driver
+							Driver Name	Samsung Universal Print Driver 3 (v4.00)
+							Driver Path	C:\WINDOWS\system32\spool\DRIVERS\x64\3\us008.dll
+				Send To OneNote 16
+					Printer Port	nul:
+					Print Processor	winprint
+					Availability	Always
+					Priority	1
+					Duplex	None
+					Print Quality	600 * 600 dpi Color
+					Status	Unknown
+						Driver
+							Driver Name	Send to Microsoft OneNote 16 Driver (v6.03)
+							Driver Path	C:\WINDOWS\System32\DriverStore\FileRepository\ntprint.inf_amd64_9739b9b0059f5e67\Amd64\mxdwdrv.dll
+Network
+	You are connected to the internet
+	Connected through	TP-LINK Gigabit Ethernet USB Adapter
+	IP Address	192.168.1.112
+	Subnet mask	255.255.255.0
+	Gateway server	192.168.1.200
+	Preferred DNS server	192.168.1.200
+	DHCP	Enabled
+	DHCP server	192.168.1.200
+	External IP Address	46.190.25.113
+	Adapter Type	Ethernet
+	NetBIOS over TCP/IP	Enabled via DHCP
+	NETBIOS Node Type	Hybrid node
+	Link Speed	0 Bps
+		Computer Name
+			NetBIOS Name	KERASIA
+			DNS Name	kerasia
+			Membership	Part of workgroup
+			Workgroup	WORKGROUP
+		Remote Desktop
+			Disabled
+				Console
+					State	Active
+					Domain	KERASIA
+		WinInet Info
+			LAN Connection
+			Local system uses a local area network to connect to the Internet
+			Local system has RAS to connect to the Internet
+		Wi-Fi Info
+			Using native Wi-Fi API version	2
+			Available access points count	7
+				Wi-Fi (PRAKTOREIO-OPAP)
+					SSID	PRAKTOREIO-OPAP
+					Frequency	2442000 kHz
+					Channel Number	7
+					Name	PRAKTOREIO-OPAP
+					Signal Strength/Quality	31
+					Security	Enabled
+					State	The interface is not connected to any network
+					Dot11 Type	Infrastructure BSS network
+					Network	Connectible
+					Network Flags	There is a profile for this network
+					Cipher Algorithm to be used when joining this network	AES-CCMP algorithm
+					Default Auth used to join this network for the first time	802.11i RSNA algorithm that uses PSK
+				Wi-Fi (VRAVRONA WIFI)
+					SSID	VRAVRONA WIFI
+					Frequency	2427000 kHz
+					Channel Number	4
+					Name	VRAVRONA WIFI
+					Signal Strength/Quality	31
+					Security	Enabled
+					State	The interface is not connected to any network
+					Dot11 Type	Infrastructure BSS network
+					Network	Connectible
+					Network Flags	There is a profile for this network
+					Cipher Algorithm to be used when joining this network	AES-CCMP algorithm
+					Default Auth used to join this network for the first time	802.11i RSNA algorithm that uses PSK
+				Wi-Fi (Wireless Home)
+					SSID	Wireless Home
+					Frequency	2437000 kHz
+					Channel Number	6
+					Name	Wireless Home
+					Signal Strength/Quality	31
+					Security	Enabled
+					State	The interface is not connected to any network
+					Dot11 Type	Infrastructure BSS network
+					Network	Connectible
+					Network Flags	There is a profile for this network
+					Cipher Algorithm to be used when joining this network	AES-CCMP algorithm
+					Default Auth used to join this network for the first time	802.11i RSNA algorithm that uses PSK
+				Wi-Fi (bouri)
+					SSID	bouri
+					Frequency	5180000 kHz
+					Channel Number	36
+					Name	bouri
+					Signal Strength/Quality	87
+					Security	Enabled
+					State	The interface is not connected to any network
+					Dot11 Type	Infrastructure BSS network
+					Network	Connectible
+					Network Flags	There is a profile for this network
+					Cipher Algorithm to be used when joining this network	AES-CCMP algorithm
+					Default Auth used to join this network for the first time	802.11i RSNA algorithm that uses PSK
+				Wi-Fi (dadis)
+					SSID	dadis
+					Frequency	2412000 kHz
+					Channel Number	1
+					Name	dadis
+					Signal Strength/Quality	67
+					Security	Enabled
+					State	The interface is not connected to any network
+					Dot11 Type	Infrastructure BSS network
+					Network	Connectible
+					Network Flags	There is a profile for this network
+					Cipher Algorithm to be used when joining this network	AES-CCMP algorithm
+					Default Auth used to join this network for the first time	802.11i RSNA algorithm that uses PSK
+				Wi-Fi (pipa)
+					SSID	pipa
+					Frequency	2437000 kHz
+					Channel Number	6
+					Name	pipa
+					Signal Strength/Quality	85
+					Security	Enabled
+					State	The interface is not connected to any network
+					Dot11 Type	Infrastructure BSS network
+					Network	Connectible
+					Network Flags	There is a profile for this network
+					Cipher Algorithm to be used when joining this network	AES-CCMP algorithm
+					Default Auth used to join this network for the first time	802.11i RSNA algorithm that uses PSK
+				Wi-Fi (saloni)
+					SSID	saloni
+					Frequency	2472000 kHz
+					Channel Number	13
+					Name	saloni
+					Signal Strength/Quality	40
+					Security	Enabled
+					State	The interface is not connected to any network
+					Dot11 Type	Infrastructure BSS network
+					Network	Connectible
+					Network Flags	There is a profile for this network
+					Cipher Algorithm to be used when joining this network	AES-CCMP algorithm
+					Default Auth used to join this network for the first time	802.11i RSNA algorithm that uses PSK
+		WinHTTPInfo
+			WinHTTPSessionProxyType	No proxy
+			Session Proxy
+			Session Proxy Bypass
+			Connect Retries	5
+			Connect Timeout (ms)	60.000
+			HTTP Version	HTTP 1.1
+			Max Connects Per 1.0 Servers	INFINITE
+			Max Connects Per Servers	INFINITE
+			Max HTTP automatic redirects	10
+			Max HTTP status continue	10
+			Send Timeout (ms)	30.000
+			IEProxy Auto Detect	Yes
+			IEProxy Auto Config
+			IEProxy
+			IEProxy Bypass
+			Default Proxy Config Access Type	No proxy
+			Default Config Proxy
+			Default Config Proxy Bypass
+		Sharing and Discovery
+			Network Discovery	Disabled
+			File and Printer Sharing	Disabled
+			File and printer sharing service	Enabled
+			Simple File Sharing	Enabled
+			Administrative Shares	Enabled
+			Network access: Sharing and security model for local accounts	Classic - local users authenticate as themselves
+		Adapters List
+				Enabled
+						Bluetooth Device (Personal Area Network)
+							Connection Name	Bluetooth Network Connection
+							DHCP enabled	Yes
+							MAC Address	A0-C5-89-40-FD-C5
+						Intel(R) Dual Band Wireless-AC 8260
+							Connection-specific DNS Suffix	banan.es
+							Connection Name	Wi-Fi
+							DHCP enabled	Yes
+							MAC Address	A0-C5-89-40-FD-C1
+						TP-LINK Gigabit Ethernet USB Adapter
+							Connection-specific DNS Suffix	banan.es
+							Connection Name	Ethernet
+							NetBIOS over TCPIP	Yes
+							DHCP enabled	Yes
+							MAC Address	EC-08-6B-11-FE-91
+							IP Address	192.168.1.112
+							Subnet mask	255.255.255.0
+							Gateway server	192.168.1.200
+							DHCP	192.168.1.200
+							DNS Server	192.168.1.200
+				Disabled
+						Cisco AnyConnect Secure Mobility Client Virtual Miniport Adapter for Windows x64
+							Connection Name	Ethernet 2
+		Network Shares
+			No network shares
+		Current TCP Connections
+				AppleMobileDeviceService.exe (4728)
+					Local 127.0.0.1:27015	LISTEN
+					Local 127.0.0.1:49671	ESTABLISHED Remote 127.0.0.1:5354 (Querying... )
+					Local 127.0.0.1:49674	ESTABLISHED Remote 127.0.0.1:5354 (Querying... )
+					Local 127.0.0.1:27015	ESTABLISHED Remote 127.0.0.1:50584 (Querying... )
+				C:\Program Files (x86)\Cisco\Cisco AnyConnect Secure Mobility Client\vpnui.exe (7928)
+					Local 127.0.0.1:50594	ESTABLISHED Remote 127.0.0.1:62522 (Querying... )
+				C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe (6000)
+					Local 127.0.0.1:8200	LISTEN
+					Local 127.0.0.1:8200	ESTABLISHED Remote 127.0.0.1:50657 (Querying... )
+					Local 127.0.0.1:50657	ESTABLISHED Remote 127.0.0.1:8200 (Querying... )
+				C:\Program Files\iTunes\iTunesHelper.exe (5580)
+					Local 127.0.0.1:50584	ESTABLISHED Remote 127.0.0.1:27015 (Querying... )
+				C:\Program Files\WindowsApps\Microsoft.WindowsStore_12010.1001.2.0_x64__8wekyb3d8bbwe\WinStore.App.exe (12220)
+					Local 192.168.1.112:50616	ESTABLISHED Remote 92.123.88.241:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50630	ESTABLISHED Remote 92.123.91.35:80 (Querying... ) (HTTP)
+					Local 192.168.1.112:50631	ESTABLISHED Remote 92.123.88.241:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50632	ESTABLISHED Remote 92.123.88.241:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50628	ESTABLISHED Remote 92.123.91.35:80 (Querying... ) (HTTP)
+					Local 192.168.1.112:50625	ESTABLISHED Remote 92.123.91.35:80 (Querying... ) (HTTP)
+					Local 192.168.1.112:50618	ESTABLISHED Remote 92.123.88.241:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50617	ESTABLISHED Remote 92.123.88.241:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50629	ESTABLISHED Remote 92.123.91.35:80 (Querying... ) (HTTP)
+				C:\Users\jo\AppData\Roaming\Spotify\SpotifyWebHelper.exe (1184)
+					Local 127.0.0.1:4380	LISTEN
+				C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe (9056)
+					Local 192.168.1.112:50674	ESTABLISHED Remote 204.79.197.222:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50670	ESTABLISHED Remote 204.79.197.200:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50671	ESTABLISHED Remote 13.107.3.254:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50672	ESTABLISHED Remote 13.107.246.10:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50673	ESTABLISHED Remote 13.107.18.254:443 (Querying... ) (HTTPS)
+				lsass.exe (800)
+					Local 0.0.0.0:49664	LISTEN
+				mDNSResponder.exe (4756)
+					Local 127.0.0.1:5354	LISTEN
+					Local 127.0.0.1:5354	ESTABLISHED Remote 127.0.0.1:49671 (Querying... )
+					Local 127.0.0.1:5354	ESTABLISHED Remote 127.0.0.1:49674 (Querying... )
+				services.exe (792)
+					Local 0.0.0.0:49672	LISTEN
+				spoolsv.exe (3656)
+					Local 0.0.0.0:49668	LISTEN
+				svchost.exe (1424)
+					Local 0.0.0.0:49667	LISTEN
+				svchost.exe (1656)
+					Local 0.0.0.0:49666	LISTEN
+				svchost.exe (352)
+					Local 0.0.0.0:135 (DCE)	LISTEN
+				svchost.exe (4820)
+					Local 0.0.0.0:5040	LISTEN
+				svchost.exe (5132)
+					Local 192.168.1.112:50578	ESTABLISHED Remote 51.103.5.186:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50579	ESTABLISHED Remote 51.103.5.186:443 (Querying... ) (HTTPS)
+				System Process
+					Local 192.168.1.112:50664	TIME-WAIT Remote 172.217.16.131:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50662	TIME-WAIT Remote 216.58.206.3:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50663	TIME-WAIT Remote 172.217.21.228:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50661	TIME-WAIT Remote 151.139.237.73:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50660	TIME-WAIT Remote 172.217.22.42:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50656	TIME-WAIT Remote 40.90.137.124:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50655	TIME-WAIT Remote 20.190.137.97:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50652	TIME-WAIT Remote 204.79.197.200:443 (Querying... ) (HTTPS)
+					Local 192.168.1.112:50591	TIME-WAIT Remote 192.168.1.118:8008 (Querying... )
+				System Process
+					Local 0.0.0.0:445 (Windows shares)	LISTEN
+					Local 192.168.1.112:139 (NetBIOS session service)	LISTEN
+				vpnagent.exe (3156)
+					Local 127.0.0.1:62522	ESTABLISHED Remote 127.0.0.1:50594 (Querying... )
+					Local 127.0.0.1:62522	LISTEN
+					Local 127.0.0.1:49669	LISTEN
+				wininit.exe (720)
+					Local 0.0.0.0:49665	LISTEN
+Generated with Speccy v1.32.774

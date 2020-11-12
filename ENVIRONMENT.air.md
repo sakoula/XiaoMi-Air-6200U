@@ -8,9 +8,10 @@ This is how I setup my environment in order to work with hackintoshes.
 
 - [environment directory structure](#environment-directory-structure)
     - [`iasl`](#iasl)
-    - [`patchmatic` and `MaciASL`](#patchmatic-and-maciasl)
+    - [`MaciASL`](#maciasl)
     - [`acidanthera/WhateverGreen`](#acidantherawhatevergreen)
     - [`Hardening`](#hardening)
+    - [` corpnewt/GenSMBIOS`](#-corpnewtgensmbios)
     - [`andyvand/FixEDID`](#andyvandfixedid)
     - [`smut.c`](#smutc)
     - [`michalmalik/osx-re-101`](#michalmalikosx-re-101)
@@ -21,7 +22,8 @@ This is how I setup my environment in order to work with hackintoshes.
     - [`syscl/CPUTune`](#sysclcputune)
     - [`avibrazil/RDM`](#avibrazilrdm)
     - [`gfxutl`](#gfxutl)
-    - [`Intel FB-Patcher v1.6.8`](#intel-fb-patcher-v168)
+    - [`Hackintool`](#hackintool)
+    - [`ProperTree`](#propertree)
     - [`DarwinDumper`](#darwindumper)
     - [`macserial`](#macserial)
     - [`ACPIDebug.kext`](#acpidebugkext)
@@ -33,6 +35,7 @@ This is how I setup my environment in order to work with hackintoshes.
     - [RehabMan-MaciASL-2018-0507.zip](#rehabman-maciasl-2018-0507zip)
     - [RehabMan-patchmatic-2018-0507.zip](#rehabman-patchmatic-2018-0507zip)
     - [`mount_efi.sh`](#mount_efish)
+    - [`MountEFI`](#mountefi)
     - [`hack_tools`](#hack_tools)
     - [IOJones](#iojones)
     - [IORegistryExplorer.app v2.1](#ioregistryexplorerapp-v21)
@@ -47,6 +50,7 @@ This is how I setup my environment in order to work with hackintoshes.
 - [AppleHDA/AppleALC patching](#applehdaapplealc-patching)
 - [Debugging](#debugging)
 - [references](#references)
+    - [software](#software)
     - [macOS guides on Xiaomi](#macos-guides-on-xiaomi)
     - [macOS guides on other hardware](#macos-guides-on-other-hardware)
     - [Troubleshooting with lid](#troubleshooting-with-lid)
@@ -73,13 +77,26 @@ This is how I setup my environment in order to work with hackintoshes.
 
 define a `HACK` environment variable for all your hackintosh work. Add `$HACK/bin` for all the hack binaries.
 
-binaries 
+binaries
 
 * `$HACK/bin` *compiled versions of tools including MaciASL, IOJones, IORegistryExplorer etc*
 * `$HACK/git` *git repositories used*
 
 ## `iasl`
 [up up up](#)
+
+**October 2020**
+
+follow [this](https://dortania.github.io/Getting-Started-With-ACPI/Manual/compile.html#macos) and get iasl from [acidanthera/MaciASL](https://github.com/acidanthera/MaciASL/releases)
+
+```bash
+cd $HACK/bin
+rm acpi*
+rm iasl
+cp /Bit/macos/bin/MaciASL.app/Contents/MacOS/iasl-stable $HACK/bin/iasl
+```
+
+**legacy**
 
 goto [RehabMan/Intel-iasl](https://github.com/RehabMan/Intel-iasl) and
 
@@ -94,16 +111,27 @@ mkdir bin && cd bin
 cp $HACK/git/Rehabman.git/iasl.git/generate/unix/bin/* $HACK/bin
 ```
 
-## `patchmatic` and `MaciASL`
+## `MaciASL`
 [up up up](#)
+
+**October 2020**
+
+follow [this](https://dortania.github.io/Getting-Started-With-ACPI/Manual/compile.html#macos) and get MaciASL from [acidanthera/MaciASL](https://github.com/acidanthera/MaciASL/releases)
+
+```bash
+mv MaciASL.app $HACK/bin
+```
+
+**legacy**
 
 check [RehabMan/OS-X-MaciASL-patchmatic](https://github.com/RehabMan/OS-X-MaciASL-patchmatic)
 
 and download [RehabMan-MaciASL-2018-0507.zip, RehabMan-patchmatic-2018-0507.zip](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/)
 
+now get it from [acidanthera /MaciASL](https://github.com/acidanthera/MaciASL/releases)
+
 ```bash
-mv MaciASL.app /Applications
-mv /Downloads/patchmatic $HACK/bin
+mv MaciASL.app $HACK/bin
 ```
 
 ## `acidanthera/WhateverGreen`
@@ -123,6 +151,17 @@ check [this](https://medium.com/@gveloper/a-security-privacy-primer-for-macos-8e
 cd $HACK/git
 git clone https://github.com/kristovatlas/osx-config-check osx-config-check.git
 git clone https://github.com/drduh/macOS-Security-and-Privacy-Guide.git macOS-Security-and-Privacy-Guide.git
+```
+
+## ` corpnewt/GenSMBIOS`
+[up up up](#)
+
+```bash
+cd $HACK/git
+git clone https://github.com/corpnewt/GenSMBIOS GenSMBIOS.git
+cd GenSMBIOS.git
+cp GenSMBIOS.command $HACK/bin/GenSMBIOS
+chmod +x $HACK/bin/GenSMBIOS
 ```
 
 ## `andyvand/FixEDID`
@@ -148,7 +187,7 @@ gcc smut.c -o bios -framework IOKit -framework CoreFoundation
 
 ```bash
 cd $HACK/git
-git clone https://github.com/michalmalik/osx-re-101.git osx-re-101.git 
+git clone https://github.com/michalmalik/osx-re-101.git osx-re-101.git
 ```
 
 ## `xzhih/one-key-hidpi`
@@ -158,13 +197,13 @@ This script can simulate macOS HiDPI on a non-retina display, and have a "Native
 
 ```bash
 cd $HACK/git
-git clone https://github.com/xzhih/one-key-hidpi.git one-key-hidpi.git 
+git clone https://github.com/xzhih/one-key-hidpi.git one-key-hidpi.git
 ```
 
 ## `syscl/Enable-HiDPI-OSX`
 [up up up](#)
 
-Hola, this is an ongoing project targets at enable the support of HiDPI for display with a high resolution under macOS. 
+Hola, this is an ongoing project targets at enable the support of HiDPI for display with a high resolution under macOS.
 
 ```bash
 cd $HACK/git
@@ -224,15 +263,34 @@ $HACK/bin/gfxutil -f IGPU
 $HACK/bin/gfxutil -f HDEF
 ```
 
-## `Intel FB-Patcher v1.6.8`
+## `Hackintool`
 [up up up](#)
 
-Download [Intel FB-Patcher v1.6.8](https://www.tonymacx86.com/threads/release-intel-fb-patcher-v1-6-8.254559/)
+check code @ [headkaze/Hackintool](https://github.com/headkaze/Hackintool)
 
 ```bash
-unzip FBPatcher.zip
-mv FBPatcher.app $HACK/bin
-open $HACK/bin/FBPatcher.app
+cp /Downloads
+wget https://github.com/headkaze/Hackintool/releases/download/3.4.7/Hackintool.zip
+unzip Hackintool.zip
+\rm -rf  \$HACK/bin/Hackintool.app/
+mv Hackintool.app $HACK/bin
+open $HACK/bin/Hackintool.app
+```
+
+## `ProperTree`
+[up up up](#)
+
+check code @ [corpnewt/ProperTree](https://github.com/corpnewt/ProperTree)
+
+Download [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)
+
+```bash
+cd $HACK/git
+git clone https://github.com/corpnewt/ProperTree.git ProperTree.git
+function proper()
+{
+  $HACK/git/ProperTree.git/ProperTree.command $1
+}
 ```
 
 ## `DarwinDumper`
@@ -269,7 +327,7 @@ mv /Downloads/RehabMan-Debug-2015-1230.zip $HACK/sources/kexts
 
 ```bash
 cd $HACK/git/Rehabman.git
-git clone https://github.com/RehabMan/OS-X-Clover-Laptop-Config.git OS-X-Clover-Laptop-Config.git 
+git clone https://github.com/RehabMan/OS-X-Clover-Laptop-Config.git OS-X-Clover-Laptop-Config.git
 ```
 
 This project contains config.plist files for common laptops with Intel graphics. (from README.md)
@@ -279,7 +337,7 @@ This project contains config.plist files for common laptops with Intel graphics.
 
 ```bash
 cd $HACK/git/Rehabman.git
-git clone https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch.git HP-ProBook-4x30s-DSDT-Patch.git 
+git clone https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch.git HP-ProBook-4x30s-DSDT-Patch.git
 ```
 
 This set of patches/makefile can be used to patch your HP ProBook/EliteBook/ZBook DSDTs. There are also post install scripts that can be used to create and install the kexts the are required for this laptop series. (from README.md)
@@ -310,7 +368,7 @@ chmod a+x gh-md-toc
 $HACK/bin/gh-md-toc ./README.md
 ```
 
-## RehabMan-MaciASL-2018-0507.zip 
+## RehabMan-MaciASL-2018-0507.zip
 [up up up](#)
 
 from [here](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/)
@@ -342,6 +400,18 @@ cd ~/Downloads
 wget https://raw.githubusercontent.com/RehabMan/hack-tools/master/mount_efi.sh
 # make edits to support a second argument
 mv /Downloads/mount_efi.sh $HACK/bin
+```
+
+## `MountEFI`
+[up up up](#)
+
+```bash
+cd $HACK/git
+git clone https://github.com/corpnewt/MountEFI MountEFI.git
+cd MountEFI.git
+cp MountEFI.command $HACK/bin
+cp -R Scripts $HACK/bin/
+chmod +x $HACK/bin/MountEFI.command
 ```
 
 ## `hack_tools`
@@ -397,7 +467,7 @@ unzip it in `$HACK/bin`
 
 According to the [second post paragraph titled Installing Kexts](https://www.tonymacx86.com/threads/guide-booting-the-os-x-installer-on-laptops-with-clover.148093/#post-917904) and this [sakoula's post](https://www.tonymacx86.com/threads/guide-booting-the-os-x-installer-on-laptops-with-clover.148093/page-400#post-1801414):
 
-The kernelcache is an optimised and pre-linked version of the kernel with its extensions (kexts), which is then stored in /System/Library/PrelinkedKernels/prelinkedkernel, which is pointed to from its more traditional location of /System/Library/Caches/com.apple.kext.caches/Startup/kernelcache (definition from [here](https://eclecticlight.co/2018/08/23/booting-the-mac-the-kernel-and-extensions/)). 
+The kernelcache is an optimised and pre-linked version of the kernel with its extensions (kexts), which is then stored in /System/Library/PrelinkedKernels/prelinkedkernel, which is pointed to from its more traditional location of /System/Library/Caches/com.apple.kext.caches/Startup/kernelcache (definition from [here](https://eclecticlight.co/2018/08/23/booting-the-mac-the-kernel-and-extensions/)).
 
 According to [this article](https://www.tonymacx86.com/threads/guide-lenovo-z50-70-z40-70-g50-70-g40-70-using-clover-uefi.261787/page-4#post-1830517) Rehabman says:
 
@@ -423,7 +493,7 @@ After putting kexts in `/L/E` then run `chown -R root:wheel ACPIBatteryManager.k
 # `LiluFriend`
 [up up up](#)
 
-In order to have all the kexts installed in /L/E like Rehabman is writing you need for Lilu kexts and especially for CPUFriend Data provider LiluFriend: 
+In order to have all the kexts installed in /L/E like Rehabman is writing you need for Lilu kexts and especially for CPUFriend Data provider LiluFriend:
 
 > It's highly recommended to let the bootloader inject CPUFriend, otherwise you'll need LiluFriend to ensure CPUFriend will work properly. Also, theoretically both ACPI_SMC_PlatformPlugin.kext and X86PlatformPlugin.kext should be untouched. You'd better use the original ones. (Well, CPUFriend will hook configResourceCallback(unsigned int, int, void const*, unsigned int, void*) in either ACPI_SMC_PlatformPlugin or X86PlatformPlugin, which parses IOKit personalities from Resources, so no problem to use a modified one if you do not really care for the signature, which will be restored in an upcoming system upgrade anyway) [reference](https://github.com/PMheart/LiluFriend)
 
@@ -536,7 +606,7 @@ I always use ACPI 6.1 (it is referenced in [patchmatic repo](https://github.com/
 ../bin/iasl -p SSDT-XHC -ve SSDT-XHC.dsl
 ```
 
-# string conversion 
+# string conversion
 [up up up](#)
 
 for `config.plist` you always use base64 format. Useful commands:
@@ -627,6 +697,12 @@ log show --predicate 'process == "kernel"' --style syslog --source
 
 # references
 [up up up](#)
+
+## software
+[up up up](#)
+
+* [videoproc](https://www.videoproc.com/)
+* [MacX Video Converter Pro (New Edition: VideoProc)](https://www.macxdvd.com/mac-video-converter-pro/)
 
 ## macOS guides on Xiaomi
 [up up up](#)

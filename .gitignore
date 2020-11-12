@@ -1,4 +1,10 @@
 # this has all the information related to SMBIOS do not commit
 WHAT.md
 .*
+*/.*
+backup/*
+patches.air.*/smbios*
+patches.air.*/*.aml
+not_tracked/*
+release/*
 !.gitignore

@@ -1,11 +1,11 @@
 # Xiaomi Mi Air 13.3 Skylake-U 2016
 
 - 06-01-2019
-    
+
     - Initial Release
 
 - 20-01-2019
-    
+
     - Added Benchmarks @ README.md
     - Removed SSDT-PNP0C14.aml (not sure why I should use it)
     - change EC0 to EC config.plist patch (SSDT-USBX.dsl) and removed SSDT-EC.dsl (check [article](https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/) )
@@ -76,4 +76,24 @@
 
     - new `CPUFriendDataProvider.kext` based on [corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) with min hex freq 800Mhz=08 and EPP Range: (0x80-0xBF:Balance power) = 80
     - updated Benchmarks for `10.15.3`
-    - added `TP-Link_Installer_Mac 10.15_Beta.zip Published Date: 2019-11-22` from [tplink](https://www.tp-link.com/us/support/download/archer-t3u/#Driver) 
+    - added `TP-Link_Installer_Mac 10.15_Beta.zip Published Date: 2019-11-22` from [tplink](https://www.tp-link.com/us/support/download/archer-t3u/#Driver)
+
+- 06-11-2020
+
+    - migrated from `Clover` to `OpenCore 0.6.2`
+    - tested for `10.15.3`
+    - upgraded and tested for `10.15.7`
+    - updated guide
+    - upgrade to `VirtualSMC-1.1.7`
+    - upgrade to `Lilu-1.4.8`
+    - upgrade to `AppleALC-1.5.3`
+    - upgrade to `WhateverGreen-1.4.3`
+    - upgrade to `NVMeFix-1.0.4`
+    - upgrade to `CPUFriend-1.2.2`
+    - upgrade to `VoodooPS2Controller-2.1.8`
+    - usage of `corpnewt/CPUFriendFriend`
+    - usage to `RehabMan/OS-X-Null-Ethernet`
+    - fix headphone port with `hackintosh-stuff/ComboJack`
+    - updated Benchmarks
+    - population DeviceProperties @ config.plist
+    - clean up repository
