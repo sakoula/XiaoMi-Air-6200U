@@ -1,14 +1,12 @@
-# Hackintosh Xiaomi Mi Air 13.3 Skylake-U 2016 for macOS Catalina & Big Sur
+# Hackintosh Xiaomi Mi Air 13.3 Skylake-U 2016 for macOS Big Sur & Catalina
 
 Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a fully functional hackintosh for the Xiaomi Mi Notebook Air 13.3'' i5-6200U (Skylake-U 2016).
-
-> :anchor: **BigSur:** This guide will be updated a couple of weeks after BigSur release afer complete testing to make sure of a stable system :anchor:
 
 ## Important Notes
 [up up up](#)
 
 * This guide is for the **XiaoMi Air 13.3 Skylake-U 2016**. It will probably work on the **XiaoMi Air 13.3 Kaby Lake-R 2018** models with minor modifications.
-* Following this guide you can run **Catalina 10.5.x up to 10.15.7** and **Big Sur**.
+* Following this guide you can run **Big Sur 11.0.1**. and **Catalina 10.5.x up to 10.15.7**
 * I stopped using **Clover**. This guide is for **OpenCore** only. If you need to run Clover for any reason you can check the older [Clover Guide](./README.clover.md)
 * All files used and detailed readmes are located in github [sakoula/XiaoMi-Air-6200U](https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/Changelog.md)
 * The guide will work for either **BIOS A05** or **BIOS A06**. Bios A09 has **NOT** been tested
@@ -28,18 +26,18 @@ Please note that this guide will be not possible without all the excellent resou
 
 * Sleep (sleep works **only** by selecting sleep on the apple menu)
 * Bluetooth
+* Internal WiFi card. *see [Wi-Fi section](./README.md#wi-fi)*
 * Proper CPU PowerManagement
 * Proper USB Support
 * Dual boot (windows and macOS on different disks) through OpenCore
+* Running with SIP enabled
 
 ## What's not working
 [up up up](#)
 
-* Internal WiFi card. *there is initial support of internal wifi see [Wi-Fi section](./README.md#wi-fi)*
 * Discrete GPU (Nvidia GeForce 940MX GPU )
 * No audio output from HDMI port
 * lid sleep does not always work. *A working workaround is to always sleep from the menu and wait for the laptop to go to sleep prior closing the lid. You can wake the laptop by opening the lid*
-* When sleeping by closing the lid on wake loosing USB
 * Shutdown is not working as expected. *The on/off button's led stays up and the keyboard light is on when touching it. In order to switch off you have to hold the shutdown key for 4 seconds.*
 
 If you face another problem please open a issue.
@@ -83,7 +81,7 @@ If you face another problem please open a issue.
 	- [Sleep](#sleep)
 - [Upgrade Guide](#upgrade-guide)
 	- [Upgrade from `Catalina 10.15.3` to `Catalina 10.15.7`](#upgrade-from-catalina-10153-to-catalina-10157)
-	- [Upgrade to `Big Sur`](#upgrade-to-big-sur)
+	- [Upgrade to `Big Sur 11.0.1`](#upgrade-to-big-sur-1101)
 - [Postinstallation Steps](#postinstallation-steps)
 	- [Enable HiDPI resolutions](#enable-hidpi-resolutions)
 	- [Install ALCPlugFix :icecream:](#install-alcplugfix-icecream)
@@ -101,6 +99,7 @@ If you face another problem please open a issue.
 	- [OCB: LoadImage failed - Security Violation](#ocb-loadimage-failed---security-violation)
 	- [MacOS installer thinks I am russian](#macos-installer-thinks-i-am-russian)
 	- [OpenCore Sanity Checker](#opencore-sanity-checker)
+	- [Mount Root as read/write](#mount-root-as-readwrite)
 - [Changelog](#changelog-1)
 - [Buy me a coffee or a beer](#buy-me-a-coffee-or-a-beer)
 - [Credits](#credits)
@@ -282,10 +281,10 @@ sudo pmset lidwake 0
 
 Upgrade from within macOS. No special action is needed
 
-### Upgrade to `Big Sur`
+### Upgrade to `Big Sur 11.0.1`
 [up up up](#)
 
-expecting release of Big Sur in order to test it.
+Use the latest release from here boot in Catalina and upgrade.
 
 ## Postinstallation Steps
 [up up up](#)
@@ -309,9 +308,20 @@ If you still want to use HiDPI get the [avibrazil/RDM](https://github.com/avibra
 
 The card in the laptop is `Intel® Dual Band Wireless-AC 8260`
 
-* Wifi is not working. Get a USB card such as `TP-LINK TL-WN725N v3` and download drivers from the [TP-LINK site](https://www.tp-link.com/us/download/TL-WN725N.html) or [Archer T3U](https://www.tp-link.com/us/home-networking/usb-adapter/archer-t3u/) and download drivers from the [TP-LINK site](https://www.tp-link.com/us/support/download/archer-t3u//archer-t3u/)
+Support to the Wifi card has been condifured using [itlwm](https://github.com/OpenIntelWireless/itlwm) and **not** `AirportItlwm` (does not support hidden networks).
 
-**[OpenIntelWireless/itlwm](https://github.com/OpenIntelWireless/itlwm)**: itlwm looks promising for used with Intel WiFi chipsets.
+You will need to install [OpenIntelWireless/HeliPort](https://github.com/OpenIntelWireless/HeliPort) as well.
+
+You can also use USB dongles but this is not reccomended anymore. `TP-LINK TL-WN725N v3` and `Archer T3U` has been used succesfully in the past. Drivers for those can be downloaded from [TP-LINK site](https://www.tp-link.com/us/support/download/archer-t3u//archer-t3u/) or [chris1111/Wireless-USB-Adapter](https://github.com/chris1111/Wireless-USB-Adapter).
+
+In the case you migrate from a USB dongle with NullEthernet to native wifi support you need to force macOS to rewnumerate the interfaces. Check [Fixing En0](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
+
+In short you need to open terminal write the following and then reboot:
+
+```
+sudo rm /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
+sudo rm /Library/Preferences/SystemConfiguration/preferences.plist
+```
 
 ### Headphone Port
 [up up up](#)
@@ -411,6 +421,65 @@ Users may find upgrading OpenCore on an already installed system can result in e
 [up up up](#)
 
 make sure to check your config.plist against [OpenCore Sanity Checker](https://opencore.slowgeek.com/)
+
+### Mount Root as read/write
+[up up up](#)
+
+Apple has introduce SSV (signed system volumes). SSV features a kernel mechanism that verifies the integrity of the system content at runtime, and rejects any data — code and non-code — that doesn’t have a valid cryptographic signature from Apple. In order to make root volume writable you need to disable, mount it, change it, create a new snapshot and boot from that snapshot. **I am not responsible if you make your machine unbootable. This may break OS updates**. Check how to do it @ [macOS 11 Big Sur](https://egpu.io/forums/postid/82119/) and [Mount root as writable in Big Sur](https://apple.stackexchange.com/questions/395508/mount-root-as-writable-in-big-sur)
+
+Steps:
+
+1. Boot from recovery and disable SSV (this will be permanent)
+
+```bash
+csrutil authenticated-root disable
+```
+
+2. Boot on macos and mount your root volume as writable. Find your root mount's device - run mount and chop off the last s, e.g. if your root is `/dev/disk1s2s3`, you'll mount `/dev/disk1s2`
+
+```bash
+$ mount
+/dev/disk2s5s1 on / (apfs, sealed, local, read-only, journaled)
+$ mkdir /Users/xxx/mount
+sudo mount -o nobrowse -t apfs /dev/disk2s5 /Users/xxx/mount
+```
+
+3. Make any modifications you want in `/Users/xxx/mount`
+
+4. Generate and tag new APFS System Snapshot as follows and make it bootable
+
+```bash
+# Create snapshot.
+sudo /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs_systemsnapshot -s "ChangedRoot" -v /Users/xxx/mount
+
+# Tag snapshot for next boot.
+sudo /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs_systemsnapshot -r "ChangedRoot" -v /Users/xxx/mount
+```
+
+5. reboot and you are done
+
+6. check the snapshots **XXX how do you delete snapshot history?**
+
+```shell
+$ diskutil apfs snapshots disk2s5s1
+Snapshots for disk2s5s1 (3 found)
+|
++-- AFD82B0C-23D3-481B-9401-0A17DC46C1EC
+|   Name:        com.apple.os.update-779BDF1556C6F688504E24FB29C75AFFABFCB91E701806FFFF35235E19914F1E
+|   XID:         489684
+|   Purgeable:   No
+|   NOTE:        This snapshot limits the minimum size of APFS Container disk2
+|
++-- 4A6FACBE-2667-4127-8143-646C38E3C3B4
+|   Name:        ChangedRoot
+|   XID:         490985
+|   Purgeable:   Yes
+|
++-- 3DC0C93D-F858-4420-AC0B-49FDF23D5C3A
+    Name:        NewRoot
+    XID:         9223372036855268389
+    Purgeable:   Yes
+```
 
 ## Changelog
 [up up up](#)

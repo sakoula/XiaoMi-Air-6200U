@@ -97,3 +97,16 @@
     - updated Benchmarks
     - population DeviceProperties @ config.plist
     - clean up repository
+
+- 15-11-2020
+
+    - migrated from `OpenCore 0.6.2` to `OpenCore 0.6.3`
+    - tested for `Catalina 10.15.7`
+    - upgraded and tested for `Big Sur 11.0.1`
+    - remove `RehabMan/OS-X-Null-Ethernet` and use `OpenIntelWireless` for native wifi support
+    - upgrade to `VirtualSMC-1.1.8`
+    - upgrade to `Lilu-1.4.9`
+    - upgrade to `AppleALC-1.5.4`
+    - upgrade to `WhateverGreen-1.4.4`
+    - usage of `itlwm_v1.1.0_Stable`
+    - updated Benchmarks for 11.0.1
