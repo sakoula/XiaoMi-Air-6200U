@@ -110,3 +110,14 @@
     - upgrade to `WhateverGreen-1.4.4`
     - usage of `itlwm_v1.1.0_Stable`
     - updated Benchmarks for 11.0.1
+
+- 16-12-2020
+
+    - migrated from `OpenCore 0.6.3` to `OpenCore 0.6.4`
+    - upgraded from `Big Sur 11.0.1` to `Big Sur 11.1`
+    - upgrade to `Lilu-1.5.0`
+    - upgrade to `AppleALC-1.5.5`
+    - upgrade to `WhateverGreen-1.4.5`
+    - upgrade to `VirtualSMC-1.1.9`
+    - upgrade to `VoodooPS2Controller-2.1.9`
+    - added `SSDT-Swap-LeftControlCapsLock.dsl` but did not used it

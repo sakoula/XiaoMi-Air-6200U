@@ -6,7 +6,7 @@ Hackintosh your XiaoMi Air 13.3 Skylake-U 2016. This is intented to create a ful
 [up up up](#)
 
 * This guide is for the **XiaoMi Air 13.3 Skylake-U 2016**. It will probably work on the **XiaoMi Air 13.3 Kaby Lake-R 2018** models with minor modifications.
-* Following this guide you can run **Big Sur 11.0.1**. and **Catalina 10.5.x up to 10.15.7**
+* Following this guide you can run **Big Sur 11.0.1, 11.1**. and **Catalina 10.5.x up to 10.15.7**
 * I stopped using **Clover**. This guide is for **OpenCore** only. If you need to run Clover for any reason you can check the older [Clover Guide](./README.clover.md)
 * All files used and detailed readmes are located in github [sakoula/XiaoMi-Air-6200U](https://github.com/sakoula/XiaoMi-Air-6200U/blob/master/Changelog.md)
 * The guide will work for either **BIOS A05** or **BIOS A06**. Bios A09 has **NOT** been tested
@@ -20,6 +20,8 @@ Please note that this guide will be not possible without all the excellent resou
 * [[Guide] XiaoMi Mi Notebook Air 13"](https://www.insanelymac.com/forum/topic/319656-guide-xiaomi-mi-notebook-air-13/) by *JahStories*
 * [macOS Catalina & Mojave & High Sierra on XiaoMi NoteBook Pro 2017 & 2018](https://github.com/daliansky/XiaoMi-Pro) by *[daliansky](https://github.com/daliansky)* and *[stevezhengshiqi](https://github.com/stevezhengshiqi)*
 * All the **super amazing guides** from [RehabMan](https://www.tonymacx86.com/members/rehabman.429483/)
+* [Dortania Documentation guides](https://dortania.github.io/)
+
 
 ## What's working
 [up up up](#)
@@ -99,7 +101,8 @@ If you face another problem please open a issue.
 	- [OCB: LoadImage failed - Security Violation](#ocb-loadimage-failed---security-violation)
 	- [MacOS installer thinks I am russian](#macos-installer-thinks-i-am-russian)
 	- [OpenCore Sanity Checker](#opencore-sanity-checker)
-	- [Mount Root as read/write](#mount-root-as-readwrite)
+	- [Make Changes on the root filesystem](#make-changes-on-the-root-filesystem)
+	- [Making Symbolic Links on the root filesystem](#making-symbolic-links-on-the-root-filesystem)
 - [Changelog](#changelog-1)
 - [Buy me a coffee or a beer](#buy-me-a-coffee-or-a-beer)
 - [Credits](#credits)
@@ -422,10 +425,21 @@ Users may find upgrading OpenCore on an already installed system can result in e
 
 make sure to check your config.plist against [OpenCore Sanity Checker](https://opencore.slowgeek.com/)
 
-### Mount Root as read/write
+### Make Changes on the root filesystem
 [up up up](#)
 
 Apple has introduce SSV (signed system volumes). SSV features a kernel mechanism that verifies the integrity of the system content at runtime, and rejects any data — code and non-code — that doesn’t have a valid cryptographic signature from Apple. In order to make root volume writable you need to disable, mount it, change it, create a new snapshot and boot from that snapshot. **I am not responsible if you make your machine unbootable. This may break OS updates**. Check how to do it @ [macOS 11 Big Sur](https://egpu.io/forums/postid/82119/) and [Mount root as writable in Big Sur](https://apple.stackexchange.com/questions/395508/mount-root-as-writable-in-big-sur)
+
+**Note**: For some [reason](https://apple.stackexchange.com/questions/407437/error-while-creating-new-snapshot-on-macos-11-big-sur) bless is not working with errors like:
+
+```console
+sudo bless --folder /Users/xxx/mount/System/Library/CoreServices --bootefi --create-snapshot
+Couldn't copy file "/Users/xxx/mount/System/Library/CoreServices/boot.efi.j137ap.im4m" - Error Domain=NSCocoaErrorDomain Code=513 "“boot.efi.j137ap.im4m” couldn’t be copied because you don’t have permission to access “CoreServices”." UserInfo={NSSourceFilePathErrorKey=/System/Volumes/Preboot/525BE91F-EBD8-3CBD-9774-952E4F6FC515/usr/standalone/i386/boot.efi.j137ap.im4m, NSUserStringVariant=(
+    Copy
+), NSDestinationFilePath=/Users/xxx/mount/System/Library/CoreServices/boot.efi.j137ap.im4m, NSFilePath=/System/Volumes/Preboot/525BE91F-EBD8-3CBD-9774-952E4F6FC515/usr/standalone/i386/boot.efi.j137ap.im4m, NSUnderlyingError=0x7f94b8d13c30 {Error Domain=NSPOSIXErrorDomain Code=1 "Operation not permitted"}}
+```
+
+Instead of bless you can do the following:
 
 Steps:
 
@@ -458,7 +472,7 @@ sudo /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs_systemsnapshot 
 
 5. reboot and you are done
 
-6. check the snapshots **XXX how do you delete snapshot history?**
+6. check the snapshots
 
 ```shell
 $ diskutil apfs snapshots disk2s5s1
@@ -480,6 +494,36 @@ Snapshots for disk2s5s1 (3 found)
     XID:         9223372036855268389
     Purgeable:   Yes
 ```
+
+7. you can always boot to another snapshot by doing
+
+```shell
+$ diskutil apfs snapshots disk2s5s1
+$ mount
+/dev/disk2s5s1 on / (apfs, sealed, local, read-only, journaled)
+$ mkdir /Users/xxx/mount
+$ sudo mount -o nobrowse -t apfs /dev/disk2s5 /Users/xxx/mount
+$ sudo /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs_systemsnapshot -r "com.apple.os.update-779BDF1556C6F688504E24FB29C75AFFABFCB91E701806FFFF35235E19914F1E" -v /Users/xxx/mount
+
+reboot
+```
+
+8. to delete a snapshot you need to boot into recovery
+
+```shell
+$ diskutil list
+$ diskutil apfs snapshots disk2s5
+$ diskutil apfs deleteSnapshot disk2s5 -name ChangedRoot
+```
+
+*you cannot delete the bootable snapshot*
+
+9. when upgrading it do idea whats will happen **XXX**
+
+### Making Symbolic Links on the root filesystem
+[up up up](#)
+
+Try [Making Symbolic Links on the root filesystem](https://apple.stackexchange.com/questions/395508/mount-root-as-writable-in-big-sur/406706#406706)
 
 ## Changelog
 [up up up](#)

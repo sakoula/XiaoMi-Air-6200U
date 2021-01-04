@@ -25,6 +25,8 @@
 
 ../../bin/iasl -p FixShutdown-USB-SSDT FixShutdown-USB-SSDT.dsl
 
+# did not use that it is an external module for VoodooPS2
+# ../../bin/iasl -p SSDT-Swap-CommandOption SSDT-Swap-CommandOption.dsl
 
 
 
