@@ -120,7 +120,7 @@ If you face another problem please open a issue.
 ## Installation Guide
 [up up up](#)
 
-These are the steps in order to install or upgrade your Mi. There is a very detailed document on the steps followed and the customizations which can be found in [DETAILS.opencore.md](DETAILS.opencore.md).
+These are the steps in order to install or upgrade your Mi. There is a very detailed document on the steps followed and the customizations which can be found in [DETAILS.md](DETAILS.md).
 
 There is a another document on how I setup my environment including all the tools and utilities I have used [ENVIRONMENT.air.md](ENVIRONMENT.air.md).
 
