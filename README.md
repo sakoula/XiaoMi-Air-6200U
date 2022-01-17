@@ -198,7 +198,7 @@ This procedure is verified for `BIOS A06`. **It has not been tested in any other
 
 Follow [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#turning-off-cfg-lock-manually). The right offset is `0x84A`. The steps are:
 
-> If your BIOS version is A05, you can upgrade to [A06](https://techtablets.com/wpfb-file/mi-notebook-air-13-2016-a06-bios-update-i5-6200u-august-27th-2017-rar/?__cf_chl_captcha_tk__=984333b1762de58ab83edbafef200f37bb1e5348-1611329012-0-AUBuNtVJ-hpyyfktHcahe4O1zU2oTfgN3yi8Ohcn4fI3pBo-7AUEKPz7iBiJnbw5wjuDPZ25783-NMkp7ASypLnoMz87Fsi5inpMlwkuJ8-rmc8qy1MUcsb-rtxYvnbCPaUT5-ccRHBJ6Mv7IJALsrySXiMSUg-eDPH1THgJB8dge64aik5H5OhNMrFYCbZN-221jR7Tu0N5ivwPOscLoitvLmZ7mPgJu9muMm3lvSOIZ7wy1tClWi4wvhqety7CZGHNBdcKchF7Lxx6lKQXRVAZuB2H8XTA1OkhtS2SBXr3yy_X20AIRB81o-fhmgwzO206ZbaasMSkyY7vqcLmBiluImRE4ZeRgrDPDqj9xaUVqBUtsxpduH22GaIIEB98NihykXxLjYzWXnBIcJdI-CnybkfssQ8-R1mDdnSQQKLqJ-WHxQHWL5zlPBLWT4ZENubesHjwC6FbN7xwB7r3zq5PQWHuRVTdP8zJFBdgt6LS0vGnypGLW6NfQZQuqmWKbBfOK_4hKmdsd2Tj_rHk_kjeI8fxOpKUY4ioauHF0xq7XZUhP4U6EMdX2K2bBq4btam5ogWQ0nVRM7geIyzFXHxStQ-mQQ_wstvNxwrsI-NgYiiqrxzsJMEXytNdBaiEwA) and direct use above value(`0x84A`).
+> If your BIOS version is A05, you can upgrade to [A06](https://github.com/sakoula/XiaoMi-Air-6200U/files/7879807/VFBI0A06.zip) and direct use above value(`0x84A`).
 
 
 1. boot from the USB drive
